@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c34aa5d597684c8e91481b7bc7f5800a" Name="Diagram1">
+        <EntityTypeShape EntityType="InTurnModel.C__MigrationHistory" Width="1.5" PointX="10.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Application" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.AspNetRole" Width="1.5" PointX="10.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.AspNetUserClaim" Width="1.5" PointX="15.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.AspNetUserLogin" Width="1.5" PointX="15.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.AspNetUser" Width="1.5" PointX="13" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Contact" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Course" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Degree" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Education" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Employee" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Employer" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Faculty" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.FacultyCourse" Width="1.5" PointX="11.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Job" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.JobPosting" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Major" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.MajorRequirement" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Student" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.sysdiagram" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="InTurnModel.FK_100" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_142" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_129" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_78" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_112" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_82" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_108" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_173" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_223" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_231" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_248" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_245" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_58" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_125" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_199" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_191" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
