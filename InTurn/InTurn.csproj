@@ -221,6 +221,7 @@
     <Content Include="Areas\Employers\Views\EmployerHome\Index.cshtml" />
     <Content Include="Areas\Students\Views\StudentHome\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\TeacherHome\Index.cshtml" />
+    <Content Include="Areas\Teachers\Views\_Results.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

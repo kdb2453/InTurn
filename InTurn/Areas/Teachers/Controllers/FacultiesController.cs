@@ -12,22 +12,36 @@ namespace InTurn.Areas.Teachers.Controllers
 {
     public class FacultiesController : Controller
     {
+        //private ApplicationDbContext db = new ApplicationDbContext(); -- UNSURE IF THIS SHOULD BE USED INSTEAD OF InTurnEntities db IN THE LINE BELOW; CHOSE THIS AS THE Data Context Class SINCE THE OTHER OPTION WAS RETURNING AN ERROR/WOULDN'T BUILD
         private InTurnEntities db = new InTurnEntities();
 
-        // GET: Teachers/Faculties
+        // GET: Faculty/Faculties
         public ActionResult Index()
         {
-            return View(db.Faculties.ToList());
+            ViewBag.EmployeeID = new SelectList(db.Employees.OrderBy(e => e.EmployeeID), "EmployeeID", "Employee Name");
+            return View(db.Employees.ToList());
+            //return View(db.Faculties.ToList());
         }
 
-        // GET: Teachers/Faculties/Details/5
+        //_IndexByTag ACTION RESULT
+        public ActionResult _IndexByTag(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var results = db.Employees
+                .Include(r => r.Student)
+                .Where(r => r.Student.StudentID.Equals(id))
+                .ToArray();
+            return PartialView("_Results", results);
+        }
+
+        // GET: Faculty/Faculties/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Faculty faculty = db.Faculties.Find(id);
+            InTurn_Model.Faculty faculty = db.Faculties.Find(id);
             if (faculty == null)
             {
                 return HttpNotFound();
@@ -35,18 +49,18 @@ namespace InTurn.Areas.Teachers.Controllers
             return View(faculty);
         }
 
-        // GET: Teachers/Faculties/Create
+        // GET: Faculty/Faculties/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Teachers/Faculties/Create
+        // POST: Faculty/Faculties/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FacultyID,FirstName,LastName,Email,Location,PhoneNum")] Faculty faculty)
+        public ActionResult Create([Bind(Include = "FacultyID,FirstName,LastName,Email,Location,PhoneNum")] InTurn_Model.Faculty faculty)
         {
             if (ModelState.IsValid)
             {
@@ -58,14 +72,14 @@ namespace InTurn.Areas.Teachers.Controllers
             return View(faculty);
         }
 
-        // GET: Teachers/Faculties/Edit/5
+        // GET: Faculty/Faculties/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Faculty faculty = db.Faculties.Find(id);
+            InTurn_Model.Faculty faculty = db.Faculties.Find(id);
             if (faculty == null)
             {
                 return HttpNotFound();
@@ -73,12 +87,12 @@ namespace InTurn.Areas.Teachers.Controllers
             return View(faculty);
         }
 
-        // POST: Teachers/Faculties/Edit/5
+        // POST: Faculty/Faculties/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FacultyID,FirstName,LastName,Email,Location,PhoneNum")] Faculty faculty)
+        public ActionResult Edit([Bind(Include = "FacultyID,FirstName,LastName,Email,Location,PhoneNum")] InTurn_Model.Faculty faculty)
         {
             if (ModelState.IsValid)
             {
@@ -89,14 +103,14 @@ namespace InTurn.Areas.Teachers.Controllers
             return View(faculty);
         }
 
-        // GET: Teachers/Faculties/Delete/5
+        // GET: Faculty/Faculties/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Faculty faculty = db.Faculties.Find(id);
+            InTurn_Model.Faculty faculty = db.Faculties.Find(id);
             if (faculty == null)
             {
                 return HttpNotFound();
@@ -104,12 +118,12 @@ namespace InTurn.Areas.Teachers.Controllers
             return View(faculty);
         }
 
-        // POST: Teachers/Faculties/Delete/5
+        // POST: Faculty/Faculties/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Faculty faculty = db.Faculties.Find(id);
+            InTurn_Model.Faculty faculty = db.Faculties.Find(id);
             db.Faculties.Remove(faculty);
             db.SaveChanges();
             return RedirectToAction("Index");
