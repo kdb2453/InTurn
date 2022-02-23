@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Employers\Controllers\EmployerHomeController.cs" />
     <Compile Include="Areas\Employers\Controllers\EmployersController.cs" />
+    <Compile Include="Areas\Employers\Controllers\JobPostingsController.cs" />
     <Compile Include="Areas\Employers\EmployersAreaRegistration.cs" />
     <Compile Include="Areas\Students\Controllers\StudentHomeController.cs" />
     <Compile Include="Areas\Students\Controllers\StudentsController.cs" />
@@ -222,6 +223,12 @@
     <Content Include="Areas\Students\Views\StudentHome\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\TeacherHome\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\_Results.cshtml" />
+    <Content Include="Areas\Employers\Views\Shared\_Employers.cshtml" />
+    <Content Include="Areas\Employers\Views\JobPostings\Create.cshtml" />
+    <Content Include="Areas\Employers\Views\JobPostings\Delete.cshtml" />
+    <Content Include="Areas\Employers\Views\JobPostings\Details.cshtml" />
+    <Content Include="Areas\Employers\Views\JobPostings\Edit.cshtml" />
+    <Content Include="Areas\Employers\Views\JobPostings\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -271,7 +278,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
-    <Folder Include="Areas\Employers\Views\Shared\" />
     <Folder Include="Areas\Students\Data\" />
     <Folder Include="Areas\Students\Views\Shared\" />
     <Folder Include="Areas\Teachers\Data\" />

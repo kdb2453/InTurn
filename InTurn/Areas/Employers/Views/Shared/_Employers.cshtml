@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Employers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="heading">@ViewBag.Title</h3>
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+           
+            <ul class="nav navbar-nav nav-link navbar-static-top">
+                <li class="nav-item">@Html.ActionLink("Home", "Index", "EmployerHome", new { area = "Employers" }, new { @class = "nav-link" })</li>
+                <li class="nav-item">@Html.ActionLink("Job Postings", "Index", "JobPostings", new { area = "Employers" }, new { @class = "nav-link" })</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)

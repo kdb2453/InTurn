@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="InTurnModel.AspNetUserClaim" Width="1.5" PointX="15.25" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="InTurnModel.AspNetUserLogin" Width="1.5" PointX="15.25" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InTurnModel.AspNetUser" Width="1.5" PointX="13" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="InTurnModel.Contact" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InTurnModel.Contact" Width="1.5" PointX="14.25" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="InTurnModel.Course" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
         <EntityTypeShape EntityType="InTurnModel.Degree" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="InTurnModel.Education" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
