@@ -1,30 +1,31 @@
 ﻿@model IEnumerable<InTurn_Model.Faculty>
 @{
     ViewBag.Title = "Faculty Homepage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h3>@ViewBag.Title</h3>
 
-<p>
-    @*FILTER DROP DOWN LIST*@
+
+@*  FILTER DROP DOWN LIST
     <label class="filter">Search By Course ID</label>
-    @Html.DropDownList("CourseID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByTag()" })
-</p>
+           @Html.DropDownList("CourseID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByTag()" })
+       </p>
 
-<div id="resultsContainer">
-    @Html.Partial("_Results", Model)
-</div>
+       <div id="resultsContainer">
+           @Html.Partial("_Results", Model)
+       </div>
 
-@section Scripts
-{
-    <script type="text/javascript">
+       @section Scripts
+       {
+           <script type="text/javascript">
 
-        //FILLBYTAG, FILTER DROP DOWN LIST FUNCTION
-        function FillByTag()
-        {
-            var course = $('#CourseID').val();
-            var container = $('#resultsContainer');
-            container.load('@Url.Action("_IndexByTag")?id=' + course);
-        }
-    </script>
-}
+               //FILLBYTAG, FILTER DROP DOWN LIST FUNCTION
+               function FillByTag()
+               {
+                   var course = $('#CourseID').val();
+                   var container = $('#resultsContainer');
+                   container.load('@Url.Action("_IndexByTag")?id=' + course);
+               }
+           </script>
+       }*@

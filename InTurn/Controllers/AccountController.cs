@@ -81,10 +81,27 @@ namespace InTurn.Controllers
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+           
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    var user = await UserManager.FindAsync(model.UserName, model.Password);
+                    var roles = await UserManager.GetRolesAsync(user.Id);
+                    if (roles.Contains("Student"))
+                    {
+                        return RedirectToAction("Index", "StudentHome", new { area = "Students" });
+                    }
+
+                    else if (roles.Contains("Employer"))
+                    {
+                        return RedirectToAction("Index", "EmployerHome", new { area = "Employers" });
+                    }
+                    else if (roles.Contains("Faculty"))
+                    {
+                        return RedirectToAction("Index", "TeacherHome", new { area = "Teachers" });
+                    }
+                    else
+                    { return RedirectToLocal(returnUrl); }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
