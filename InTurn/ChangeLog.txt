@@ -1,0 +1,13 @@
+﻿InTurn Change Log
+
+--Changes made since 2/23/2022--
+
+[2/23/2022]
+
+<Ty Simpson>
+-Created new change log
+-Pushed project with change log
+
+<Kaila Brown>
+
+<Lianne Copertino>
