@@ -11,4 +11,8 @@
 <Kaila Brown>
 
 <Lianne Copertino>
-[2/27/2022] - testing push/pull
+[2/27/2022]
+	- testing push/pull
+	- added StudentHome Index
+	- added Profile View and Controller
+	- added Jobs View and Controller
