@@ -251,8 +251,9 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Students\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Students\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Students\Views\Students\Jobs.cshtml" />
-    <Content Include="Areas\Students\Views\Students\Profile.cshtml" />
+    <Content Include="Areas\Students\Views\Jobs\Jobs.cshtml" />
+    <Content Include="Areas\Students\Views\Profile\Profile.cshtml" />
+    <Content Include="Areas\Students\Views\Jobs\Details.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -327,8 +328,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
     <Folder Include="Areas\Students\Data\" />
-    <Folder Include="Areas\Students\Views\Jobs\" />
-    <Folder Include="Areas\Students\Views\Profile\" />
     <Folder Include="Areas\Teachers\Data\" />
     <Folder Include="Areas\Teachers\Views\Shared\" />
   </ItemGroup>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<InTurn_Model.JobPosting>
+@{
+    ViewBag.Title = "Job Postings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Job Postings (student)</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employer.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employer.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.JobPostingID })
+            </td>
+        </tr>
+    }
+
+</table>
