@@ -8,6 +8,16 @@
 -Created new change log
 -Pushed project with change log
 
-<Kaila Brown>
 
+[2/27/2022]
 <Lianne Copertino>
+	- testing push/pull
+	- added StudentHome Index
+	- added Profile View and Controller
+	- added Jobs View and Controller
+
+[3/2/2022]
+<Ty Simpson>
+-Fixed bug NullReferenceException: Object reference not set to an instance of an object.
+   -Issue caused by our project not being able to recognize neweset versions of Bootstrap and jQuery
+   -The issue was fixed by downgrading to the default versions that come packaged with the ASP.NET Web App (.net Framework) template
