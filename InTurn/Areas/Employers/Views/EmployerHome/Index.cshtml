@@ -1,8 +1,29 @@
 ﻿
 @{
     ViewBag.Title = "Employer Home";
-    Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
 
+<div class="row">
+    <div class="col-md-4">
+        <h2>Job Postings</h2>
+        <p>
+            Create, View and Edit Your Job Postings
+
+        </p>
+        <br />
+        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Applications</h2>
+        <p>View applications received for your job postings.</p>
+        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Applications", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Employees</h2>
+        <p>View and manage who you've hired'</p>
+        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Employees", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
+    </div>
+</div>
