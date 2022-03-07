@@ -21,3 +21,9 @@
 -Fixed bug NullReferenceException: Object reference not set to an instance of an object.
    -Issue caused by our project not being able to recognize neweset versions of Bootstrap and jQuery
    -The issue was fixed by downgrading to the default versions that come packaged with the ASP.NET Web App (.net Framework) template
+
+[3/6/2022]
+
+<Lianne Copertino>
+	- Updated StudentHome Index to match Homeand EmploerHome navigaiton
+	- Added JobsApplied View - need to somehow pull from a list of jobs each user has applied to

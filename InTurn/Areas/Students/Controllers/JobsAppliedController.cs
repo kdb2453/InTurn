@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace InTurn.Areas.Students.Controllers
 {
-    public class JobsController : Controller
+    public class JobsAppliedController : Controller
     {
-        // GET: Students/Jobs
+        // GET: Students/JobsApplied
         public ActionResult Index()
         {
             return View();
