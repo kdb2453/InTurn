@@ -18,21 +18,31 @@ namespace InTurn.Areas.Teachers.Controllers
         // GET: Faculty/Faculties
         public ActionResult Index()
         {
-            ViewBag.EmployeeID = new SelectList(db.Employees.OrderBy(e => e.EmployeeID), "EmployeeID", "Employee Name");
-            return View(db.Employees.ToList());
-            //return View(db.Faculties.ToList());
+            ViewBag.FacultyID = new SelectList(db.Faculties.OrderBy(fc => fc.FacultyID), "FacultyID", "Faculty/Instructor Name");
+            return View(db.Faculties.ToList());
         }
 
-        //_IndexByTag ACTION RESULT
-        public ActionResult _IndexByTag(int id)
+        //_IndexByTag ACTION RESULT -- .Where NEEDS WORK
+        /*public ActionResult _IndexByTag(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var results = db.Employees
-                .Include(r => r.Student)
-                .Where(r => r.Student.StudentID.Equals(id))
+            var results = db.Faculties
+                .Include(r => r.FacultyCourses)
+                .Where(r => r.FacultyCourses.Course.CourseID.Equals(id)) //NEED TO FIGURE OUT WHY THIS VARIABLE CAN'T BE PULLED)
                 .ToArray();
             return PartialView("_Results", results);
-        }
+        }*/
+
+        //_IndexByCourseName ACTION RESULT -- .Where NEEDS WORK
+        /*public ActionResult _IndexByCourseName(string search)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var courses = db.Faculties
+                .Include(c => c.FacultyCourses) //.Course??
+                .Where(c => c.FacultyCourses.Course.Name.Contains(search))
+                .ToArray();
+            return PartialView("_Results", courses);
+        }*/
 
         // GET: Faculty/Faculties/Details/5
         public ActionResult Details(int? id)
