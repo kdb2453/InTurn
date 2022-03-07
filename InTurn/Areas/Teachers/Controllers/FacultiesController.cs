@@ -26,10 +26,9 @@ namespace InTurn.Areas.Teachers.Controllers
         /*public ActionResult _IndexByTag(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            var results = db.FacultyCourses
-                .Include(r => r.Faculty.Employees)
-                .Where(r => r.Faculty.Employees.StudentID.Equals(id)) //NEED TO FIGURE OUT WHY THIS VARIABLE CAN'T BE PULLED
-                //Student.StudentID.Equals(id))
+            var results = db.Faculties
+                .Include(r => r.FacultyCourses)
+                .Where(r => r.FacultyCourses.Course.CourseID.Equals(id)) //NEED TO FIGURE OUT WHY THIS VARIABLE CAN'T BE PULLED)
                 .ToArray();
             return PartialView("_Results", results);
         }*/
