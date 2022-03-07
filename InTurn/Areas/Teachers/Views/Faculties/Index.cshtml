@@ -8,24 +8,37 @@
 
 
 @*  FILTER DROP DOWN LIST
-    <label class="filter">Search By Course ID</label>
-           @Html.DropDownList("CourseID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByTag()" })
-       </p>
+        <label class="filter">Search By Course ID</label>
+               @Html.DropDownList("CourseID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByTag()" })
+           </p>
 
-       <div id="resultsContainer">
-           @Html.Partial("_Results", Model)
-       </div>
+           <div id="resultsContainer">
+               @Html.Partial("_Results", Model)
+           </div>*@
 
-       @section Scripts
-       {
-           <script type="text/javascript">
+    @*FILTER SEARCH BOX BY COURSE NAME*@
+<label class="filter">Search by Course Name</label>
+@Html.TextArea("Search", null, htmlAttributes: new { @class = "filter", @onchange = "FilterByCourseName()", @rows = "1" })
 
-               //FILLBYTAG, FILTER DROP DOWN LIST FUNCTION
-               function FillByTag()
+@section Scripts
+{
+    <script type="text/javascript">
+
+         //FILLBYTAG, FILTER DROP DOWN LIST FUNCTION
+               @*function FillByTag()
                {
                    var course = $('#CourseID').val();
                    var container = $('#resultsContainer');
                    container.load('@Url.Action("_IndexByTag")?id=' + course);
-               }
-           </script>
-       }*@
+               }*@
+
+        //FILTERBYCOURSENAME, SEARCH BOX FUNCTION
+            function FilterByCourseName()
+            {
+                var search = $('#Search').val();
+                var container = $('#coursesContainer');
+                container.load('@Url.Action("_IndexByCourseName")?search=' + search);
+            }
+
+    </script>
+} @*END SCRIPTS*@
