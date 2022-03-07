@@ -1,0 +1,58 @@
+﻿@model IEnumerable<InTurn_Model.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MidtermExam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinalExam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobPosting.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Faculty.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MidtermExam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalExam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobPosting.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Faculty.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
+        </td>
+    </tr>
+}
+
+</table>
