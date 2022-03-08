@@ -23,8 +23,11 @@
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+
                     <div class="col-md-10">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        <br/>
+                        <input type="button" id="showHidePassword" value="Show" />
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -60,7 +63,7 @@
 
 <div>
     Credentials: <br />
-    
+
     Username: TestAdmin<br />
     Password: Admin2022!<br />
 
@@ -78,4 +81,13 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+  <script>$("#showHidePassword").click(function () {
+          if ($(this).val() == "Show") {
+              $(this).val("Hide");
+              $("#Password").attr("type", "text");
+          } else {
+              $(this).val("Show");
+              $("#Password").attr("type", "password");
+          }
+      });</script>
 }
