@@ -8,10 +8,17 @@
 
 <div class="row">
     <div class="col-md-4">
+        <h2>Profile</h2>
+        <p>
+            Create, View and Edit Your Profile
+        </p>
+        <br />
+        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Employers", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-4">
         <h2>Job Postings</h2>
         <p>
             Create, View and Edit Your Job Postings
-
         </p>
         <br />
         <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
@@ -21,6 +28,8 @@
         <p>View applications received for your job postings.</p>
         <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Applications", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
     </div>
+</div>
+<div class="row">
     <div class="col-md-4">
         <h2>Employees</h2>
         <p>View and manage who you've hired'</p>
