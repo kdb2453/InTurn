@@ -171,11 +171,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Employers\ApplicationsController.cs" />
+    <Compile Include="Areas\Employers\Controllers\ApplicationsController.cs" />
     <Compile Include="Areas\Employers\Controllers\EmployerHomeController.cs" />
     <Compile Include="Areas\Employers\Controllers\EmployersController.cs" />
     <Compile Include="Areas\Employers\Controllers\JobPostingsController.cs" />
-    <Compile Include="Areas\Employers\EmployeesController.cs" />
+    <Compile Include="Areas\Employers\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Employers\EmployersAreaRegistration.cs" />
     <Compile Include="Areas\Students\Controllers\JobPostingsController.cs" />
     <Compile Include="Areas\Students\Controllers\JobsAppliedController.cs" />
