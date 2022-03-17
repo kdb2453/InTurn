@@ -13,8 +13,6 @@ namespace InTurn.Areas.Students.Controllers
 {
     public class JobPostingsController : Controller
     {
-        //private InTurnContext db = new InTurnContext();
-
         private InTurnEntities db = new InTurnEntities();
 
         // GET: Students/JobPostings

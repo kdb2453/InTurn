@@ -10,11 +10,13 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Employers.Controllers
 {
+    
     public class EmployersController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
 
         // GET: Employers/Employers
+       
         public ActionResult Index()
         {
             return View(db.Employers.ToList());
