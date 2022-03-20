@@ -7,8 +7,40 @@
 
 <h2>@ViewBag.Title</h2>
 
-<table class="table">
+<div class="row">
+    <div class="col">
+        <center>
+            @*<img width="100px" src=""*@
+        </center>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-mid-4"">
+        <center>
+            <h4>Your Profile</h4>
+        </center>
+    </div>
+</div>
 
-</table>
+<div class="row">
+    <div class="col-mid-4">
+        <center>
+            <h4>Full Name</h4>
+            <h5>
+                @Html.DisplayNameFor(model => model.FirstName) @Html.DisplayNameFor(model => model.LastName)
+            </h5>
+        </center>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-mid-4">
+        <center>
+            <h4>Major</h4>
+            <h5>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </h5>
+        </center>
+    </div>
+</div>
