@@ -28,8 +28,8 @@ namespace InTurn_Model
         public string Desc { get; set; }
         public Nullable<decimal> Wage { get; set; }
         public string Location { get; set; }
-        public short JobType { get; set; }
-        public short TimeType { get; set; }
+        public JobType JobType { get; set; }
+        public TimeType TimeType { get; set; }
         public string Days { get; set; }
         public Nullable<int> Hours { get; set; }
     
