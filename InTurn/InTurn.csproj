@@ -258,11 +258,10 @@
     <Content Include="Areas\Employers\Views\Employees\Edit.cshtml" />
     <Content Include="Areas\Employers\Views\Employees\Index.cshtml" />
     <Content Include="Areas\Students\Views\JobsApplied\JobsApplied.cshtml" />
-    <Content Include="Areas\Students\Views\JobPostings\Create.cshtml" />
-    <Content Include="Areas\Students\Views\JobPostings\Delete.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Details.cshtml" />
-    <Content Include="Areas\Students\Views\JobPostings\Edit.cshtml" />
+    <Content Include="Areas\Students\Views\JobPostings\Apply.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Index.cshtml" />
+    <Content Include="Areas\Students\Views\Students\Profile.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
