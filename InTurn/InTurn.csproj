@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,10 +47,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -171,11 +172,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Employers\ApplicationsController.cs" />
+    <Compile Include="Areas\Employers\Controllers\ApplicationsController.cs" />
     <Compile Include="Areas\Employers\Controllers\EmployerHomeController.cs" />
     <Compile Include="Areas\Employers\Controllers\EmployersController.cs" />
     <Compile Include="Areas\Employers\Controllers\JobPostingsController.cs" />
-    <Compile Include="Areas\Employers\EmployeesController.cs" />
+    <Compile Include="Areas\Employers\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Employers\EmployersAreaRegistration.cs" />
     <Compile Include="Areas\Students\Controllers\JobPostingsController.cs" />
     <Compile Include="Areas\Students\Controllers\JobsAppliedController.cs" />
@@ -183,13 +184,11 @@
     <Compile Include="Areas\Students\Controllers\StudentHomeController.cs" />
     <Compile Include="Areas\Students\Controllers\StudentsController.cs" />
     <Compile Include="Areas\Students\StudentsAreaRegistration.cs" />
-    <Compile Include="Areas\Teachers\Controllers\FacultiesController.cs" />
     <Compile Include="Areas\Teachers\Controllers\TeacherHomeController.cs" />
     <Compile Include="Areas\Teachers\TeachersAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Data\InTurnContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -222,11 +221,6 @@
     <Content Include="Areas\Students\Views\Students\Details.cshtml" />
     <Content Include="Areas\Students\Views\Students\Edit.cshtml" />
     <Content Include="Areas\Students\Views\Students\Index.cshtml" />
-    <Content Include="Areas\Teachers\Views\Faculties\Create.cshtml" />
-    <Content Include="Areas\Teachers\Views\Faculties\Delete.cshtml" />
-    <Content Include="Areas\Teachers\Views\Faculties\Details.cshtml" />
-    <Content Include="Areas\Teachers\Views\Faculties\Edit.cshtml" />
-    <Content Include="Areas\Teachers\Views\Faculties\Index.cshtml" />
     <Content Include="Areas\Employers\Views\EmployerHome\Index.cshtml" />
     <Content Include="Areas\Students\Views\StudentHome\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\TeacherHome\Index.cshtml" />
@@ -261,8 +255,10 @@
     <Content Include="Areas\Students\Views\JobPostings\Details.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Apply.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Index.cshtml" />
-    <Content Include="Areas\Students\Views\Students\Profile.cshtml" />
+    <Content Include="Areas\Teachers\Views\TeacherHome\_Results.cshtml" />
+    <Content Include="Areas\Employers\Views\JobPostings\_Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\LOGO EX 7.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -315,7 +311,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
-    <Folder Include="Areas\Students\Data\" />
     <Folder Include="Areas\Teachers\Data\" />
     <Folder Include="Areas\Teachers\Views\Shared\" />
   </ItemGroup>
@@ -356,13 +351,16 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
