@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="InTurnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="InTurnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -139,7 +139,7 @@
           <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ZipCode" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -178,8 +178,8 @@
           <Property Name="Desc" Type="varchar(max)" Nullable="false" />
           <Property Name="Wage" Type="money" />
           <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="JobType" Type="smallint" Nullable="false" />
-          <Property Name="TimeType" Type="smallint" Nullable="false" />
+          <Property Name="JobType" Type="int" Nullable="false" />
+          <Property Name="TimeType" Type="int" Nullable="false" />
           <Property Name="Days" Type="varchar" MaxLength="50" />
           <Property Name="Hours" Type="int" />
         </EntityType>
@@ -211,7 +211,7 @@
           <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ZipCode" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Current" Type="bit" Nullable="false" />
           <Property Name="Graduate" Type="bit" Nullable="false" />
         </EntityType>
@@ -576,8 +576,7 @@
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InTurnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -726,7 +725,7 @@
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Jobs" Relationship="Self.FK_245" FromRole="Employer" ToRole="Job" />
           <NavigationProperty Name="JobPostings" Relationship="Self.FK_58" FromRole="Employer" ToRole="JobPosting" />
         </EntityType>
@@ -773,8 +772,8 @@
           <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Wage" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="JobType" Type="Int16" Nullable="false" />
-          <Property Name="TimeType" Type="Int16" Nullable="false" />
+          <Property Name="JobType" Type="InTurnModel.JobType" Nullable="false" />
+          <Property Name="TimeType" Type="InTurnModel.TimeType" Nullable="false" />
           <Property Name="Days" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Hours" Type="Int32" />
           <NavigationProperty Name="Applications" Relationship="Self.FK_142" FromRole="JobPosting" ToRole="Application" />
@@ -814,7 +813,7 @@
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Current" Type="Boolean" Nullable="false" />
           <Property Name="Graduate" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Applications" Relationship="Self.FK_100" FromRole="Student" ToRole="Application" />
@@ -1153,6 +1152,14 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
         </EntityContainer>
+        <EnumType Name="JobType">
+          <Member Name="Internship" Value="1" />
+          <Member Name="Permanent" Value="2" />
+        </EnumType>
+        <EnumType Name="TimeType">
+          <Member Name="Full" Value="1" />
+          <Member Name="Part" Value="2" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

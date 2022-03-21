@@ -38,28 +38,30 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/JobPostings/Create
-        public ActionResult Create()
+        public ActionResult Apply()
         {
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
+            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
             return View();
         }
 
-        // POST: Students/JobPostings/Create
+        // POST: Employers/Applications/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "JobPostingID,EmployerID,Position,Desc,Wage,Location,JobType,TimeType,Days,Hours")] JobPosting jobPosting)
+        public ActionResult Create([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript")] Application application)
         {
             if (ModelState.IsValid)
             {
-                db.JobPostings.Add(jobPosting);
+                db.Applications.Add(application);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name", jobPosting.EmployerID);
-            return View(jobPosting);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
+            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
+            return View(application);
         }
 
         // GET: Students/JobPostings/Edit/5
