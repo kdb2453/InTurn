@@ -49,9 +49,10 @@ namespace InTurn.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User Name")]
+        [Display(Name = "Username")]
         
         public string UserName { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

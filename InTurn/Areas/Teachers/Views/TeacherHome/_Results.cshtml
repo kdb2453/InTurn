@@ -1,0 +1,62 @@
+﻿@model IEnumerable<InTurn_Model.Employee>
+
+<table class="table" id="studentTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th>
+            Course Name
+            @*@Html.DisplayNameFor(model=>model.Course.Name) NEEDS TO LINK TO COURSE*@
+        </th>
+        <th onclick="sortTable(0)">
+            @Html.DisplayNameFor(model => model.MidtermExam)
+        </th>
+        <th onclick="sortTable(1)">
+            @Html.DisplayNameFor(model => model.FinalExam)
+        </th>
+        <th>
+            Details
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem = item.Course.Name) NEEDS TO LINK TO COURSE*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MidtermExam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalExam)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new {})
+        </td>
+        </tr>
+    }
+
+</table>
