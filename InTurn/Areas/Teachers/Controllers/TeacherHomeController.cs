@@ -10,7 +10,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Teachers.Controllers
 {
-    [Authorize(Roles = "Admin,Employer")]
+    [Authorize(Roles = "Admin,Faculty")]
     public class TeacherHomeController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
