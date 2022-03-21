@@ -11,6 +11,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Students.Controllers
 {
+    [Authorize(Roles = "Admin,Student")]
     public class JobPostingsController : Controller
     {
         private InTurnEntities db = new InTurnEntities();

@@ -10,7 +10,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Employers.Controllers
 {
-    
+    [Authorize(Roles = "Admin,Employer")]
     public class EmployersController : Controller
     {
         private InTurnEntities db = new InTurnEntities();

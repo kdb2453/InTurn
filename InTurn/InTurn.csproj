@@ -178,6 +178,7 @@
     <Compile Include="Areas\Employers\Controllers\JobPostingsController.cs" />
     <Compile Include="Areas\Employers\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Employers\EmployersAreaRegistration.cs" />
+    <Compile Include="Areas\Students\Controllers\ApplicationsController.cs" />
     <Compile Include="Areas\Students\Controllers\JobPostingsController.cs" />
     <Compile Include="Areas\Students\Controllers\JobsAppliedController.cs" />
     <Compile Include="Areas\Students\Controllers\ProfileController.cs" />
@@ -251,13 +252,16 @@
     <Content Include="Areas\Employers\Views\Employees\Details.cshtml" />
     <Content Include="Areas\Employers\Views\Employees\Edit.cshtml" />
     <Content Include="Areas\Employers\Views\Employees\Index.cshtml" />
-    <Content Include="Areas\Students\Views\JobsApplied\JobsApplied.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Details.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\TeacherHome\_Results.cshtml" />
     <Content Include="Areas\Employers\Views\JobPostings\_Edit.cshtml" />
     <Content Include="Areas\Students\Views\Students\Profile.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Apply.cshtml" />
+    <Content Include="Areas\Students\Views\Shared\_Students.cshtml" />
+    <Content Include="Areas\Students\Views\Applications\Delete.cshtml" />
+    <Content Include="Areas\Students\Views\Applications\Details.cshtml" />
+    <Content Include="Areas\Students\Views\Applications\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
     <Content Include="Scripts\bootstrap.js" />

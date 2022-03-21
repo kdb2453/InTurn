@@ -1,0 +1,57 @@
+﻿@model IEnumerable<InTurn_Model.Application>
+
+@{
+    ViewBag.Title = "My Applications";
+    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+ 
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Resume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transcript)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobPosting.Position)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transcript)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobPosting.Position)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id=item.ApplicationID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ApplicationID })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

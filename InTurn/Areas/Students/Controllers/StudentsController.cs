@@ -10,6 +10,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Students.Controllers
 {
+    [Authorize(Roles = "Admin,Student")]
     public class StudentsController : Controller
     {
         private InTurnEntities db = new InTurnEntities();

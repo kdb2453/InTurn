@@ -22,10 +22,10 @@
         <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
-        <h2>Jobs Applied For</h2>
+        <h2>My Applicatiosn</h2>
         
-        <p>View jobs you've applied for.</p>
+        <p>View applications you've submitted.</p>
         
-        <p> @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobsApplied", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+        <p> @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Applications", new { area = "Students" }, new { @class = "btn btn-default" })</p>
     </div>
 </div>

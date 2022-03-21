@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace InTurn.Areas.Employers.Controllers
 {
+    [Authorize(Roles = "Admin,Employer")]
     public class EmployerHomeController : Controller
     {
         // GET: Employers/EmployerHome
