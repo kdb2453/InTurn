@@ -117,9 +117,6 @@
     <Compile Include="JobPosting.cs">
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="JobType.cs">
-      <DependentUpon>InTurnModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Major.cs">
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
@@ -131,9 +128,6 @@
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>InTurnModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TimeType.cs">
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

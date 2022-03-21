@@ -53,12 +53,12 @@ namespace InTurn.Areas.Teachers.Controllers
         }
 
         //_IndexByDept ACTION RESULT
-        public ActionResult _IndexByDept(int id) //(string dept)
+        public ActionResult _IndexByDept(string dept)
         {
             //var ids = dept.Split('|'); // SPLITS ids INTO SEPARATE ARRAYS; MIGHT HAVE TO DO THE SAME FOR .js VARIABLES 
             db.Configuration.ProxyCreationEnabled = false;
             var courses = db.Courses
-                .Where(c => c.Dept.Equals(id))
+                .Where(c => c.Dept.Equals(dept))
                 .ToArray();
             return PartialView("_Results", courses);
         }

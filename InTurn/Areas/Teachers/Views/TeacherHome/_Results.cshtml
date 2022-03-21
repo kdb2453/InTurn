@@ -54,7 +54,7 @@
             @Html.DisplayFor(modelItem => item.FinalExam)
         </td>
         <td>
-            @Html.ActionLink("~Students/Details", "Details", new { id = item.StudentID })
+            @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new {})
         </td>
         </tr>
     }

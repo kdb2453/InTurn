@@ -16,9 +16,9 @@
 <h3>@ViewBag.Title</h3>
 
 <div style="display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:baseline; column-gap:3px">
-@*FILTER DROP DOWN LIST BY DEPT*@
+@*FILTER DROP DOWN LIST BY DEPT --EmployeeID VARIABLE NOT WORKING
 <label class="filter" >Search By Department: </label>
-    @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByDept()", style="margin-right: 7px"})
+    @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByDept()", style="margin-right: 7px"})*@
 
 @*FILTER SEARCH BOX BY COURSE NAME*@
 <label class="filter">Search by Course Name: </label>
