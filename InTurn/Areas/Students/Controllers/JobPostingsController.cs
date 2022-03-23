@@ -38,11 +38,12 @@ namespace InTurn.Areas.Students.Controllers
             return View(jobPosting);
         }
 
-        // GET: Students/JobPostings/Create
+        // GET: Students/JobPostings/Apply
         public ActionResult Apply()
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
             ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
+            
             return View();
         }
 
@@ -51,13 +52,13 @@ namespace InTurn.Areas.Students.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript")] Application application)
+        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript")] Application application)
         {
             if (ModelState.IsValid)
             {
                 db.Applications.Add(application);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
 
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
