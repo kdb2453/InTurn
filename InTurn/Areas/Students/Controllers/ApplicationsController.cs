@@ -10,10 +10,10 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Students
 {
+    [Authorize(Roles = "Admin, Student")]
     public class ApplicationsController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
-
         // GET: Students/Applications
         public ActionResult Index()
         {
@@ -35,8 +35,6 @@ namespace InTurn.Areas.Students
             }
             return View(application);
         }
-
-      
 
         // GET: Students/Applications/Delete/5
         public ActionResult Delete(int? id)
