@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace InTurn_Model
 {
@@ -51,4 +52,17 @@ namespace InTurn_Model
         public Course course { get; set; }
     }
    */
+
+
+    //Application partial class for Uploading
+
+
+
+    public partial class Application
+    {
+
+        //For uploading documents like Resume and Transcript
+        public HttpPostedFileBase FileName { get; set; }
+    }
+
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -52,11 +54,16 @@ namespace InTurn.Areas.Students.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript")] Application application)
+        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript,FileName")] Application application)
         {
             if (ModelState.IsValid)
             {
+               
                 db.Applications.Add(application);
+                if (application.FileName != null)
+                    application.Resume = UploadFile(application.FileName);
+                        application.Transcript = UploadFile(application.FileName);
+               
                 db.SaveChanges();
                 return RedirectToAction("Details");
             }
@@ -133,5 +140,46 @@ namespace InTurn.Areas.Students.Controllers
             }
             base.Dispose(disposing);
         }
+
+        #region Files
+
+
+        //Method for uploading Resume and Transcript
+        public string UploadFile(HttpPostedFileBase file)
+        {
+            if (Request.Files.Count > 0)
+                try
+                {
+                    var allowedExtensions = new[] { ".pdf", ".docx" };
+                    var filePath = ConfigurationManager.AppSettings["ApplicationFile"];
+                    var mapPath = HttpContext.Server.MapPath(filePath);
+                    string path = Path.Combine(mapPath, Path.GetFileName(file.FileName));
+                    var ext = Path.GetExtension(file.FileName);
+                    if (allowedExtensions.Contains(ext))
+                    {
+                        file.SaveAs(path);
+                        ViewBag.Message = "File uploaded successfully";
+                        return $"~{filePath}/{file.FileName}";
+                    }
+
+                    else
+                    {
+                        ViewBag.Message = "Please use either a PDF or Word Document";
+                    }
+                }
+
+
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR" + ex.Message.ToString();
+                }
+            return String.Empty;
+        }
+
+
+
+
+        #endregion
+
     }
 }
