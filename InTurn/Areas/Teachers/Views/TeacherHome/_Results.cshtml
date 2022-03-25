@@ -53,7 +53,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.FinalExam)
         </td>
-        <td>
+        <td>@*FACULTY NEEDS SECURITY LEVEL IN STUDENTS AREA TO HAVE ACCESS*@
             @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new {})
         </td>
         </tr>

@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Faculty Homepage";
+    ViewBag.Developer = "KB";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -53,7 +54,7 @@
                 container.load('@Url.Action("_IndexByCourseName")?search=' + search);
             }
 
-        //SORT TABLE UPON HEADER CLICK
+        //SORT TABLE UPON HEADER CLICK -- SORTS BY FINAL EXAM GRADE BUT KEEPS MIDDLE POSITION (Employee ID = 5) STATIONARY/CONSTANT
         function sortTable(n) {
             var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
             table = document.getElementById("studentTable");
