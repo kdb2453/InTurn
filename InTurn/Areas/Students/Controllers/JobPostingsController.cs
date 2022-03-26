@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -11,6 +13,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Students.Controllers
 {
+    [Authorize(Roles = "Admin,Student")]
     public class JobPostingsController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
@@ -37,29 +40,37 @@ namespace InTurn.Areas.Students.Controllers
             return View(jobPosting);
         }
 
-        // GET: Students/JobPostings/Create
-        public ActionResult Create()
+        // GET: Students/JobPostings/Apply
+        public ActionResult Apply()
         {
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
+            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
+            
             return View();
         }
 
-        // POST: Students/JobPostings/Create
+        // POST: Employers/Applications/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "JobPostingID,EmployerID,Position,Desc,Wage,Location,JobType,TimeType,Days,Hours")] JobPosting jobPosting)
+        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript,FileName")] Application application)
         {
             if (ModelState.IsValid)
             {
-                db.JobPostings.Add(jobPosting);
+               
+                db.Applications.Add(application);
+                if (application.FileName != null)
+                    application.Resume = UploadFile(application.FileName);
+                        application.Transcript = UploadFile(application.FileName);
+               
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
 
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name", jobPosting.EmployerID);
-            return View(jobPosting);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
+            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
+            return View(application);
         }
 
         // GET: Students/JobPostings/Edit/5
@@ -129,5 +140,46 @@ namespace InTurn.Areas.Students.Controllers
             }
             base.Dispose(disposing);
         }
+
+        #region Files
+
+
+        //Method for uploading Resume and Transcript
+        public string UploadFile(HttpPostedFileBase file)
+        {
+            if (Request.Files.Count > 0)
+                try
+                {
+                    var allowedExtensions = new[] { ".pdf", ".docx" };
+                    var filePath = ConfigurationManager.AppSettings["ApplicationFile"];
+                    var mapPath = HttpContext.Server.MapPath(filePath);
+                    string path = Path.Combine(mapPath, Path.GetFileName(file.FileName));
+                    var ext = Path.GetExtension(file.FileName);
+                    if (allowedExtensions.Contains(ext))
+                    {
+                        file.SaveAs(path);
+                        ViewBag.Message = "File uploaded successfully";
+                        return $"~{filePath}/{file.FileName}";
+                    }
+
+                    else
+                    {
+                        ViewBag.Message = "Please use either a PDF or Word Document";
+                    }
+                }
+
+
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR" + ex.Message.ToString();
+                }
+            return String.Empty;
+        }
+
+
+
+
+        #endregion
+
     }
 }

@@ -1,0 +1,65 @@
+﻿@model InTurn_Model.Application
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Application</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Resume)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Resume)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Transcript)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Transcript)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Student.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Student.FirstName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.JobPosting.Position)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.JobPosting.Position)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

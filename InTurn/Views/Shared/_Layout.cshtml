@@ -9,7 +9,6 @@
     <title>@ViewBag.Title - InTurn</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -37,7 +36,26 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - InTurn v @Assembly.GetAssembly(typeof(HomeController)).GetName().Version.ToString() </p>
-            
+            <span class="developer"> @*FOR DEVELOPER NAMES*@
+                Software Engineer:
+                @switch (ViewBag.Developer)
+                {
+                    case "TS":
+                        @Html.Raw("Ty Simpson")
+                        break;
+                    case "LC":
+                        @Html.Raw("Lianne Copertino")
+                        break;
+                    case "KB":
+                        @Html.Raw("Kaila Brown")
+                        break;
+                    default:
+                        @Html.Raw("Unknown")
+                        break;
+                }
+            </span> @*END OF DEVELOPER NAMES*@
+
+
         </footer>
     </div>
 

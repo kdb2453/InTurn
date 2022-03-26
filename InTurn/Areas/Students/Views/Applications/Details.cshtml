@@ -1,0 +1,69 @@
+﻿@model InTurn_Model.Application
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Application</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Student.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Student.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Student.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Student.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.JobPosting.Position)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.JobPosting.Position)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Resume)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Resume)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Transcript)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Transcript)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
