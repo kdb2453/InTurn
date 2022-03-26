@@ -1,0 +1,54 @@
+﻿@model IEnumerable<InTurn_Model.Student>
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-mid-4">
+        <center>
+            <h3>Your Profile</h3>
+        </center>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-mid-4">
+        <center>
+            @*<img width="100px" src=""*@
+        </center>
+    </div>
+    <div class="col-mid-4">
+        <center>
+            <h4>Full Name</h4>
+            <h5>
+                @Html.DisplayNameFor(model => model.FirstName) @Html.DisplayNameFor(model => model.LastName)
+            </h5>
+
+            <h4>Address</h4>
+            <h5>@Html.DisplayNameFor(model => model.Address)</h5>
+            <h5>@Html.DisplayNameFor(model => model.City), @Html.DisplayNameFor(model => model.State) @Html.DisplayNameFor(model => model.ZipCode)</h5>
+        </center>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col=mid-4">
+        <center>
+            <h4>Major</h4>
+            <h5>Major</h5>
+        </center>
+    </div>
+    <div class="col-mid-4">
+        <center>
+            <h4>GPA</h4>
+            <h5>GPA</h5>
+        </center>
+    </div>   
+</div>
+
+
+<p>@Html.ActionLink(HttpUtility.HtmlDecode("Home"), "Index", "StudentHome", new { area = "Students" }, new { @class = "btn btn-default" })</p>
