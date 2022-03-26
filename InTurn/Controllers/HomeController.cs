@@ -15,14 +15,14 @@ namespace InTurn.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Small startup based out of Richmond, Virginia.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Get in Touch!";
 
             return View();
         }

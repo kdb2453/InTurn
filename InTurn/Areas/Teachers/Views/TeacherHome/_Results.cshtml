@@ -15,8 +15,7 @@
             @Html.DisplayNameFor(model => model.Student.LastName)
         </th>
         <th>
-            Course Name
-            @*@Html.DisplayNameFor(model=>model.Course.Name) NEEDS TO LINK TO COURSE*@
+            @*@Html.DisplayNameFor(model=>model.Student.Educations.Degree.Course.Name)) @*NEEDS TO LINK TO COURSE*@
         </th>
         <th onclick="sortTable(0)">
             @Html.DisplayNameFor(model => model.MidtermExam)
@@ -45,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.Student.LastName)
         </td>
         <td>
-            @*@Html.DisplayFor(modelItem = item.Course.Name) NEEDS TO LINK TO COURSE*@
+            @*@Html.DisplayFor(modelItem => item.Student.Educations.Degree.Course.Name) @*NEEDS TO LINK TO COURSE*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MidtermExam)
@@ -53,7 +52,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.FinalExam)
         </td>
-        <td>@*FACULTY NEEDS SECURITY LEVEL IN STUDENTS AREA TO HAVE ACCESS*@
+        <td>
             @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new {})
         </td>
         </tr>
