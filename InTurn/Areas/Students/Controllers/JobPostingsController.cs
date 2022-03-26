@@ -42,6 +42,7 @@ namespace InTurn.Areas.Students.Controllers
 
         // GET: Students/JobPostings/Apply
         public ActionResult Apply()
+
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
             ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
@@ -58,14 +59,11 @@ namespace InTurn.Areas.Students.Controllers
         {
             if (ModelState.IsValid)
             {
-               
                 db.Applications.Add(application);
                 if (application.FileName != null)
                     application.Resume = UploadFile(application.FileName);
-                        application.Transcript = UploadFile(application.FileName);
-               
                 db.SaveChanges();
-                return RedirectToAction("Details");
+                return RedirectToAction("Index");
             }
 
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
@@ -73,8 +71,8 @@ namespace InTurn.Areas.Students.Controllers
             return View(application);
         }
 
-        // GET: Students/JobPostings/Edit/5
-        public ActionResult Edit(int? id)
+            // GET: Students/JobPostings/Edit/5
+            public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -144,7 +142,7 @@ namespace InTurn.Areas.Students.Controllers
         #region Files
 
 
-        //Method for uploading Resume and Transcript
+       // Method for uploading Resume and Transcript
         public string UploadFile(HttpPostedFileBase file)
         {
             if (Request.Files.Count > 0)

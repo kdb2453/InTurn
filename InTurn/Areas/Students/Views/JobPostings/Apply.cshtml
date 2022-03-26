@@ -32,30 +32,48 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Resume, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div id="uploader" class="form-group">
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Resume, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Resume, "", new { @class = "text-danger" })
+                <input id="FileName" type="file" name="FileName" formenctype="multipart/form-data" onchange="show(this)" />
             </div>
-        </div>
+            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Transcript, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Transcript, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Transcript, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Resume, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Resume, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Resume, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Apply" class="btn btn-default" />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Transcript, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Transcript, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Transcript, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Apply" class="btn btn-default" />
+                </div>
             </div>
         </div>
-    </div>
 }
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script type="text/javascript">
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new filereader();
+            filerdr.onload = function (e) {
+                $('#filename').attr('src', e.target.result);
+            }
+            filerdr.readasdataurl(input.files[0]);
+        }
+    }
+</script>

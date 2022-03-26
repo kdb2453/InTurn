@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<InTurn_Model.JobPosting>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Job Postings";
     Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
 }
 
@@ -19,19 +19,12 @@
             @Html.DisplayNameFor(model => model.Position)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Desc)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Location)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.JobType)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeType)
-        </th>
-        <th>
-        </th>
+        
         <th></th>
     </tr>
 
@@ -45,17 +38,12 @@
                 @Html.DisplayFor(modelItem => item.Position)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Desc)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.JobType)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeType)
-            </td>
+            
             <td>
             </td>
             <td>
