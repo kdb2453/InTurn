@@ -255,12 +255,13 @@
     <Content Include="Areas\Students\Views\JobPostings\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\TeacherHome\_Results.cshtml" />
     <Content Include="Areas\Employers\Views\JobPostings\_Edit.cshtml" />
-    <Content Include="Areas\Students\Views\Students\Profile.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Apply.cshtml" />
     <Content Include="Areas\Students\Views\Shared\_Students.cshtml" />
     <Content Include="Areas\Students\Views\Applications\Delete.cshtml" />
     <Content Include="Areas\Students\Views\Applications\Details.cshtml" />
     <Content Include="Areas\Students\Views\Applications\Index.cshtml" />
+    <Content Include="Areas\Students\Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Students\Views\Students\_Employers.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
     <Content Include="Scripts\bootstrap.js" />
