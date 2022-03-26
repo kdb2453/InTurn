@@ -8,6 +8,21 @@ using System.Web;
 
 namespace InTurn_Model
 {
+    //START EMPLOYER METADATA
+    [MetadataType(typeof(EmployerMetaData))]
+    public partial class Employer
+    {
+        private sealed class EmployerMetaData
+        {
+            [Display(Name = "Employer ID")]
+            public int EmployerID { get; set; }
+            [Display(Name = "Phone Number")]
+            public string PhoneNum { get; set; }
+            [Display(Name = "Zip Code")]
+            public string ZipCode { get; set; }
+        }
+    }//END EMPLOYER METADATA
+
     //START EMPLOYEE METADATA
     [MetadataType(typeof(EmployeeMetaData))]
     public partial class Employee
@@ -25,7 +40,6 @@ namespace InTurn_Model
             [Display(Name = "Final Exam Grade")]
             public string FinalExam { get; set; }
         }
-
     }//END EMPLOYEE METADATA
 
     //START STUDENT METADATA
@@ -34,12 +48,97 @@ namespace InTurn_Model
     {
         private sealed class StudentMetaData
         {
+            [Display(Name = "Student ID")]
+            public int StudentID { get; set; }
             [Display(Name = "First Name")]
             public string FirstName { get; set; }
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
+            [Display(Name = "Phone Number")]
+            public string PhoneNum { get; set; }
+            [Display(Name = "Zip Code")]
+            public string ZipCode { get; set; }
         }
     }//END STUDENT METADATA
+
+    //START FACULTY METADATA
+    [MetadataType(typeof(FacultyMetaData))]
+    public partial class Faculty
+    {
+        private sealed class FacultyMetaData
+        {
+            [Display(Name = "Faculty ID")]
+            public int FacultyID { get; set; }
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            [Display(Name = "Phone Number")]
+            public string PhoneNum { get; set; }
+        }
+    }//END FACULTY METADATA
+
+    //START COURSE METADATA
+    [MetadataType(typeof(CourseMetaData))]
+    public partial class Course
+    {
+        private sealed class CourseMetaData
+        {
+            [Display(Name = "Course ID")]
+            public int CourseID { get; set; }
+            [Display(Name = "Description")]
+            public string Desc { get; set; }
+            [Display(Name = "Department")]
+            public string Dept { get; set; }
+        }
+    }//END COURSE METADATA
+
+    //START MAJOR METADATA
+    [MetadataType(typeof(MajorMetaData))]
+    public partial class Major
+    {
+        private sealed class MajorMetaData
+        {
+            [Display(Name = "Major ID")]
+            public int MajorID { get; set; }
+            [Display(Name = "Description")]
+            public string Desc { get; set; }
+        }
+    }//END MAJOR METADATA
+
+    //START JOB METADATA
+    [MetadataType(typeof(JobMetaData))]
+    public partial class Job
+    {
+        private sealed class JobMetaData
+        {
+            [Display(Name = "Job ID")]
+            public int JobID { get; set; }
+            [Display(Name = "Employer ID")]
+            public int EmployerID { get; set; }
+            [Display(Name = "Employee ID")]
+            public int EmployeeID { get; set; }
+        }
+    }//END JOB METADATA
+
+    //START JOBPOSTING METADATA
+    [MetadataType(typeof(JobPostingMetaData))]
+    public partial class JobPosting
+    {
+        private sealed class JobPostingMetaData
+        {
+            [Display(Name = "Job Posting ID")]
+            public int JobPostingID { get; set; }
+            [Display(Name = "Employer ID")]
+            public int EmployerID { get; set; }
+            [Display(Name = "Description")]
+            public string Desc { get; set; }
+            [Display(Name = "Job Type")]
+            public JobType JobType { get; set; }
+            [Display(Name = "Employment Type")]
+            public TimeType TimeType { get; set; }
+        }
+    }//END JOBPOSTING METADATA
 
     //TESTING ViewModel FOR TeacherHomeController
    /*

@@ -10,7 +10,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Students.Controllers
 {
-    [Authorize(Roles = "Admin,Student")]
+    [Authorize(Roles = "Admin, Student, Faculty")]
     public class StudentsController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
@@ -22,6 +22,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/Students/Details/5
+        [Authorize(Roles = "Admin, Student, Faculty")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +38,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/Students/Create
+        [Authorize(Roles = "Admin, Student")]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +49,7 @@ namespace InTurn.Areas.Students.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Student")]
         public ActionResult Create([Bind(Include = "StudentID,FirstName,LastName,PhoneNum,Address,City,State,ZipCode,Email,Current,Graduate")] Student student)
         {
             if (ModelState.IsValid)
@@ -60,6 +63,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/Students/Edit/5
+        [Authorize(Roles = "Admin, Student")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,6 +81,7 @@ namespace InTurn.Areas.Students.Controllers
         // POST: Students/Students/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin, Student")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StudentID,FirstName,LastName,PhoneNum,Address,City,State,ZipCode,Email,Current,Graduate")] Student student)
@@ -91,6 +96,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/Students/Delete/5
+        [Authorize(Roles = "Admin, Student")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +112,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // POST: Students/Students/Delete/5
+        [Authorize(Roles = "Admin, Student")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
