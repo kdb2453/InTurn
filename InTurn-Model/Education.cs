@@ -17,7 +17,7 @@ namespace InTurn_Model
         public int EducationID { get; set; }
         public int DegreeID { get; set; }
         public int StudentID { get; set; }
-        public int DateReceived { get; set; }
+        public System.DateTime DateReceived { get; set; }
     
         public virtual Degree Degree { get; set; }
         public virtual Student Student { get; set; }

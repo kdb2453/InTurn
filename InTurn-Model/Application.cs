@@ -18,7 +18,6 @@ namespace InTurn_Model
         public int StudentID { get; set; }
         public int JobPostingID { get; set; }
         public string Resume { get; set; }
-        public string Transcript { get; set; }
     
         public virtual Student Student { get; set; }
         public virtual JobPosting JobPosting { get; set; }

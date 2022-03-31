@@ -55,15 +55,24 @@ namespace InTurn.Areas.Students.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript,FileName")] Application application)
+        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,FileName")] Application application)
         {
-            if (ModelState.IsValid)
+
+            try
             {
-                db.Applications.Add(application);
-                if (application.FileName != null)
-                    application.Resume = UploadFile(application.FileName);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Applications.Add(application);
+                    if (application.FileName != null)
+                        application.Resume = UploadFile(application.FileName);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
 
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
@@ -139,10 +148,11 @@ namespace InTurn.Areas.Students.Controllers
             base.Dispose(disposing);
         }
 
+
         #region Files
 
 
-       // Method for uploading Resume and Transcript
+        // Method for uploading Resume and Transcript
         public string UploadFile(HttpPostedFileBase file)
         {
             if (Request.Files.Count > 0)

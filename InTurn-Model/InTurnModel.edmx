@@ -22,8 +22,7 @@
           <Property Name="ApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentID" Type="int" Nullable="false" />
           <Property Name="JobPostingID" Type="int" Nullable="false" />
-          <Property Name="Resume" Type="varchar(max)" Nullable="false" />
-          <Property Name="Transcript" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resume" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -107,6 +106,7 @@
           <Property Name="DegreeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CourseID" Type="int" Nullable="false" />
           <Property Name="MajorID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Education">
           <Key>
@@ -115,7 +115,7 @@
           <Property Name="EducationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DegreeID" Type="int" Nullable="false" />
           <Property Name="StudentID" Type="int" Nullable="false" />
-          <Property Name="DateReceived" Type="int" Nullable="false" />
+          <Property Name="DateReceived" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -597,8 +597,7 @@
           <Property Name="ApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentID" Type="Int32" Nullable="false" />
           <Property Name="JobPostingID" Type="Int32" Nullable="false" />
-          <Property Name="Resume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Transcript" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Resume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_100" FromRole="Application" ToRole="Student" />
           <NavigationProperty Name="JobPosting" Relationship="Self.FK_142" FromRole="Application" ToRole="JobPosting" />
         </EntityType>
@@ -687,6 +686,7 @@
           <NavigationProperty Name="Course" Relationship="Self.FK_78" FromRole="Degree" ToRole="Course" />
           <NavigationProperty Name="Educations" Relationship="Self.FK_112" FromRole="Degree" ToRole="Education" />
           <NavigationProperty Name="Major" Relationship="Self.FK_82" FromRole="Degree" ToRole="Major" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Education">
           <Key>
@@ -695,7 +695,7 @@
           <Property Name="EducationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DegreeID" Type="Int32" Nullable="false" />
           <Property Name="StudentID" Type="Int32" Nullable="false" />
-          <Property Name="DateReceived" Type="Int32" Nullable="false" />
+          <Property Name="DateReceived" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Degree" Relationship="Self.FK_112" FromRole="Education" ToRole="Degree" />
           <NavigationProperty Name="Student" Relationship="Self.FK_108" FromRole="Education" ToRole="Student" />
         </EntityType>
@@ -1183,7 +1183,6 @@
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="JobPostingID" ColumnName="JobPostingID" />
                 <ScalarProperty Name="Resume" ColumnName="Resume" />
-                <ScalarProperty Name="Transcript" ColumnName="Transcript" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1261,6 +1260,7 @@
           <EntitySetMapping Name="Degrees">
             <EntityTypeMapping TypeName="InTurnModel.Degree">
               <MappingFragment StoreEntitySet="Degree">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DegreeID" ColumnName="DegreeID" />
                 <ScalarProperty Name="CourseID" ColumnName="CourseID" />
                 <ScalarProperty Name="MajorID" ColumnName="MajorID" />
