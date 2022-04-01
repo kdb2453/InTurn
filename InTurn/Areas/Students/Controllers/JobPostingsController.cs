@@ -58,7 +58,7 @@ namespace InTurn.Areas.Students.Controllers
         public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,FileName")] Application application)
         {
 
-            try
+           
             {
                 if (ModelState.IsValid)
                 {
@@ -69,11 +69,7 @@ namespace InTurn.Areas.Students.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            
 
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
             ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
@@ -153,8 +149,9 @@ namespace InTurn.Areas.Students.Controllers
 
 
         // Method for uploading Resume and Transcript
-        public string UploadFile(HttpPostedFileBase file)
+        private string UploadFile(HttpPostedFileBase file)
         {
+
             if (Request.Files.Count > 0)
                 try
                 {
@@ -167,7 +164,7 @@ namespace InTurn.Areas.Students.Controllers
                     {
                         file.SaveAs(path);
                         ViewBag.Message = "File uploaded successfully";
-                        return $"~{filePath}/{file.FileName}";
+                        return $"{filePath}/{file.FileName}";
                     }
 
                     else

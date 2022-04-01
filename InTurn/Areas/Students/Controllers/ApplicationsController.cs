@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -33,6 +34,8 @@ namespace InTurn.Areas.Students
             {
                 return HttpNotFound();
             }
+
+
             return View(application);
         }
 
@@ -70,5 +73,9 @@ namespace InTurn.Areas.Students
             }
             base.Dispose(disposing);
         }
+
+       //Download//
+
+       
     }
 }
