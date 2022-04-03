@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InTurn_Model;
+using System.Configuration;
+using System.IO;
+
 
 namespace InTurn.Areas.Students.Controllers
 {
@@ -131,5 +134,53 @@ namespace InTurn.Areas.Students.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult _IndexByTag(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var category = db.Majors
+                .Include(i => i.MajorID)
+                .Where(i => i.MajorID.Equals(id))
+                .ToArray();
+            return PartialView("Index", category);
+        }
+
+        public ActionResult _IndexByName(string parm)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var name = db.Students
+                .Include(i => i.LastName)
+                .Where(i => i.LastName.Contains(parm))
+                .ToArray();
+            return PartialView("Index",name);
+        }
+
+        #region Images
+        private string UploadImage(HttpPostedFile file)
+        {
+            if (Request.Files.Count >0)
+            {
+                try
+                {
+                    var allowedExtensions = new[] { ".jpg", ".png", ".jpeg" };
+                    var imagePath = ConfigurationManager.AppSettings["ProfilePic"];
+                    var mapPath = HttpContext.Server.MapPath(imagePath);
+                    string path = Path.Combine(mapPath, Path.GetFileName(file.FileName));
+                    string ext = Path.GetExtension(file.FileName);
+                    if (allowedExtensions.Contains(ext))
+                    {
+                        file.SaveAs(path);
+                        ViewBag.Message = "File uploaded successfully";
+                        return $"~{imagePath}/{file.FileName}";                    
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = $"ERROR: { ex.Message}";
+                }
+            }
+            return String.Empty;
+        }
+        #endregion
     }
 }
