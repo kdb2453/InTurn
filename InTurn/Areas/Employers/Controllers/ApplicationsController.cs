@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -37,32 +38,8 @@ namespace InTurn.Areas.Employers
             return View(application);
         }
 
-        // GET: Employers/Applications/Create
-        public ActionResult Create()
-        {
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
-            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
-            return View();
-        }
+      
 
-        // POST: Employers/Applications/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript")] Application application)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Applications.Add(application);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
-            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
-            return View(application);
-        }
 
         // GET: Employers/Applications/Edit/5
         public ActionResult Edit(int? id)
@@ -86,19 +63,23 @@ namespace InTurn.Areas.Employers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript")] Application application)
+        public ActionResult Edit(Application application)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(application).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var existedApplication = db.Applications.FirstOrDefault(i => i.ApplicationID == application.ApplicationID);
+                if (existedApplication != null)
+                {
+                    existedApplication.AppStatus = application.AppStatus;
+                    db.Entry(existedApplication).Property(i => i.AppStatus).IsModified = true;
+                    var result = db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+               
+                return View(application);
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
-            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
             return View(application);
         }
-
         // GET: Employers/Applications/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -132,6 +113,26 @@ namespace InTurn.Areas.Employers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //Download//
+
+        public ActionResult Downloads()
+        {
+            var dir = new System.IO.DirectoryInfo(Server.MapPath("/FileUploads"));
+            System.IO.FileInfo[] fileNames = dir.GetFiles("*.*"); List<string> items = new List<string>();
+            foreach (var file in fileNames)
+            {
+                items.Add(file.Name);
+            }
+            return View(items);
+        }
+
+        public FileResult Download(string file)
+        {
+
+            var FileVirtualPath = "/FileUploads" + file;
+            return File(FileVirtualPath, "application/force-download", Path.GetFileName(FileVirtualPath));
         }
     }
 }

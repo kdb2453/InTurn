@@ -18,7 +18,8 @@
         <hr />
         <dl class="dl-horizontal">
 
-
+            <dt>@Html.DisplayNameFor(model=>model.AppStatus)</dt>
+            <dd>@Html.DisplayFor(model=>model.AppStatus)</dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Student.FirstName)
             </dt>
@@ -50,7 +51,7 @@
             <dd>
                 @Html.DisplayFor(model => model.Resume)
             </dd>
-            @*@Html.ActionLink("Download", Model.Resume, new { area=""}, new {view="" });*@
+          
 
         </dl>
     </div>

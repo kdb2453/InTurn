@@ -317,7 +317,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Areas\Employers\Views\Applications\Create.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Delete.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Details.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Edit.cshtml" />
@@ -354,6 +353,7 @@
     <Content Include="obj\Debug\InTurn.csproj.AssemblyReference.cache" />
     <Content Include="obj\Debug\InTurn.csproj.CopyComplete" />
     <Content Include="obj\Debug\InTurn.csproj.CoreCompileInputs.cache" />
+    <Content Include="FileUploads\InTurn Brochure %281%29.docx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
     <Content Include="obj\Debug\InTurn.csproj.FileListAbsolute.txt" />
@@ -413,7 +413,6 @@
     <Folder Include="Areas\Employers\Data\" />
     <Folder Include="Areas\Teachers\Data\" />
     <Folder Include="Areas\Teachers\Views\Shared\" />
-    <Folder Include="FileUploads\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>

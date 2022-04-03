@@ -57,6 +57,9 @@
     <Compile Include="Application.cs">
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppStatus.cs">
+      <DependentUpon>InTurnModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AspNetRole.cs">
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>

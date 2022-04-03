@@ -74,8 +74,6 @@ namespace InTurn.Areas.Students
             base.Dispose(disposing);
         }
 
-       //Download//
-
-       
+        
     }
 }

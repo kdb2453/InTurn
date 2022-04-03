@@ -55,7 +55,7 @@ namespace InTurn.Areas.Students.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,FileName")] Application application)
+        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,AppStatus,FileName")] Application application)
         {
 
            

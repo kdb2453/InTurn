@@ -162,6 +162,8 @@ namespace InTurn_Model
 
         //For uploading documents like Resume and Transcript
         public HttpPostedFileBase FileName { get; set; }
+
+
     }
 
 }
