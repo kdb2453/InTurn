@@ -69,7 +69,7 @@ namespace InTurn.Areas.Students.Controllers
                     if (application.FileName != null)
                         application.Resume = UploadFile(application.FileName);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Applications");
                 }
             }
             
