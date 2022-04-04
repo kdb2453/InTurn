@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Student Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Developer = "TS";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -12,7 +13,7 @@
         
         <p>View and edit your Profile.</p>
         
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Students", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Profile", new { area = "Students" }, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
         <h2>Job Postings</h2>

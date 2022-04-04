@@ -22,8 +22,8 @@
           <Property Name="ApplicationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StudentID" Type="int" Nullable="false" />
           <Property Name="JobPostingID" Type="int" Nullable="false" />
-          <Property Name="Resume" Type="varchar(max)" Nullable="false" />
-          <Property Name="Transcript" Type="varchar(max)" Nullable="false" />
+          <Property Name="Resume" Type="varchar(max)" />
+          <Property Name="AppStatus" Type="int" />
         </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
@@ -227,7 +227,9 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_100">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Application" Type="Self.Application" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -287,7 +289,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_142">
-          <End Role="JobPosting" Type="Self.JobPosting" Multiplicity="1" />
+          <End Role="JobPosting" Type="Self.JobPosting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Application" Type="Self.Application" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="JobPosting">
@@ -598,10 +602,10 @@
           <Property Name="ApplicationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StudentID" Type="Int32" Nullable="false" />
           <Property Name="JobPostingID" Type="Int32" Nullable="false" />
-          <Property Name="Resume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Transcript" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Resume" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Student" Relationship="Self.FK_100" FromRole="Application" ToRole="Student" />
           <NavigationProperty Name="JobPosting" Relationship="Self.FK_142" FromRole="Application" ToRole="JobPosting" />
+          <Property Name="AppStatus" Type="InTurnModel.AppStatus" />
         </EntityType>
         <EntityType Name="AspNetRole">
           <Key>
@@ -1162,6 +1166,13 @@
           <Member Name="Full" Value="1" />
           <Member Name="Part" Value="2" />
         </EnumType>
+        <EnumType Name="AppStatus">
+          <Member Name="Submitted" Value="1" />
+          <Member Name="Reviewing" Value="2" />
+          <Member Name="Interview" Value="3" />
+          <Member Name="Hired" Value="4" />
+          <Member Name="Declined" Value="5" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1181,11 +1192,11 @@
           <EntitySetMapping Name="Applications">
             <EntityTypeMapping TypeName="InTurnModel.Application">
               <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="AppStatus" ColumnName="AppStatus" />
                 <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="JobPostingID" ColumnName="JobPostingID" />
                 <ScalarProperty Name="Resume" ColumnName="Resume" />
-                <ScalarProperty Name="Transcript" ColumnName="Transcript" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

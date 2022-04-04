@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
+    ViewBag.Developer = "TS";
 }
 
 <h2>Delete</h2>
@@ -20,13 +21,9 @@
             @Html.DisplayFor(model => model.Resume)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Transcript)
-        </dt>
+    
 
-        <dd>
-            @Html.DisplayFor(model => model.Transcript)
-        </dd>
+       
 
         <dt>
             @Html.DisplayNameFor(model => model.Student.FirstName)

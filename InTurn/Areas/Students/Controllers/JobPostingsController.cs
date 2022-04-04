@@ -42,6 +42,7 @@ namespace InTurn.Areas.Students.Controllers
 
         // GET: Students/JobPostings/Apply
         public ActionResult Apply()
+
         {
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
             ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
@@ -54,27 +55,29 @@ namespace InTurn.Areas.Students.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,Transcript,FileName")] Application application)
+        public ActionResult Apply([Bind(Include = "ApplicationID,StudentID,JobPostingID,Resume,AppStatus,FileName")] Application application)
         {
-            if (ModelState.IsValid)
+
+           
             {
-               
-                db.Applications.Add(application);
-                if (application.FileName != null)
-                    application.Resume = UploadFile(application.FileName);
-                        application.Transcript = UploadFile(application.FileName);
-               
-                db.SaveChanges();
-                return RedirectToAction("Details");
+                if (ModelState.IsValid)
+                {
+                    db.Applications.Add(application);
+                    if (application.FileName != null)
+                        application.Resume = UploadFile(application.FileName);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+            
 
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
             ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
             return View(application);
         }
 
-        // GET: Students/JobPostings/Edit/5
-        public ActionResult Edit(int? id)
+            // GET: Students/JobPostings/Edit/5
+            public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -141,12 +144,14 @@ namespace InTurn.Areas.Students.Controllers
             base.Dispose(disposing);
         }
 
+
         #region Files
 
 
-        //Method for uploading Resume and Transcript
-        public string UploadFile(HttpPostedFileBase file)
+        // Method for uploading Resume and Transcript
+        private string UploadFile(HttpPostedFileBase file)
         {
+
             if (Request.Files.Count > 0)
                 try
                 {
@@ -159,7 +164,7 @@ namespace InTurn.Areas.Students.Controllers
                     {
                         file.SaveAs(path);
                         ViewBag.Message = "File uploaded successfully";
-                        return $"~{filePath}/{file.FileName}";
+                        return $"{filePath}/{file.FileName}";
                     }
 
                     else

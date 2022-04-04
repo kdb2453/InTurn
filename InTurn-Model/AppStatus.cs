@@ -10,17 +10,13 @@
 namespace InTurn_Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Application
+    public enum AppStatus : int
     {
-        public int ApplicationID { get; set; }
-        public int StudentID { get; set; }
-        public int JobPostingID { get; set; }
-        public string Resume { get; set; }
-        public Nullable<AppStatus> AppStatus { get; set; }
-    
-        public virtual Student Student { get; set; }
-        public virtual JobPosting JobPosting { get; set; }
+        Submitted = 1,
+        Reviewing = 2,
+        Interview = 3,
+        Hired = 4,
+        Declined = 5
     }
 }

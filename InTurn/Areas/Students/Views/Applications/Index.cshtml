@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "My Applications";
     Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+    ViewBag.Developer = "TS";
 }
 
 <!DOCTYPE html>
@@ -23,10 +24,11 @@
             <th>
                 @Html.DisplayNameFor(model => model.Student.LastName)
             </th>
+            <th>@Html.DisplayNameFor(model=>model.JobPosting.Employer)</th>
             <th>
                 @Html.DisplayNameFor(model => model.JobPosting.Position)
             </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model=>model.AppStatus)</th>
         </tr>
     
     @foreach (var item in Model) {
@@ -38,9 +40,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Student.LastName)
         </td>
+        <td>@Html.DisplayFor(modelItem=>item.JobPosting.Employer.Name)</td>
         <td>
             @Html.DisplayFor(modelItem => item.JobPosting.Position)
         </td>
+
+        <td>@Html.DisplayFor(modelItem=>item.AppStatus)</td>
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.ApplicationID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.ApplicationID })

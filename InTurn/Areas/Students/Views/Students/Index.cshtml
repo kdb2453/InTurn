@@ -3,9 +3,17 @@
 @{
     ViewBag.Title = "Welcome!";
     Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+    ViewBag.Developer = "LC";
 }
 
 <h2>@ViewBag.Title</h2>
+
+<p>
+    &nbsp;&nbsp;&nbsp;<label class="filter">Major</label>&nbsp;&nbsp;&nbsp;
+    @Html.DropDownList("MajorID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByTag()" })
+    &nbsp;&nbsp;&nbsp;<label class="filter">Seacrh by Name</label>&nbsp;&nbsp;&nbsp;
+    @Html.TextArea("Search", null, htmlAttributes: new { @class = "filter", @onchange = "FilterByName()" })
+</p>
 
 <table class="table">
     <tr>
@@ -42,43 +50,60 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZipCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Current)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Graduate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentID })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Current)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Graduate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudentID })
+            </td>
+        </tr>
+    }
 </table>
+
+    @section Scripts{
+        <script type="text/javascript">
+            function FillByTag() {
+                var majorId = $('#MajorID').val(); //need to figure out how to connect to the MajorRequirements table
+                var container = $('#courseContainer');
+                container.load('@Url.Action("_IndexByTag")?id' = + majorId)
+            }
+            function FilterByName() {
+                var parm = $('#Search').val();
+                var container = $('#courseContainer');
+                container.load('@Url.Action("_IndexByName")?parm' + parm);
+            }
+
+        </script>
+        }
+

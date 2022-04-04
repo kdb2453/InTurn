@@ -1,6 +1,7 @@
 ﻿@model InTurn.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
+    ViewBag.Developer = "TS";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -38,9 +39,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-            <br />
-            <input type="button" id="showHidePassword" value="Show" />
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" }) <input type="button" id="showHidePassword" value="Show" />
         </div>
     </div>
     <div class="form-group">
