@@ -11,7 +11,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" id="employeeTable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.MidtermExam)
@@ -22,7 +22,7 @@
         <th>
             @Html.DisplayNameFor(model => model.JobPosting.Position)
         </th>
-        <th>
+        <th onclick="sortTable(0)">
             @Html.DisplayNameFor(model => model.Student.FirstName)
         </th>
         <th>
@@ -31,29 +31,84 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MidtermExam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FinalExam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JobPosting.Position)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Faculty.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidtermExam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalExam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobPosting.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faculty.FirstName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@*START SCRIPTS*@
+@section Scripts
+{
+    <script type="text/javascript">
+
+        //SORT TABLE UPON HEADER CLICK
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("employeeTable");
+            switching = true;
+            dir = "asc"; 
+
+            while (switching)
+            {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++)
+                {
+                    shouldSwitch = false;
+
+                    x = rows[i].getElementsByTagName("td")[n];
+                    y = rows[i + 1].getElementsByTagName("td")[n];
+
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }//END for
+                if (shouldSwitch)
+                {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                }
+                else
+                {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }//END if else
+            }//END while
+        }//END SORT TABLE UPON HEADER CLICK
+
+    </script>
+}@*END SCRIPTS*@
