@@ -11,9 +11,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>@ViewBag.Title</title>
 </head>
 <body>
+
+    <h2>@ViewBag.Title</h2>
  
     <table class="table">
         <tr>
@@ -48,7 +50,7 @@
         <td>@Html.DisplayFor(modelItem=>item.AppStatus)</td>
         <td>
             @Html.ActionLink("Details", "Details", new { id = item.ApplicationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ApplicationID })
+            @Html.ActionLink("Withdraw", "Delete", new { id = item.ApplicationID })
         </td>
     </tr>
     }
