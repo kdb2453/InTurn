@@ -19,7 +19,6 @@ namespace InTurn.Areas.Teachers.Controllers
         public ActionResult Index()
         {
             ViewBag.EmployeeID = new SelectList(db.Employees.OrderBy(e => e.EmployeeID), "EmployeeID", "Employee ID");
-            
             return View(db.Employees
              .ToList());
         }

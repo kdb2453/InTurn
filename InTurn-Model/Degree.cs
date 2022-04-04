@@ -23,6 +23,7 @@ namespace InTurn_Model
         public int DegreeID { get; set; }
         public int CourseID { get; set; }
         public int MajorID { get; set; }
+        public string Name { get; set; }
     
         public virtual Course Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
