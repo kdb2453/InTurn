@@ -44,8 +44,10 @@ namespace InTurn.Areas.Students.Controllers
         public ActionResult Apply()
 
         {
+            
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
             ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
+           
             
             return View();
         }
@@ -63,6 +65,7 @@ namespace InTurn.Areas.Students.Controllers
                 if (ModelState.IsValid)
                 {
                     db.Applications.Add(application);
+                    application.AppStatus = (AppStatus?)1;
                     if (application.FileName != null)
                         application.Resume = UploadFile(application.FileName);
                     db.SaveChanges();

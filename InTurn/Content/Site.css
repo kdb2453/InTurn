@@ -4,6 +4,16 @@
     background-color:#EAE3EA;
 }
 
+
+.navbar {
+    color: #B56357;
+    background-color: #B56357;
+    font-weight:bold;
+}
+
+
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -22,5 +32,11 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+span.developer{
+    padding-left:128px;
+    font-weight:bold;
+    font-family: Courier New, Courier, monospace;
 }
 
