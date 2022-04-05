@@ -197,7 +197,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -338,7 +338,6 @@
     <Content Include="Areas\Students\Views\Applications\Index.cshtml" />
     <Content Include="Areas\Students\Views\Profile\Index.cshtml" />
     <Content Include="Areas\Students\Views\Students\_Employers.cshtml" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
     <Content Include="bin\roslyn\csi.exe.config" />
@@ -351,9 +350,6 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\InTurn-Model.dll.config" />
     <Content Include="bin\InTurn.dll.config" />
-    <Content Include="obj\Debug\InTurn.csproj.AssemblyReference.cache" />
-    <Content Include="obj\Debug\InTurn.csproj.CopyComplete" />
-    <Content Include="obj\Debug\InTurn.csproj.CoreCompileInputs.cache" />
     <Content Include="FileUploads\InTurn Brochure %281%29.docx" />
     <Content Include="Areas\Teachers\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Teachers\Views\Shared\_Layout.cshtml" />
@@ -364,9 +360,6 @@
     <Content Include="Areas\Teachers\Views\Profile\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
-    <Content Include="obj\Debug\InTurn.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\InTurn.dll" />
-    <Content Include="obj\Debug\InTurn.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -420,7 +413,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
     <Folder Include="Areas\Teachers\Data\" />
-    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
