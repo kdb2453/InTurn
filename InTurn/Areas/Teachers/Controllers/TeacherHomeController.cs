@@ -10,37 +10,15 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Teachers.Controllers
 {
-    [Authorize(Roles = "Admin,Faculty")]
+    [Authorize(Roles = "Admin, Faculty")]
     public class TeacherHomeController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
 
-        // GET: Teachers/TeacherHome
+        //GET: Teachers/TeacherHome
         public ActionResult Index()
         {
-            ViewBag.EmployeeID = new SelectList(db.Employees.OrderBy(e => e.EmployeeID), "EmployeeID", "Employee ID");
-            return View(db.Employees
-             .ToList());
-        }
-
-        //_IndexByDept ACTION RESULT
-        public ActionResult _IndexByDept(string dept)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            var courses = db.Courses
-                .Where(c => c.Dept.Equals(dept))
-                .ToArray();
-            return PartialView("_Results", courses);
-        }
-
-        //_IndexByCourseName ACTION RESULT
-        public ActionResult _IndexByCourseName(string search)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            var courses = db.Courses
-                .Where(c => c.Name.Contains(search))
-                .ToArray();
-            return PartialView("_Results", courses);
+            return View();
         }
     }
 }

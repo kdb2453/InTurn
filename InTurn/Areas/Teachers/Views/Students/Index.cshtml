@@ -1,0 +1,107 @@
+﻿@model IEnumerable<InTurn_Model.Employee>
+
+@{
+    ViewBag.Title = "Student Information";
+    ViewBag.Developer = "KB";
+    Layout = "~/Areas/Teachers/Views/Shared/_SubNavBar.cshtml";
+}
+
+<style> @*REMOVES RESIZING FROM SEARCH BOX*@
+    textarea
+    {
+        width:145px;
+        resize:none
+    }
+</style>
+
+<h3>@ViewBag.Title</h3>
+
+<div style="display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:baseline; column-gap:3px">
+@*FILTER DROP DOWN LIST BY DEPT --EmployeeID VARIABLE NOT WORKING
+<label class="filter" >Search By Department: </label>
+    @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByDept()", style="margin-right: 7px"})*@
+
+@*FILTER SEARCH BOX BY COURSE NAME*@
+<label class="filter">Search by Course Name: </label>
+    @Html.TextArea("Search", "Press TAB to Search", htmlAttributes: new { @class = "filter", @onchange = "FilterByCourseName()", rows = "1", margin = "auto", style = "margin-right: 7px" })
+</div>
+
+<p />
+
+@*LOADS TABLE WITH RESULTS*@
+<div id="coursesContainer">
+    @Html.Partial("_Results", Model)
+</div>
+
+@*START SCRIPTS*@
+@section Scripts
+{
+    <script type="text/javascript">
+
+         //FILLBYDEPT, FILTER DROP DOWN LIST FUNCTION
+            function FillByDept()
+            {
+                var course = $('#CourseID').val();
+                var container = $('#resultsContainer');
+                container.load('@Url.Action("_IndexByDept")?id=' + course);
+            }
+
+        //FILTERBYCOURSENAME, SEARCH BOX FUNCTION
+            function FilterByCourseName()
+            {
+                var search = $('#Search').val();
+                var container = $('#coursesContainer');
+                container.load('@Url.Action("_IndexByCourseName")?search=' + search);
+            }
+
+        //SORT TABLE UPON HEADER CLICK -- SORTS BY FINAL EXAM GRADE BUT KEEPS MIDDLE POSITION (Employee ID = 5) STATIONARY/CONSTANT
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("studentTable");
+            switching = true;
+            dir = "asc"; //SORT BY ASCENDING
+
+            while (switching) //LOOP CONTINUES UNTIL NO SWITCHING IS DONE
+            {
+                switching = false; //STARTS WITH NO SWITCHING
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) //LOOPS THRU TABLE ROWS (EXCEPT HEADER(row 1))
+                {
+                    shouldSwitch = false; //STARTS WITH NO SWITCHING
+
+                    //x & y BELOW ARE THE ELEMENTS BEING COMPARED
+                    x = rows[i].getElementsByTagName("td")[n]; //ELEMENT FROM CURRENT ROW
+                    y = rows[i + 1].getElementsByTagName("td")[n]; //ELEMENT FROM ROW AFTER CURRENT ROW
+
+                    if (dir == "asc") { //SORT ROWS BY ASCENDING 1ST CLICK
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
+                        {
+                            shouldSwitch = true; //MARKS AS SWITCH & BREAKS LOOP
+                            break;
+                        }
+                    } else if (dir == "desc") { //SORT ROWS BY DESCENDING 2ND CLICK
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())
+                        {
+                            shouldSwitch = true; //MARKS AS SWITCH & BREAKS LOOP
+                            break;
+                        }
+                    }
+                }//END for
+                if (shouldSwitch) //IF A SWITCH OCCURS, SWITCH & DECLARE THAT A SWITCH OCCURED
+                {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++; //INCREASES BY 1 EVERY TIME A SWITCH IS DONE
+                }
+                else //IF NO SWITCH OCCURED & THE ROWS ARE SORTED BY ASCENDED, SET SORT DIRECTION TO DESCENDED & RUN while LOOP AGAIN
+                { 
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }//END if else
+            }//END while
+        }//END SORT TABLE UPON HEADER CLICK
+
+    </script>
+} @*END SCRIPTS*@
