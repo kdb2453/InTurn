@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<InTurn_Model.Employer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Profile";
     Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -62,7 +60,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EmployerID }) |
             @Html.ActionLink("Details", "Details", new { id=item.EmployerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployerID })
+           
         </td>
     </tr>
 }

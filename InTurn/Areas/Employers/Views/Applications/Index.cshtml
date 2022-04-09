@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<InTurn_Model.Application>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Applicants";
     Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
     ViewBag.Developer = "TS";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
       
@@ -39,9 +37,9 @@
         </td>
         <td>@Html.DisplayFor(modelItem=>item.AppStatus)</td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ApplicationID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ApplicationID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ApplicationID })
+            
+            @Html.ActionLink("Details", "Details", new { id=item.ApplicationID }) 
+           
         </td>
     </tr>
 }

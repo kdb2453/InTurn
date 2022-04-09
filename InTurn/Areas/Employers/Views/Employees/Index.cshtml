@@ -1,12 +1,13 @@
-﻿@model IEnumerable<InTurn_Model.Employee>
+﻿
+@model IEnumerable<InTurn_Model.Employee>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Employees/Interns";
     Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
     ViewBag.Developer = "TS";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")

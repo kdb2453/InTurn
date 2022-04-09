@@ -318,9 +318,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Areas\Employers\Views\Applications\Delete.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Details.cshtml" />
-    <Content Include="Areas\Employers\Views\Applications\Edit.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Index.cshtml" />
     <Content Include="Areas\Employers\Views\Employees\Create.cshtml" />
     <Content Include="Areas\Employers\Views\Employees\Delete.cshtml" />
