@@ -356,6 +356,7 @@
     <Content Include="Areas\Teachers\Views\Profile\Details.cshtml" />
     <Content Include="Areas\Teachers\Views\Profile\Edit.cshtml" />
     <Content Include="Areas\Teachers\Views\Profile\Index.cshtml" />
+    <Content Include="Areas\Employers\Views\Applications\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
     <Content Include="Scripts\bootstrap.js" />

@@ -37,7 +37,7 @@
         </td>
         <td>@Html.DisplayFor(modelItem=>item.AppStatus)</td>
         <td>
-            
+            @Html.ActionLink("Edit", "Edit", new {id=item.ApplicationID}) |
             @Html.ActionLink("Details", "Details", new { id=item.ApplicationID }) 
            
         </td>
