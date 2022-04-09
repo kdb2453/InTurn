@@ -99,6 +99,9 @@
     <Compile Include="FacultyCourse.cs">
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Final.cs">
+      <DependentUpon>InTurnModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="InTurn.cs" />
     <Compile Include="InTurnModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -128,6 +131,9 @@
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MajorRequirement.cs">
+      <DependentUpon>InTurnModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MidTerm.cs">
       <DependentUpon>InTurnModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

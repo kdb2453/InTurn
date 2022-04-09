@@ -137,6 +137,8 @@ namespace InTurn_Model
             public JobType JobType { get; set; }
             [Display(Name = "Employment Type")]
             public TimeType TimeType { get; set; }
+            [DataType(DataType.Currency)]
+            public decimal Wage { get; set; }
         }
     }//END JOBPOSTING METADATA
 

@@ -126,8 +126,8 @@
           <Property Name="StudentID" Type="int" Nullable="false" />
           <Property Name="FacultyID" Type="int" />
           <Property Name="JobPostingID" Type="int" Nullable="false" />
-          <Property Name="MidtermExam" Type="char" MaxLength="1" />
-          <Property Name="FinalExam" Type="char" MaxLength="1" />
+          <Property Name="MidtermExam" Type="int" />
+          <Property Name="FinalExam" Type="int" />
         </EntityType>
         <EntityType Name="Employer">
           <Key>
@@ -713,8 +713,8 @@
           <Property Name="StudentID" Type="Int32" Nullable="false" />
           <Property Name="FacultyID" Type="Int32" />
           <Property Name="JobPostingID" Type="Int32" Nullable="false" />
-          <Property Name="MidtermExam" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="FinalExam" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MidtermExam" Type="InTurnModel.MidTerm" />
+          <Property Name="FinalExam" Type="InTurnModel.Final" />
           <NavigationProperty Name="JobPosting" Relationship="Self.FK_173" FromRole="Employee" ToRole="JobPosting" />
           <NavigationProperty Name="Student" Relationship="Self.FK_223" FromRole="Employee" ToRole="Student" />
           <NavigationProperty Name="Faculty" Relationship="Self.FK_231" FromRole="Employee" ToRole="Faculty" />
@@ -1172,6 +1172,20 @@
           <Member Name="Interview" Value="3" />
           <Member Name="Hired" Value="4" />
           <Member Name="Declined" Value="5" />
+        </EnumType>
+        <EnumType Name="MidTerm">
+          <Member Name="A" Value="1" />
+          <Member Name="B" Value="2" />
+          <Member Name="C" Value="3" />
+          <Member Name="D" Value="4" />
+          <Member Name="F" Value="5" />
+        </EnumType>
+        <EnumType Name="Final">
+          <Member Name="A" Value="1" />
+          <Member Name="B" Value="2" />
+          <Member Name="C" Value="3" />
+          <Member Name="D" Value="4" />
+          <Member Name="F" Value="5" />
         </EnumType>
       </Schema>
     </edmx:ConceptualModels>

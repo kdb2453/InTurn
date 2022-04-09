@@ -79,64 +79,7 @@ namespace InTurn.Areas.Students.Controllers
             return View(application);
         }
 
-            // GET: Students/JobPostings/Edit/5
-            public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            JobPosting jobPosting = db.JobPostings.Find(id);
-            if (jobPosting == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name", jobPosting.EmployerID);
-            return View(jobPosting);
-        }
-
-        // POST: Students/JobPostings/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "JobPostingID,EmployerID,Position,Desc,Wage,Location,JobType,TimeType,Days,Hours")] JobPosting jobPosting)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(jobPosting).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name", jobPosting.EmployerID);
-            return View(jobPosting);
-        }
-
-        // GET: Students/JobPostings/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            JobPosting jobPosting = db.JobPostings.Find(id);
-            if (jobPosting == null)
-            {
-                return HttpNotFound();
-            }
-            return View(jobPosting);
-        }
-
-        // POST: Students/JobPostings/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            JobPosting jobPosting = db.JobPostings.Find(id);
-            db.JobPostings.Remove(jobPosting);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+      
 
         protected override void Dispose(bool disposing)
         {

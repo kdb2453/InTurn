@@ -24,8 +24,8 @@ namespace InTurn_Model
         public int StudentID { get; set; }
         public Nullable<int> FacultyID { get; set; }
         public int JobPostingID { get; set; }
-        public string MidtermExam { get; set; }
-        public string FinalExam { get; set; }
+        public Nullable<MidTerm> MidtermExam { get; set; }
+        public Nullable<Final> FinalExam { get; set; }
     
         public virtual JobPosting JobPosting { get; set; }
         public virtual Student Student { get; set; }
