@@ -158,7 +158,7 @@ namespace InTurn.Areas.Students.Controllers
         #region Images
         private string UploadImage(HttpPostedFile file)
         {
-            if (Request.Files.Count >0)
+            if (Request.Files.Count > 0)
             {
                 try
                 {
@@ -171,7 +171,7 @@ namespace InTurn.Areas.Students.Controllers
                     {
                         file.SaveAs(path);
                         ViewBag.Message = "File uploaded successfully";
-                        return $"~{imagePath}/{file.FileName}";                    
+                        return $"~{imagePath}/{file.FileName}";
                     }
                 }
                 catch (Exception ex)
