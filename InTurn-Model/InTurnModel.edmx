@@ -215,6 +215,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="Current" Type="bit" Nullable="false" />
           <Property Name="Graduate" Type="bit" Nullable="false" />
+          <Property Name="ImageLocation" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -825,6 +826,7 @@
           <NavigationProperty Name="Applications" Relationship="Self.FK_100" FromRole="Student" ToRole="Application" />
           <NavigationProperty Name="Educations" Relationship="Self.FK_108" FromRole="Student" ToRole="Education" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_223" FromRole="Student" ToRole="Employee" />
+          <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1398,6 +1400,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="InTurnModel.Student">
               <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

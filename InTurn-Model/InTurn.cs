@@ -46,6 +46,7 @@ namespace InTurn_Model
     [MetadataType(typeof(StudentMetaData))]
     public partial class Student
     {
+        public HttpPostedFileBase FileName { get; set; }
         private sealed class StudentMetaData
         {
             [Display(Name = "Student ID")]

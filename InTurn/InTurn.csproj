@@ -44,6 +44,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -197,12 +199,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Students\Images\shared366.jpg" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -282,7 +284,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Areas\images\shared366.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -358,13 +359,6 @@
     <Content Include="Areas\Teachers\Views\Profile\Edit.cshtml" />
     <Content Include="Areas\Teachers\Views\Profile\Index.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Edit.cshtml" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\InTurn.csproj.AssemblyReference.cache" />
-    <Content Include="obj\Debug\InTurn.csproj.CopyComplete" />
-    <Content Include="obj\Debug\InTurn.csproj.CoreCompileInputs.cache" />
-    <Content Include="obj\Debug\InTurn.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\InTurn.dll" />
-    <Content Include="obj\Debug\InTurn.pdb" />
     <Content Include="obj\Release\build.force" />
     <Content Include="obj\Release\InTurn.csproj.AssemblyReference.cache" />
     <Content Include="obj\Release\InTurn.csproj.CoreCompileInputs.cache" />
@@ -373,7 +367,6 @@
     <Content Include="Areas\Students\Views\Profile\_Edit.cshtml" />
     <Content Include="Areas\Teachers\Views\Students\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\Students\_Results.cshtml" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
     <Content Include="obj\Release\InTurn.csproj.FileListAbsolute.txt" />
@@ -430,7 +423,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
     <Folder Include="Areas\Teachers\Data\" />
-    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>
