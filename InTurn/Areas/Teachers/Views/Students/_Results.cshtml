@@ -19,6 +19,7 @@
         </th>
         <th onclick="sortTable(0)">
             @Html.DisplayNameFor(model => model.MidtermExam)
+            @Html.Display(HttpUtility.HtmlDecode("&#8693;"))
         </th>
         <th onclick="sortTable(1)">
             @Html.DisplayNameFor(model => model.FinalExam)

@@ -362,6 +362,9 @@
     <Content Include="obj\Debug\InTurn.csproj.AssemblyReference.cache" />
     <Content Include="obj\Debug\InTurn.csproj.CopyComplete" />
     <Content Include="obj\Debug\InTurn.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\InTurn.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\InTurn.dll" />
+    <Content Include="obj\Debug\InTurn.pdb" />
     <Content Include="obj\Release\build.force" />
     <Content Include="obj\Release\InTurn.csproj.AssemblyReference.cache" />
     <Content Include="obj\Release\InTurn.csproj.CoreCompileInputs.cache" />
@@ -370,11 +373,9 @@
     <Content Include="Areas\Students\Views\Profile\_Edit.cshtml" />
     <Content Include="Areas\Teachers\Views\Students\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\Students\_Results.cshtml" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
-    <Content Include="obj\Debug\InTurn.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\InTurn.dll" />
-    <Content Include="obj\Debug\InTurn.pdb" />
     <Content Include="obj\Release\InTurn.csproj.FileListAbsolute.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
