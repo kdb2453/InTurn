@@ -11,10 +11,6 @@ namespace InTurn_Model
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Web;
     
     public partial class Student
     {
@@ -25,8 +21,7 @@ namespace InTurn_Model
             this.Educations = new HashSet<Education>();
             this.Employees = new HashSet<Employee>();
         }
-        
-        public HttpPostedFileBase FileName { get; set; }
+    
         public int StudentID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

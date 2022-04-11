@@ -37,7 +37,7 @@ namespace InTurn.Areas.Students.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "FirstName, LastName, PhoneNum, Address, City, Sate, ZipCode, Email, Current, Graduate, ImageLocation, FileName")] Student profile)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 db.Students.Add(profile);
                 if (profile.FileName != null)
@@ -46,6 +46,7 @@ namespace InTurn.Areas.Students.Controllers
                 return RedirectToAction("Index");
             }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

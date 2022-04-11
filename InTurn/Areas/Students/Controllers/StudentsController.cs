@@ -87,7 +87,7 @@ namespace InTurn.Areas.Students.Controllers
         [Authorize(Roles = "Admin, Student")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,FirstName,LastName,PhoneNum,Address,City,State,ZipCode,Email,Current,Graduate")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,FirstName,LastName,PhoneNum,Address,City,State,ZipCode,Email,Current,Graduate,ImageLocation,FileName")] Student student)
         {
             if (ModelState.IsValid)
             {
