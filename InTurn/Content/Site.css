@@ -4,16 +4,6 @@
     background-color:#EAE3EA;
 }
 
-
-.navbar {
-    color: #B56357;
-    background-color: #B56357;
-    font-weight:bold;
-}
-
-
-
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -33,10 +23,25 @@ select,
 textarea {
     max-width: 280px;
 }
-
-span.developer{
-    padding-left:128px;
-    font-weight:bold;
-    font-family: Courier New, Courier, monospace;
+.navbar-nav {
+    color: #A7B3A5;
+    background-color: #A7B3A5;
+    border-color: black;
 }
 
+.btn-default {
+    color: black;
+    background-color: #B4DBC0;
+    border-color: black;
+}
+.btn-primary {
+    color: black;
+    background-color: #B4DBC0;
+    border-color: black;
+}
+
+span.developer {
+    padding-left: 128px;
+    font-weight: bold;
+    font-family: Courier New, Courier, monospace;
+}
