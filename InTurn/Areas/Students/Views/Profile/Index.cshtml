@@ -23,7 +23,7 @@
             @*<img src="~/Areas/images/shared366.jpg" />*@
             @foreach (var item in Model)
             {
-                @if (!String.IsNullOrEmpty(item.ImageLocation))
+                if (!String.IsNullOrEmpty(item.ImageLocation))
                 {
                     <img src="@Href(item.ImageLocation)"
                          style="width: 150px;" />

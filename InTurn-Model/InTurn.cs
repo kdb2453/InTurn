@@ -12,6 +12,7 @@ namespace InTurn_Model
     [MetadataType(typeof(EmployerMetaData))]
     public partial class Employer
     {
+        public HttpPostedFileBase FileName { get; set; }
         private sealed class EmployerMetaData
         {
             [Display(Name = "Employer ID")]

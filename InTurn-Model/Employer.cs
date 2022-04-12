@@ -30,6 +30,7 @@ namespace InTurn_Model
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string Email { get; set; }
+        public string ImageLocation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }

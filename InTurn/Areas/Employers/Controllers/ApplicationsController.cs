@@ -128,8 +128,7 @@ namespace InTurn.Areas.Employers
 
             return View(application);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+      
     
 
         [HttpPost]
@@ -143,9 +142,9 @@ namespace InTurn.Areas.Employers
                 {
                     db.Employees.Add(new Employee()
                     {
-                        Student = application.Student,
-                        JobPosting = application.JobPosting,
-                        Employer = application.JobPosting.Employer
+                        StudentID = application.Student.StudentID,
+                        JobPostingID = application.JobPosting.JobPostingID,
+                        EmployerID = application.JobPosting.Employer.EmployerID
 
                     });
                     db.SaveChanges();

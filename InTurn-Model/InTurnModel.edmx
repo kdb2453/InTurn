@@ -142,6 +142,7 @@
           <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ZipCode" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ImageLocation" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -757,6 +758,7 @@
           <NavigationProperty Name="Jobs" Relationship="Self.FK_245" FromRole="Employer" ToRole="Job" />
           <NavigationProperty Name="JobPostings" Relationship="Self.FK_58" FromRole="Employer" ToRole="JobPosting" />
           <NavigationProperty Name="Employees" Relationship="InTurnModel.FK_Employee_Employer" FromRole="Employer" ToRole="Employee" />
+          <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -1363,6 +1365,7 @@
           <EntitySetMapping Name="Employers">
             <EntityTypeMapping TypeName="InTurnModel.Employer">
               <MappingFragment StoreEntitySet="Employer">
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
                 <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
