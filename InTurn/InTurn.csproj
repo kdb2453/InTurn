@@ -422,6 +422,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
+    <Folder Include="Areas\Employers\Temp\" />
     <Folder Include="Areas\Teachers\Data\" />
     <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>

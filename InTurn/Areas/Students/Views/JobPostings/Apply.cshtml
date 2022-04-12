@@ -12,61 +12,67 @@
 @using (Html.BeginForm("Apply", "JobPostings", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
+    <input type="hidden" name="StudentID" value=@ViewBag.Student.StudentID>
+    <input type="hidden" name="JobPostingID" value=@ViewBag.JobPosting.JobPostingID>
 
-<div class="form-horizontal">
-    <h4>Application</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("StudentID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+        
+        <div class="form-horizontal">
+            <h4>Application</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <span>@ViewBag.Student.FirstName @ViewBag.Student.LastName</span>
+
+                </div>
+            </div>
+
+            
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.JobPostingID, "JobPostingID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <span>@ViewBag.JobPosting.EmployerID @ViewBag.JobPosting.Position</span>
+
+                </div>
+            </div>
+
+
+
+            <div id="uploader" class="form-group">
+                @Html.LabelFor(model => model.Resume, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label" })
+                    <input id="FileName" type="file" name="FileName" enctype="multipart/form-data">
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Apply" class="btn btn-default" />
+                </div>
+            </div>
         </div>
-    </div>
+        
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.JobPostingID, "JobPostingID", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("JobPostingID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.JobPostingID, "", new { @class = "text-danger" })
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
-    </div>
-
-
-
-    <div id="uploader" class="form-group">
-        @Html.LabelFor(model => model.Resume, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label" })
-            <input id="FileName" type="file" name="FileName" enctype="multipart/form-data">
-        </div>
-    </div>
-
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Apply" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-<script type="text/javascript">
-    function show(input) {
-        if (input.files && input.files[0]) {
-            var filerdr = new filereader();
-            filerdr.onload = function (e) {
-                $('#filename').attr('src', e.target.result);
-            }
-            filerdr.readasdataurl(input.files[0]);
         }
-    }
-</script>
+        <script type="text/javascript">
+            function show(input) {
+                if (input.files && input.files[0]) {
+                    var filerdr = new filereader();
+                    filerdr.onload = function (e) {
+                        $('#filename').attr('src', e.target.result);
+                    }
+                    filerdr.readasdataurl(input.files[0]);
+                }
+            }
+            
+        </script>
 
 

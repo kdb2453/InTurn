@@ -70,10 +70,42 @@
     </dl>
 </div>
 
-
-
-
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EmployerID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Home","Index", "EmployerHome")
 </p>
+
+<h2>My Job Postings</h2>
+<p>
+    @Html.ActionLink("Create New", "Create","JobPostings",null,null)
+</p>
+<div id="employeeContainer"></div>
+<table class="table table-striped">
+
+    <tr>
+        <th>Position</th>
+        <th>Job Type</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.JobPostings)
+    {
+        if (item.EmployerID == Model.EmployerID)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(model => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.JobType)
+                </td>
+                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.JobPostingID }, null) </td>
+
+            </tr>
+        }
+    }
+</table>
+
+
+
