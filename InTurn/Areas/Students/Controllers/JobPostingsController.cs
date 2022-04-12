@@ -79,10 +79,7 @@ namespace InTurn.Areas.Students.Controllers
                     return RedirectToAction("Index","Applications");
                 }
             }
-            
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
-            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
             return View(application);
         }
 

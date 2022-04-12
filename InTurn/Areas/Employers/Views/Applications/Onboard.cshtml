@@ -1,0 +1,48 @@
+﻿@model InTurn_Model.Application
+
+@{
+    ViewBag.Title = "Onboard";
+    Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
+}
+
+<h2>Onboard</h2>
+
+@using (Html.BeginForm("Onboard","Applications",FormMethod.Post,null))
+{
+    @Html.AntiForgeryToken()
+    <input id="StudentID" type="hidden" value="@Model.StudentID" />
+    <input id="JobPostingID" type="hidden" value="@Model.JobPostingID" />
+    <input id="EmployerID" type="hidden" value="@Model.JobPosting.EmployerID" />
+
+    <div class="form-horizontal">
+        <h4>Employee</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span>@Model.Student.FirstName @Model.Student.LastName</span>
+            </div>
+        </div>
+
+     
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JobPostingID, "JobPostingID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <span> @Model.JobPosting.Position</span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Hire" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

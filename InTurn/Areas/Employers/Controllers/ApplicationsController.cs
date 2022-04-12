@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InTurn_Model;
+using Microsoft.AspNet.Identity;
 
 namespace InTurn.Areas.Employers
 {
@@ -113,6 +114,46 @@ namespace InTurn.Areas.Employers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Onboard (int id)
+        {
+
+
+            var application = db.Applications.
+                Include(a=>a.JobPosting.Employer).
+                Include(a=>a.Student)
+                .FirstOrDefault(a => a.ApplicationID == id);
+         
+
+            return View(application);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+    
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Onboard([Bind(Include = "ApplicationID,JobPostingID,StudentID")] Application application)
+        {
+
+
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Employees.Add(new Employee()
+                    {
+                        Student = application.Student,
+                        JobPosting = application.JobPosting,
+                        Employer = application.JobPosting.Employer
+
+                    });
+                    db.SaveChanges();
+                    return RedirectToAction("Details", "Employees");
+                }
+            }
+
+            return View(application);
         }
 
         //Download//
