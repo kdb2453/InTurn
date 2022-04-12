@@ -105,6 +105,49 @@
     }
 </table>
 
+<h2>My Employees</h2>
+@foreach (var item in Model.Employees)
+{
+    if (item.EmployerID == Model.EmployerID)
+    {
+<div id="employeeContainer"></div>
+<table class="table table-striped">
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Position</th>
+        <th>Job Type</th>
+        <th></th>
+    </tr>
+
+
+
+
+
+
+    <tr>
+
+        <td>
+            @Html.DisplayFor(model => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Student.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.JobPosting.Position)
+        </td>
+        <td>@Html.DisplayFor(model => item.JobPosting.JobType)</td>
+        <td>@Html.ActionLink("Details", "Details", "Employees", new { id = item.EmployeeID }, null) </td>
+
+    </tr>
+</table>
+    }
+    else
+    {
+        <p>No Employees</p>}
+}
+
 
 
 

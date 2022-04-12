@@ -128,6 +128,7 @@
           <Property Name="JobPostingID" Type="int" Nullable="false" />
           <Property Name="MidtermExam" Type="int" />
           <Property Name="FinalExam" Type="int" />
+          <Property Name="EmployerID" Type="int" />
         </EntityType>
         <EntityType Name="Employer">
           <Key>
@@ -479,6 +480,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Employee_Employer">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="EmployerID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EmployerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="InTurnModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
@@ -580,6 +595,10 @@
           <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Employer" Association="Self.FK_Employee_Employer">
+            <End Role="Employer" EntitySet="Employer" />
+            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -720,6 +739,8 @@
           <NavigationProperty Name="Student" Relationship="Self.FK_223" FromRole="Employee" ToRole="Student" />
           <NavigationProperty Name="Faculty" Relationship="Self.FK_231" FromRole="Employee" ToRole="Faculty" />
           <NavigationProperty Name="Jobs" Relationship="Self.FK_248" FromRole="Employee" ToRole="Job" />
+          <Property Name="EmployerID" Type="Int32" />
+          <NavigationProperty Name="Employer" Relationship="InTurnModel.FK_Employee_Employer" FromRole="Employee" ToRole="Employer" />
         </EntityType>
         <EntityType Name="Employer">
           <Key>
@@ -735,6 +756,7 @@
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Jobs" Relationship="Self.FK_245" FromRole="Employer" ToRole="Job" />
           <NavigationProperty Name="JobPostings" Relationship="Self.FK_58" FromRole="Employer" ToRole="JobPosting" />
+          <NavigationProperty Name="Employees" Relationship="InTurnModel.FK_Employee_Employer" FromRole="Employer" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -1159,6 +1181,10 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Employee_Employer" Association="InTurnModel.FK_Employee_Employer">
+            <End Role="Employer" EntitySet="Employers" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
         </EntityContainer>
         <EnumType Name="JobType">
           <Member Name="Internship" Value="1" />
@@ -1189,6 +1215,20 @@
           <Member Name="D" Value="4" />
           <Member Name="F" Value="5" />
         </EnumType>
+        <Association Name="FK_Employee_Employer">
+          <End Type="InTurnModel.Employer" Role="Employer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="InTurnModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="EmployerID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EmployerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1310,6 +1350,7 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="InTurnModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />

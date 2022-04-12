@@ -44,6 +44,7 @@
         <AssociationConnector Association="InTurnModel.FK_199" ManuallyRouted="false" />
         <AssociationConnector Association="InTurnModel.FK_191" ManuallyRouted="false" />
         <AssociationConnector Association="InTurnModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="InTurnModel.FK_Employee_Employer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
