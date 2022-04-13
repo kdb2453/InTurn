@@ -26,6 +26,8 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,8 +46,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -199,7 +199,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -207,41 +206,25 @@
     <Content Include="Areas\Employers\Images\Shinra.jpg" />
     <Content Include="Areas\Students\Images\shared366.jpg" />
     <Content Include="bin\Antlr3.Runtime.dll" />
-    <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
-    <Content Include="bin\EntityFramework.SqlServer.xml" />
-    <Content Include="bin\EntityFramework.xml" />
     <Content Include="bin\InTurn-Model.dll" />
     <Content Include="bin\InTurn-Model.pdb" />
     <Content Include="bin\InTurn.dll" />
     <Content Include="bin\InTurn.pdb" />
     <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Core.xml" />
     <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
     <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
-    <Content Include="bin\Microsoft.AspNet.Identity.Owin.xml" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="bin\Microsoft.Owin.dll" />
     <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
-    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.xml" />
     <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Cookies.xml" />
     <Content Include="bin\Microsoft.Owin.Security.dll" />
     <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Facebook.xml" />
     <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Google.xml" />
     <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.xml" />
     <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.OAuth.xml" />
     <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
-    <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
-    <Content Include="bin\Microsoft.Owin.Security.xml" />
-    <Content Include="bin\Microsoft.Owin.xml" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="bin\Owin.dll" />
@@ -266,19 +249,12 @@
     <Content Include="bin\roslyn\vbc.exe" />
     <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="bin\System.Web.Helpers.dll" />
-    <Content Include="bin\System.Web.Helpers.xml" />
     <Content Include="bin\System.Web.Mvc.dll" />
-    <Content Include="bin\System.Web.Mvc.xml" />
     <Content Include="bin\System.Web.Optimization.dll" />
-    <Content Include="bin\System.Web.Optimization.xml" />
     <Content Include="bin\System.Web.Razor.dll" />
-    <Content Include="bin\System.Web.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.Deployment.dll" />
-    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
     <Content Include="bin\System.Web.WebPages.dll" />
     <Content Include="bin\System.Web.WebPages.Razor.dll" />
-    <Content Include="bin\System.Web.WebPages.Razor.xml" />
-    <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="ChangeLog.txt" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -330,7 +306,6 @@
     <Content Include="Areas\Employers\Views\Employees\Index.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Details.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Index.cshtml" />
-    <Content Include="Areas\Teachers\Views\TeacherHome\_Results.cshtml" />
     <Content Include="Areas\Employers\Views\JobPostings\_Edit.cshtml" />
     <Content Include="Areas\Students\Views\JobPostings\Apply.cshtml" />
     <Content Include="Areas\Students\Views\Shared\_Students.cshtml" />
@@ -366,17 +341,13 @@
     <Content Include="Areas\Teachers\Views\Students\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\Students\_Results.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Onboard.cshtml" />
-    <Content Include="obj\Release\DesignTimeResolveAssemblyReferences.cache" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Release\InTurn.csproj.AssemblyReference.cache" />
     <Content Include="obj\Release\InTurn.csproj.CopyComplete" />
     <Content Include="obj\Release\InTurn.csproj.CoreCompileInputs.cache" />
+    <Content Include="Areas\Employers\Views\Applications\NewHire.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\LOGO EX 7.png" />
-    <Content Include="obj\Release\AspnetCompileMerge\Source\Areas\Students\Images\shared366.jpg" />
-    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\Antlr3.Runtime.dll" />
-    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\InTurn.dll" />
-    <Content Include="obj\Release\AspnetCompileMerge\Source\bin\InTurn.pdb" />
     <Content Include="obj\Release\InTurn.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Release\InTurn.dll" />
     <Content Include="obj\Release\InTurn.pdb" />
@@ -433,7 +404,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
     <Folder Include="Areas\Teachers\Data\" />
-    <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
