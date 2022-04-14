@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,11 +50,13 @@ namespace InTurn.Areas.Employers.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployerID,Name,PhoneNum,Address,City,State,ZipCode,Email")] Employer employer)
+        public ActionResult Create([Bind(Include = "EmployerID,Name,PhoneNum,Address,City,State,ZipCode,Email,FileName,ImageLocation")] Employer employer)
         {
             if (ModelState.IsValid)
             {
                 db.Employers.Add(employer);
+                if (employer.FileName != null)
+                    employer.ImageLocation = UploadImage(employer.FileName);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -80,13 +84,16 @@ namespace InTurn.Areas.Employers.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployerID,Name,PhoneNum,Address,City,State,ZipCode,Email")] Employer employer)
+        public ActionResult Edit([Bind(Include = "EmployerID,Name,PhoneNum,Address,City,State,ZipCode,Email,FileName,ImageLocation")] Employer employer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employer).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                  db.Entry(employer).State=EntityState.Modified;
+                    if (employer.FileName != null)
+                       employer.ImageLocation = UploadImage(employer.FileName);
+                   db.SaveChanges();
+                   return RedirectToAction("Index","EmployerHome");
             }
             return View(employer);
         }
@@ -125,5 +132,33 @@ namespace InTurn.Areas.Employers.Controllers
             }
             base.Dispose(disposing);
         }
+
+        #region Images
+        private string UploadImage(HttpPostedFileBase file)
+        {
+            if (Request.Files.Count > 0)
+            {
+                try
+                {
+                    var allowedExtensions = new[] { ".jpg", ".png", ".jpeg" };
+                    var imagePath = ConfigurationManager.AppSettings["EmployerPic"];
+                    var mapPath = HttpContext.Server.MapPath(imagePath);
+                    string path = Path.Combine(mapPath, Path.GetFileName(file.FileName));
+                    string ext = Path.GetExtension(file.FileName);
+                    if (allowedExtensions.Contains(ext))
+                    {
+                        file.SaveAs(path);
+                        ViewBag.Message = "File uploaded successfully";
+                        return $"{imagePath}/{file.FileName}";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = $"ERROR: { ex.Message}";
+                }
+            }
+            return String.Empty;
+        }
+        #endregion
     }
 }

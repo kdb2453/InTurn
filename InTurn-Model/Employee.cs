@@ -26,11 +26,13 @@ namespace InTurn_Model
         public int JobPostingID { get; set; }
         public Nullable<MidTerm> MidtermExam { get; set; }
         public Nullable<Final> FinalExam { get; set; }
+        public Nullable<int> EmployerID { get; set; }
     
         public virtual JobPosting JobPosting { get; set; }
         public virtual Student Student { get; set; }
         public virtual Faculty Faculty { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }
+        public virtual Employer Employer { get; set; }
     }
 }

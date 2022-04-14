@@ -8,7 +8,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-//using InTurn.Data;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using InTurn_Model;
 
 namespace InTurn.Areas.Students.Controllers
@@ -41,12 +43,17 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/JobPostings/Apply
-        public ActionResult Apply()
+        public ActionResult Apply(int id)
 
         {
-            
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName");
-            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position");
+            var user= User.Identity.GetUserId();
+            var aspUser = db.AspNetUsers.Find(user);
+            var contact = db.Students.FirstOrDefault(s => s.Email == aspUser.Email);
+            var jobPosting = db.JobPostings.Find(id);
+            var employer = db.Employers.Find(id);
+            ViewBag.Student = contact;
+            ViewBag.JobPosting = jobPosting;
+            ViewBag.Employer= employer;
            
             
             return View();
@@ -72,10 +79,7 @@ namespace InTurn.Areas.Students.Controllers
                     return RedirectToAction("Index","Applications");
                 }
             }
-            
 
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
-            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
             return View(application);
         }
 

@@ -8,12 +8,12 @@
 
 <h2>@ViewBag.Title</h2>
 
-<p>
+@*<p>
     &nbsp;&nbsp;&nbsp;<label class="filter">Major</label>&nbsp;&nbsp;&nbsp;
     @Html.DropDownList("MajorID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByTag()" })
     &nbsp;&nbsp;&nbsp;<label class="filter">Seacrh by Name</label>&nbsp;&nbsp;&nbsp;
     @Html.TextArea("Search", null, htmlAttributes: new { @class = "filter", @onchange = "FilterByName()" })
-</p>
+</p>*@
 
 <table class="table">
     <tr>
@@ -91,7 +91,7 @@
     }
 </table>
 
-    @section Scripts{
+    @*@section Scripts{
         <script type="text/javascript">
             function FillByTag() {
                 var majorId = $('#MajorID').val(); //need to figure out how to connect to the MajorRequirements table
@@ -104,6 +104,6 @@
                 container.load('@Url.Action("_IndexByName")?parm' + parm);
             }
 
-        </script>
-        }
+        </script>*@
+        
 

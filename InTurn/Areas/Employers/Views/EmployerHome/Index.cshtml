@@ -1,31 +1,160 @@
-﻿
+﻿@model InTurn_Model.Employer
+
 @{
-    ViewBag.Title = "Employer Home";
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "TS";
+
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>@Model.Name @ViewBag.Title</h2>
+
+@if (!String.IsNullOrEmpty(Model.ImageLocation))
+{
+    <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+}
+
+<dl class="dl-horizontal">
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PhoneNum)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PhoneNum)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Address)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.City)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.City)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.State)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.State)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.ZipCode)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.ZipCode)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+
+</dl>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", "Employers", new { id = Model.EmployerID }, null)
+
+</p>
+
+<h2>My Job Postings</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", "JobPostings", null, null)
+</p>
+<div id="employeeContainer"></div>
+<table class="table table-striped">
+
+    <tr>
+        <th>Position</th>
+        <th>Job Type</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.JobPostings)
+    {
+        if (item.EmployerID == Model.EmployerID)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(model => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.JobType)
+                </td>
+                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.JobPostingID }, null) </td>
+
+            </tr>
+        }
+    }
+</table>
+
+<h2>My Employees</h2>
+@foreach (var item in Model.Employees)
+{
+    if (item.EmployerID == Model.EmployerID)
+    {
+        <div id="employeeContainer"></div>
+        <table class="table table-striped">
+
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Position</th>
+                <th>Job Type</th>
+                <th></th>
+            </tr>
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(model => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Student.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.JobPosting.Position)
+                </td>
+                <td>@Html.DisplayFor(model => item.JobPosting.JobType)</td>
+                <td>@Html.ActionLink("Details", "Details", "Employees", new { id = item.EmployeeID }, null) </td>
+
+            </tr>
+        </table>
+    }
+    else
+    {
+        <p>No Employees</p>}
+}
+
+
 
 
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Profile</h2>
-        <p>
-            Create, View and Edit Your Profile
-        </p>
-        <br />
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Employers", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
-    </div>
-    <div class="col-md-4">
-        <h2>Job Postings</h2>
-        <p>
-            Create, View and Edit Your Job Postings
-        </p>
-        <br />
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
-    </div>
+
     <div class="col-md-4">
         <h2>Applicants</h2>
         <p>View applicants for your job postings.</p>

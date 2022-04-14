@@ -19,6 +19,7 @@ namespace InTurn_Model
         {
             this.Jobs = new HashSet<Job>();
             this.JobPostings = new HashSet<JobPosting>();
+            this.Employees = new HashSet<Employee>();
         }
     
         public int EmployerID { get; set; }
@@ -29,10 +30,13 @@ namespace InTurn_Model
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string Email { get; set; }
+        public string ImageLocation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobPosting> JobPostings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }
