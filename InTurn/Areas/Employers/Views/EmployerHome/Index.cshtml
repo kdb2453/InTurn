@@ -1,5 +1,6 @@
 ﻿@model InTurn_Model.Employer
 
+
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,72 +8,92 @@
 
 }
 
-<h2>@Model.Name @ViewBag.Title</h2>
+<center><h2>@Model.Name @ViewBag.Title</h2></center>
 
-@if (!String.IsNullOrEmpty(Model.ImageLocation))
-{
-    <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
-}
+<div class="row">
+    <center>
+        <div class="col-md-4">
 
-<dl class="dl-horizontal">
+            @if (!String.IsNullOrEmpty(Model.ImageLocation))
+            {
+                <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+            }
 
-    <dt>
-        @Html.DisplayNameFor(model => model.Name)
-    </dt>
+        </div>
+    </center>
+    </div>
+<br />
+    
+<div class="row">
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
 
-    <dd>
-        @Html.DisplayFor(model => model.Name)
-    </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.PhoneNum)
-    </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-    <dd>
-        @Html.DisplayFor(model => model.PhoneNum)
-    </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNum)
+            </dt>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.Address)
-    </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNum)
+            </dd>
 
-    <dd>
-        @Html.DisplayFor(model => model.Address)
-    </dd>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.City)
-    </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-    <dd>
-        @Html.DisplayFor(model => model.City)
-    </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
 
-    <dt>
-        @Html.DisplayNameFor(model => model.State)
-    </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
 
-    <dd>
-        @Html.DisplayFor(model => model.State)
-    </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.ZipCode)
-    </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
 
-    <dd>
-        @Html.DisplayFor(model => model.ZipCode)
-    </dd>
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
 
-    <dt>
-        @Html.DisplayNameFor(model => model.Email)
-    </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
 
-    <dd>
-        @Html.DisplayFor(model => model.Email)
-    </dd>
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
 
-</dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+
+
+        </dl>
+    </div>
+</div>
+
 
 <p>
     @Html.ActionLink("Edit", "Edit", "Employers", new { id = Model.EmployerID }, null)
@@ -89,6 +110,7 @@
     <tr>
         <th>Position</th>
         <th>Job Type</th>
+        <th>Number of Applications</th>
         <th></th>
     </tr>
 
@@ -104,6 +126,7 @@
                 <td>
                     @Html.DisplayFor(model => item.JobType)
                 </td>
+                <td>@Html.DisplayFor(model=>item.AppCount)</td>
                 <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.JobPostingID }, null) </td>
 
             </tr>
@@ -111,44 +134,46 @@
     }
 </table>
 
+
+
 <h2>My Employees</h2>
 
 
-{
-        <div id="employeeContainer"></div>
-        <table class="table table-striped">
 
+<div id="employeeContainer"></div>
+<table class="table table-striped">
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Position</th>
+        <th>Job Type</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Employees)
+    {
+        if (item.EmployerID == Model.EmployerID)
+        {
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Position</th>
-                <th>Job Type</th>
-                <th></th>
+
+                <td>
+                    @Html.DisplayFor(model => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Student.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.JobPosting.Position)
+                </td>
+                <td>@Html.DisplayFor(model => item.JobPosting.JobType)</td>
+                <td>@Html.ActionLink("Details", "Details", "Employees", new { id = item.EmployeeID }, null) </td>
+
             </tr>
-            @foreach (var item in Model.Employees)
-            {
-                if (item.EmployerID == Model.EmployerID)
-                {
-                <tr>
+        }
 
-                    <td>
-                        @Html.DisplayFor(model => item.Student.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Student.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.JobPosting.Position)
-                    </td>
-                    <td>@Html.DisplayFor(model => item.JobPosting.JobType)</td>
-                    <td>@Html.ActionLink("Details", "Details", "Employees", new { id = item.EmployeeID }, null) </td>
-
-                </tr>
-                }
-
-            }
-        </table>
     }
+</table>
+
 
 
 

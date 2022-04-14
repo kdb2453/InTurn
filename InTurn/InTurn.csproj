@@ -203,6 +203,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Employers\Images\My project %282%29.png" />
+    <Content Include="Areas\Employers\Images\My project %283%29.png" />
     <Content Include="Areas\Employers\Images\Shinra.jpg" />
     <Content Include="Areas\Students\Images\shared366.jpg" />
     <Content Include="bin\Antlr3.Runtime.dll" />

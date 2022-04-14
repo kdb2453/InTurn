@@ -12,7 +12,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Employers.Controllers
 {
-    [Authorize(Roles = "Admin,Employer")]
+   [Authorize(Roles = "Admin,Employer")]
     public class EmployersController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
@@ -38,6 +38,7 @@ namespace InTurn.Areas.Employers.Controllers
             }
             return View(employer);
         }
+
 
         // GET: Employers/Employers/Create
         public ActionResult Create()
@@ -132,6 +133,8 @@ namespace InTurn.Areas.Employers.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
 
         #region Images
         private string UploadImage(HttpPostedFileBase file)

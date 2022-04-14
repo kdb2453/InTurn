@@ -127,6 +127,7 @@ namespace InTurn_Model
     [MetadataType(typeof(JobPostingMetaData))]
     public partial class JobPosting
     {
+        public int AppCount { get; set; }
         private sealed class JobPostingMetaData
         {
             [Display(Name = "Job Posting ID")]
@@ -141,6 +142,8 @@ namespace InTurn_Model
             public TimeType TimeType { get; set; }
             [DataType(DataType.Currency)]
             public decimal Wage { get; set; }
+
+            
         }
     }//END JOBPOSTING METADATA
 
