@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InTurn_Model;
-using System.Configuration;
-using System.IO;
-
 
 namespace InTurn.Areas.Students.Controllers
 {
@@ -58,6 +57,9 @@ namespace InTurn.Areas.Students.Controllers
             if (ModelState.IsValid)
             {
                 db.Students.Add(student);
+                if (student.FileName != null)
+                    student.ImageLocation = UploadImage(student.FileName);
+                db.SaveChanges();
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -79,6 +81,9 @@ namespace InTurn.Areas.Students.Controllers
                 return HttpNotFound();
             }
             return View(student);
+
+            //ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", student.StudentID);
+            //return View(student);
         }
 
         // POST: Students/Students/Edit/5
@@ -156,7 +161,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         #region Images
-        private string UploadImage(HttpPostedFile file)
+        private string UploadImage(HttpPostedFileBase file)
         {
             if (Request.Files.Count > 0)
             {
