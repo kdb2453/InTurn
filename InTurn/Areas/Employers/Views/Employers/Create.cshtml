@@ -12,6 +12,7 @@
 {
     @Html.AntiForgeryToken()
   
+    @Html.HiddenFor(model=>model.EmployerID)
     
 <div class="form-horizontal">
     <h4>Employer</h4>

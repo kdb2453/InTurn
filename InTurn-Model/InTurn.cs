@@ -48,6 +48,8 @@ namespace InTurn_Model
     public partial class Student
     {
         public HttpPostedFileBase FileName { get; set; }
+
+        public string FullName => $"{FirstName} {LastName}";
         private sealed class StudentMetaData
         {
             [Display(Name = "Student ID")]
@@ -60,7 +62,8 @@ namespace InTurn_Model
             public string PhoneNum { get; set; }
             [Display(Name = "Zip Code")]
             public string ZipCode { get; set; }
-            public string ImageLocation { get; set; }
+            [Display(Name ="Name")]
+            public string FullName { get; set;}
         }
     }//END STUDENT METADATA
 
@@ -68,6 +71,7 @@ namespace InTurn_Model
     [MetadataType(typeof(FacultyMetaData))]
     public partial class Faculty
     {
+        public string FullName => $"{FirstName} {LastName}";
         private sealed class FacultyMetaData
         {
             [Display(Name = "Faculty ID")]
@@ -78,6 +82,8 @@ namespace InTurn_Model
             public string LastName { get; set; }
             [Display(Name = "Phone Number")]
             public string PhoneNum { get; set; }
+            [Display(Name ="Name")]
+            public string FullName { get; set; }
         }
     }//END FACULTY METADATA
 

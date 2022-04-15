@@ -21,9 +21,9 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Student.FullName, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <span>@ViewBag.Student.FirstName @ViewBag.Student.LastName</span>
+                    <span>@ViewBag.Student.FullName</span>
 
                 </div>
             </div>
