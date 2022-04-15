@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Developer = "TS";
+    ViewBag.Developer = "LC";
 }
 
 <h2>@ViewBag.Title</h2>
@@ -13,59 +13,129 @@
     <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
 }
 
-<dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNum)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Current)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Graduate)
-        </dt>
-</dl>
-
-@*<div class="row">
+<div class="row">
     <div class="col-md-4">
-        <h2>Profile</h2>
+        <dl class="dl-horizontal">
 
-        <p>View and edit your Profile.</p>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
 
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Profile", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNum)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNum)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Current)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Current)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Graduate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Graduate)
+            </dd>
+        </dl>
     </div>
     <div class="col-md-4">
-        <h2>Job Postings</h2>
+        <dl class="dl-horizontal">
 
-        <p>View job postings.</p>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
 
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+
+
+        </dl>
     </div>
-    <div class="col-md-4">
-        <h2>My Applications</h2>
+</div>
 
-        <p>View applications you've submitted.</p>
+<p>
+    @Html.ActionLink("Edit", "Edit", "Students", new { id = Model.StudentID }, null)
+</p>
 
-        <p> @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Applications", new { area = "Students" }, new { @class = "btn btn-default" })</p>
-    </div>
-</div>*@
+<h2>My Applications</h2>
+<div id="applicationeContainer"></div>
+<table class="table table-striped">
+
+    <tr>
+        <th>Employer</th>
+        <th>Position</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Applications)
+    {
+        if (item.StudentID == Model.StudentID)
+        {
+            <tr>
+                <td>
+                     @Html.DisplayFor(model => item.JobPosting.Employer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.JobPosting.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.AppStatus)
+                </td>
+                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td>
+
+            </tr>
+        }
+    }
+</table>
