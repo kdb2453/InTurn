@@ -8,9 +8,15 @@ using System.Web;
 
 namespace InTurn_Model
 {
+    public interface IContact
+    {
+        string Email { get; }
+        string PhoneNum { get; }
+    }
+
     //START EMPLOYER METADATA
     [MetadataType(typeof(EmployerMetaData))]
-    public partial class Employer
+    public partial class Employer:IContact
     {
         public HttpPostedFileBase FileName { get; set; }
         private sealed class EmployerMetaData
@@ -45,7 +51,7 @@ namespace InTurn_Model
 
     //START STUDENT METADATA
     [MetadataType(typeof(StudentMetaData))]
-    public partial class Student
+    public partial class Student:IContact
     {
         public HttpPostedFileBase FileName { get; set; }
 
@@ -154,6 +160,10 @@ namespace InTurn_Model
         }
     }//END JOBPOSTING METADATA
 
+    public partial class Faculty:IContact
+    {
+
+    }
     //TESTING ViewModel FOR TeacherHomeController
    /*
     public class ViewModel
@@ -171,13 +181,15 @@ namespace InTurn_Model
 
 
 
-    public partial class Application
+    public partial class Application:IContact
     {
 
         //For uploading documents like Resume and Transcript
         public HttpPostedFileBase FileName { get; set; }
 
+        public string Email => ((IContact)Student).Email;
 
+        public string PhoneNum => ((IContact)Student).PhoneNum;
     }
 
 }

@@ -1,4 +1,5 @@
-﻿@model InTurn_Model.Employer
+﻿@using InTurn.HTMLHelpers
+@model InTurn_Model.Employer
 
 
 @{
@@ -50,7 +51,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Email)
+                @Html.Email(Model)
             </dd>
         </dl>
     </div>
