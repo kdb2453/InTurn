@@ -103,6 +103,7 @@
 <table class="table table-striped">
 
     <tr>
+        <th>Employer</th>
         <th>Position</th>
         <th>Status</th>
         <th></th>
@@ -113,8 +114,10 @@
         if (item.StudentID == Model.StudentID)
         {
             <tr>
-
-                <td>
+                 <td>
+                    @Html.DisplayFor(model => item.JobPosting.Employer.Name)
+                 </td>
+                 <td>
                     @Html.DisplayFor(model => item.JobPosting.Position)
                 </td>
                 <td>
