@@ -60,6 +60,7 @@ namespace InTurn_Model
             public string PhoneNum { get; set; }
             [Display(Name = "Zip Code")]
             public string ZipCode { get; set; }
+            public string ImageLocation { get; set; }
         }
     }//END STUDENT METADATA
 

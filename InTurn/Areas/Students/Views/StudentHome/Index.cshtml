@@ -1,32 +1,71 @@
-﻿
+﻿@model InTurn_Model.Student
+
 @{
-    ViewBag.Title = "Student Home";
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "TS";
 }
 
 <h2>@ViewBag.Title</h2>
 
-<div class="row">
+@if (!String.IsNullOrEmpty(Model.ImageLocation))
+{
+    <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+}
+
+<dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNum)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Current)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Graduate)
+        </dt>
+</dl>
+
+@*<div class="row">
     <div class="col-md-4">
         <h2>Profile</h2>
-        
+
         <p>View and edit your Profile.</p>
-        
+
         <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Profile", new { area = "Students" }, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
         <h2>Job Postings</h2>
-        
+
         <p>View job postings.</p>
-        
+
         <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })</p>
     </div>
     <div class="col-md-4">
         <h2>My Applications</h2>
-        
+
         <p>View applications you've submitted.</p>
-        
+
         <p> @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Applications", new { area = "Students" }, new { @class = "btn btn-default" })</p>
     </div>
-</div>
+</div>*@
