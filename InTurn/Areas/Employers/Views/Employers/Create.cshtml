@@ -7,18 +7,19 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Edit", "Employers", FormMethod.Post,
+@using (Html.BeginForm("Create", "Employers", FormMethod.Post,
                 new { enctype = "Multipart/form-data" })) 
 {
     @Html.AntiForgeryToken()
   
-    @Html.HiddenFor(model=>model.EmployerID)
+   
     
 <div class="form-horizontal">
     <h4>Employer</h4>
     <img id="employer_image" style="height:250px;width:200px;border:none;" />
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+ 
     <div class="form-group">
         @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">

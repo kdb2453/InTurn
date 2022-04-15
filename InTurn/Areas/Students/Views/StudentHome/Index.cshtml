@@ -6,7 +6,7 @@
     ViewBag.Developer = "TS";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>@Model.FullName  @ViewBag.Title</h2>
 
 @if (!String.IsNullOrEmpty(Model.ImageLocation))
 {
@@ -14,58 +14,68 @@
 }
 
 <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNum)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Current)
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Graduate)
-        </dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.FullName)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.FullName)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.PhoneNum)
+    </dt>
+    <dd>@Html.DisplayFor(model=>model.PhoneNum)</dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+    <dd>@Html.DisplayFor(model=>model.Address)</dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.City)
+    </dt>
+    <dd>@Html.DisplayFor(mode=>Model.City)</dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.State)
+    </dt>
+    <dd>@Html.DisplayFor(model=>model.State)</dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.ZipCode)
+    </dt>
+    <dd>@Html.DisplayFor(model=>model.ZipCode)</dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+    <dd>@Html.DisplayFor(model=>model.Email)</dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Current)
+    </dt>
+    <dd>@Html.DisplayFor(model=>model.Current)</dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Graduate)
+    </dt>
+    <dd>@Html.DisplayFor(model=>model.Graduate)</dd>
 </dl>
 
+@Html.ActionLink("Edit", "Edit","Students", new { id = Model.StudentID },null)
+
 @*<div class="row">
-    <div class="col-md-4">
-        <h2>Profile</h2>
+        <div class="col-md-4">
+            <h2>Profile</h2>
 
-        <p>View and edit your Profile.</p>
+            <p>View and edit your Profile.</p>
 
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Profile", new { area = "Students" }, new { @class = "btn btn-default" })</p>
-    </div>
-    <div class="col-md-4">
-        <h2>Job Postings</h2>
+            <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Profile", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Job Postings</h2>
 
-        <p>View job postings.</p>
+            <p>View job postings.</p>
 
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })</p>
-    </div>
-    <div class="col-md-4">
-        <h2>My Applications</h2>
+            <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+        </div>
+        <div class="col-md-4">
+            <h2>My Applications</h2>
 
-        <p>View applications you've submitted.</p>
+            <p>View applications you've submitted.</p>
 
-        <p> @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Applications", new { area = "Students" }, new { @class = "btn btn-default" })</p>
-    </div>
-</div>*@
+            <p> @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Applications", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+        </div>
+    </div>*@

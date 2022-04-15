@@ -98,7 +98,7 @@ namespace InTurn.Areas.Students.Controllers
             {
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","StudentHome");
             }
             return View(student);
         }

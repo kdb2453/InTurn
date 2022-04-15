@@ -61,7 +61,7 @@ namespace InTurn.Areas.Employers.Controllers
                 if (employer.FileName != null)
                     employer.ImageLocation = UploadImage(employer.FileName);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","EmployerHome");
             }
 
             return View(employer);
