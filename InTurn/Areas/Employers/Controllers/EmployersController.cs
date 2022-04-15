@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InTurn_Model;
+using Microsoft.AspNet.Identity;
 
 namespace InTurn.Areas.Employers.Controllers
 {
@@ -43,6 +44,7 @@ namespace InTurn.Areas.Employers.Controllers
         // GET: Employers/Employers/Create
         public ActionResult Create()
         {
+           
             return View();
         }
 
