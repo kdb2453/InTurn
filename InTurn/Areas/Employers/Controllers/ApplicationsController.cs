@@ -131,29 +131,8 @@ namespace InTurn.Areas.Employers
       
     
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Onboard([Bind(Include = "ApplicationID,JobPostingID,StudentID")] Application application)
-        {
-
-
-            {
-                if (ModelState.IsValid)
-                {
-                    db.Employees.Add(new Employee()
-                    {
-                        StudentID = application.Student.StudentID,
-                        JobPostingID = application.JobPosting.JobPostingID,
-                        EmployerID = application.JobPosting.Employer.EmployerID
-
-                    });
-                    db.SaveChanges();
-                    return RedirectToAction("Details", "Employees");
-                }
-            }
-
-            return View(application);
-        }
+       
+       
 
         //Download//
 
@@ -174,5 +153,27 @@ namespace InTurn.Areas.Employers
             var FileVirtualPath = "/FileUploads" + file;
             return File(FileVirtualPath, "application/force-download", Path.GetFileName(FileVirtualPath));
         }
+
+        public ActionResult NewHire(int id)
+        {
+            var application = db.Applications.Find(id);
+            db.Employees.Add(new Employee()
+            {
+                StudentID = application.Student.StudentID,
+                JobPostingID = application.JobPosting.JobPostingID,
+                EmployerID = application.JobPosting.Employer.EmployerID
+
+            });
+            db.SaveChanges();
+            return View();
+        }
+
+
+       
+           
+
     }
+
+
+
 }

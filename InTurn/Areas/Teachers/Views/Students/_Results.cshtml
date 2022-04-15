@@ -3,9 +3,6 @@
 <table class="table" id="studentTable">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EmployeeID)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.StudentID)
         </th>
         <th>
@@ -15,11 +12,10 @@
             @Html.DisplayNameFor(model => model.Student.LastName)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model=>model.Student.Educations.Degree.Course.Name)) @*NEEDS TO LINK TO COURSE*@
+            Course @*WILL LINK TO COURSE TABLE*@
         </th>
         <th onclick="sortTable(0)">
             @Html.DisplayNameFor(model => model.MidtermExam)
-            @Html.Display(HttpUtility.HtmlDecode("&#8693;"))
         </th>
         <th onclick="sortTable(1)">
             @Html.DisplayNameFor(model => model.FinalExam)
@@ -32,31 +28,27 @@
     @foreach (var item in Model)
     {
         <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.LastName)
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.Student.Educations.Degree.Course.Name) @*NEEDS TO LINK TO COURSE*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MidtermExam)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FinalExam)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new {})
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.LastName)
+            </td>
+            <td>
+                Course Name@*WILL LINK TO COURSE TABLE*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MidtermExam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinalExam)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new { })
+            </td>
         </tr>
     }
-
 </table>
