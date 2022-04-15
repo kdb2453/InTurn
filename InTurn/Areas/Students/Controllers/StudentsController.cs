@@ -97,6 +97,8 @@ namespace InTurn.Areas.Students.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(student).State = EntityState.Modified;
+                if (student.FileName != null)
+                    student.ImageLocation = UploadImage(student.FileName);
                 db.SaveChanges();
                 return RedirectToAction("Index","StudentHome");
             }

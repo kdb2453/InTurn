@@ -6,30 +6,36 @@
     ViewBag.Developer = "LC";
 }
 
-<h2>@Model.FullName  @ViewBag.Title</h2>
+<center><h2>@Model.FullName  @ViewBag.Title</h2></center>
 
-@if (!String.IsNullOrEmpty(Model.ImageLocation))
-{
-    <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
-}
+<div class="row">
+    <center>
+        <div class="col-md-4">
+
+            @if (!String.IsNullOrEmpty(Model.ImageLocation))
+            {
+                <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+            }
+            else
+            {
+                <img id="student_image" style="height:250px;width:200px;border:none;" />
+            }
+        </div>
+    </center>
+</div>
+<br />
 
 <div class="row">
     <div class="col-md-4">
         <dl class="dl-horizontal">
 
             <dt>
-                @Html.DisplayNameFor(model => model.FirstName)
+                @Html.DisplayNameFor(model => model.FullName)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.FirstName)
+                @Html.DisplayFor(model => model.FullName)
             </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.LastName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.LastName)
             </dd>
 
             <dt>
@@ -125,7 +131,7 @@
         {
             <tr>
                 <td>
-                     @Html.DisplayFor(model => item.JobPosting.Employer.Name)
+                    @Html.DisplayFor(model => item.JobPosting.Employer.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(model => item.JobPosting.Position)
