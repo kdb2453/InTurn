@@ -16,10 +16,6 @@
             {
                 <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
             }
-            else
-            {
-                <img id="student_image" style="height:250px;width:200px;border:none;" />
-            }
         </div>
     </center>
 </div>
@@ -35,7 +31,6 @@
 
             <dd>
                 @Html.DisplayFor(model => model.FullName)
-            </dd>
             </dd>
 
             <dt>
@@ -114,14 +109,16 @@
     @Html.ActionLink("Edit", "Edit", "Students", new { id = Model.StudentID }, null)
 </p>
 
+
 <h2>My Applications</h2>
-<div id="applicationeContainer"></div>
+<div id="studentContainer"></div>
 <table class="table table-striped">
 
     <tr>
         <th>Employer</th>
         <th>Position</th>
         <th>Status</th>
+        <th>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</th>
         <th></th>
     </tr>
 
@@ -139,9 +136,28 @@
                 <td>
                     @Html.DisplayFor(model => item.AppStatus)
                 </td>
-                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td>
+                <td> </td>
+                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td> @*not sure I like this here*@
 
             </tr>
         }
     }
 </table>
+
+@*<h2>Open Jobs</h2>
+<div id="studentContainer"></div>
+<table class="table table-striped">
+    <tr>
+        <th>Employer</th>
+        <th>Position</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var item in Model.JobPostings)
+    {
+        if (item.StudentID == Model.StudentID)
+                {
+
+                }
+
+    }
+</table>*@
