@@ -142,6 +142,7 @@ namespace InTurn.Areas.Students.Controllers
             base.Dispose(disposing);
         }
 
+
         public ActionResult _IndexByTag(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
@@ -178,7 +179,7 @@ namespace InTurn.Areas.Students.Controllers
                     {
                         file.SaveAs(path);
                         ViewBag.Message = "File uploaded successfully";
-                        return $"~{imagePath}/{file.FileName}";
+                        return $"{imagePath}/{file.FileName}";
                     }
                 }
                 catch (Exception ex)
