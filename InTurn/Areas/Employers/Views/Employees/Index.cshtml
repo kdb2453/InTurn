@@ -23,11 +23,13 @@
         <th>
             @Html.DisplayNameFor(model => model.JobPosting.Position)
         </th>
-        <th onclick="sortTable(0)">
-            @Html.DisplayNameFor(model => model.Student.FirstName)
+        <th onclick="sortTable(1)">
+            @Html.Raw(HttpUtility.HtmlDecode("Student's Name &#129057;&#129059;"))
+            @*@Html.DisplayNameFor(model => model.Student.FirstName)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Faculty.FirstName)
+            Advisor's Name
+            @*@Html.DisplayNameFor(model => model.Faculty.FullName)*@
         </th>
         <th></th>
     </tr>
@@ -45,10 +47,10 @@
                 @Html.DisplayFor(modelItem => item.JobPosting.Position)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Student.FirstName)
+                @Html.DisplayFor(modelItem => item.Student.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Faculty.FirstName)
+                @Html.DisplayFor(modelItem => item.Faculty.FullName)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |

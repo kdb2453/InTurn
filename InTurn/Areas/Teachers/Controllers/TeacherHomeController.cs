@@ -28,7 +28,6 @@ namespace InTurn.Areas.Teachers.Controllers
             var aspUser = db.AspNetUsers.Find(user);
             var faculty = db.Faculties.FirstOrDefault(f => f.Email == aspUser.Email);
             return View(faculty);
-            // return View();
         }
     }
 }

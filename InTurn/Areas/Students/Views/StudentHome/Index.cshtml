@@ -14,7 +14,7 @@
 
             @if (!String.IsNullOrEmpty(Model.ImageLocation))
             {
-                <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+                <img src="@Href(Model.ImageLocation)" style="width:200px; border:solid;" />
             }
         </div>
     </center>
@@ -118,7 +118,6 @@
         <th>Employer</th>
         <th>Position</th>
         <th>Status</th>
-        <th>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</th>
         <th></th>
     </tr>
 
@@ -136,12 +135,11 @@
                 <td>
                     @Html.DisplayFor(model => item.AppStatus)
                 </td>
-                <td> </td>
                 <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td> @*not sure I like this here*@
-
             </tr>
         }
     }
+    <th>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</th>
 </table>
 
 @*<h2>Open Jobs</h2>

@@ -1,7 +1,28 @@
 ﻿@{
     ViewBag.Title = "About Us";
+    ViewBag.Developer = "KB";
 }
-<h2>@ViewBag.Title</h2>
 
-<h3>@ViewBag.Message</h3>
-<p>Here at InTurn we are committed to creating brighter futures for Students, Faculty, and Employers by offering an effortless means of finding and staying updated about a wide variety of internships and jobs. </p>
+@*IMAGE & TEXT STYLING*@
+<style>
+    #container {
+        width: 1380px;
+        height: 550px;
+    }
+
+    #floated {
+        float: right;
+        width: 600px;
+        height: fit-content;
+    }
+</style>@*END IMAGE & TEXT STYLING*@
+
+<h2 align="center">@ViewBag.Title</h2>
+
+<div id="container">
+    <div id="floated"><img src="~/Images/team.jpg" style="width:60%; border:solid" /></div>
+
+    <h3>@ViewBag.Message</h3>
+
+    <p>Here at InTurn we are committed to creating brighter futures for Students, Faculty, and Employers by offering an effortless means of finding and staying updated about a wide variety of internships and jobs.</p>
+</div>
