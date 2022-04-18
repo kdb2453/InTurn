@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InTurn_Model;
+using Microsoft.AspNet.Identity;
 
 namespace InTurn.Areas.Employers.Controllers
 {
@@ -40,7 +41,10 @@ namespace InTurn.Areas.Employers.Controllers
         // GET: Employers/JobPostings/Create
         public ActionResult Create()
         {
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name");
+            var user = User.Identity.GetUserId();
+            var aspUser = db.AspNetUsers.Find(user);
+            var employer=db.Employers.FirstOrDefault(e => e.Email == aspUser.Email);
+            ViewBag.Employer = employer;
             return View();
         }
 
@@ -55,10 +59,10 @@ namespace InTurn.Areas.Employers.Controllers
             {
                 db.JobPostings.Add(jobPosting);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","EmployerHome");
             }
 
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name", jobPosting.EmployerID);
+          
             return View(jobPosting);
         }
 
@@ -74,7 +78,7 @@ namespace InTurn.Areas.Employers.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name", jobPosting.EmployerID);
+           
             return View(jobPosting);
         }
 
@@ -89,9 +93,9 @@ namespace InTurn.Areas.Employers.Controllers
             {
                 db.Entry(jobPosting).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","EmployerHome");
             }
-            ViewBag.EmployerID = new SelectList(db.Employers, "EmployerID", "Name", jobPosting.EmployerID);
+           
             return View(jobPosting);
         }
 
