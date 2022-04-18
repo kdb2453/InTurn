@@ -1,12 +1,12 @@
 ﻿@model InTurn_Model.Faculty
 
 @{
-    ViewBag.Title = "Faculty Home";
+    ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "KB";
 }
 
-<h2 align="center">@ViewBag.Title</h2>
+<h2 align="center">@Model.FullName @ViewBag.Title</h2>
 
 @*PROFILE INFORMATION*@
 <div class="row">

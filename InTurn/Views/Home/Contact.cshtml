@@ -1,17 +1,39 @@
 ﻿@{
     ViewBag.Title = "Contact Us";
+    ViewBag.Developer = "KB";
 }
-<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    <strong>Address:</strong><br />
-    1651 E Parham Rd. <br />
-    Richmond, VA 23228 <br /><br />
-    <strong>Phone:</strong> (804)-555-1234
-</address>
+@*IMAGE & TEXT STYLING*@
+<style>
+    #container {
+        width: 1230px;
+        height: 550px;
+    }
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    #floated {
+        float: right;
+        width: 600px;
+        height: fit-content;
+    }
+</style>
+@*END IMAGE & TEXT STYLING*@
+
+<h2 align="center">@ViewBag.Title</h2>
+
+<div id="container">
+    <div id="floated"><img src="~/Images/contacts by icon8.png" style="width:90%" /></div>
+
+    <h3>@ViewBag.Message</h3>
+
+    <address>
+        <strong>Address:</strong><br />
+        1651 E Parham Rd. <br />
+        Richmond, VA 23228 <br /><br />
+        <strong>Phone:</strong> (804)-555-1234
+    </address>
+
+    <address>
+        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    </address>
+</div>

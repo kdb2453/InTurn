@@ -334,6 +334,8 @@
     <Content Include="Areas\Teachers\Views\Students\Index.cshtml" />
     <Content Include="Areas\Teachers\Views\Students\_Results.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Onboard.cshtml" />
+    <Content Include="Images\contacts by icon8.png" />
+    <Content Include="Images\team.jpg" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferences.cache" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Release\InTurn.csproj.AssemblyReference.cache" />
