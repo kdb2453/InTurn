@@ -17,19 +17,15 @@
 <h3>@ViewBag.Title</h3>
 
 <div style="display:flex; flex-flow:row wrap; justify-content:flex-start; align-items:baseline; column-gap:3px">
-@*FILTER DROP DOWN LIST BY DEPT --EmployeeID VARIABLE NOT WORKING
-<label class="filter" >Search By Department: </label>
-    @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByDept()", style="margin-right: 7px"})*@
-
-@*FILTER SEARCH BOX BY COURSE NAME*@
-<label class="filter">Search by Course Name: </label>
-    @Html.TextArea("Search", "Press TAB to Search", htmlAttributes: new { @class = "filter", @onchange = "FilterByCourseName()", rows = "1", margin = "auto", style = "margin-right: 7px" })
+@*FILTER SEARCH BOX BY POSITION NAME*@
+<label class="filter">Search by Position Name: </label>
+    @Html.TextArea("Search", "Press TAB to Search", htmlAttributes: new { @class = "filter", @onchange = "FilterByPositionName()", rows = "1", margin = "auto", style = "margin-right: 7px" })
 </div>
 
 <p />
 
 @*LOADS TABLE WITH RESULTS*@
-<div id="coursesContainer">
+<div id="resultsContainer">
     @Html.Partial("_Results", Model)
 </div>
 
@@ -38,23 +34,15 @@
 {
     <script type="text/javascript">
 
-         //FILLBYDEPT, FILTER DROP DOWN LIST FUNCTION
-            function FillByDept()
-            {
-                var course = $('#CourseID').val();
-                var container = $('#resultsContainer');
-                container.load('@Url.Action("_IndexByDept")?id=' + course);
-            }
-
-        //FILTERBYCOURSENAME, SEARCH BOX FUNCTION
-            function FilterByCourseName()
+        //FILTERBYPOSITIONNAME, SEARCH BOX FUNCTION
+            function FilterByPositionName()
             {
                 var search = $('#Search').val();
-                var container = $('#coursesContainer');
-                container.load('@Url.Action("_IndexByCourseName")?search=' + search);
-            }
+                var container = $('#resultsContainer');
+                container.load('@Url.Action("_IndexByPositionName")?search=' + search);
+            }//END FILTERBYPOSITIONNAME, SEARCH BOX FUNCTION
 
-        //SORT TABLE UPON HEADER CLICK -- SORTS BY FINAL EXAM GRADE BUT KEEPS MIDDLE POSITION (Employee ID = 5) STATIONARY/CONSTANT
+        //SORT TABLE UPON HEADER CLICK
         function sortTable(n) {
             var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
             table = document.getElementById("studentTable");

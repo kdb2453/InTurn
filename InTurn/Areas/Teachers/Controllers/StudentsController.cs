@@ -18,8 +18,28 @@ namespace InTurn.Areas.Teachers.Controllers
         // GET: Teachers/Students
         public ActionResult Index()
         {
-            var employees = db.Employees.Include(e => e.JobPosting).Include(e => e.Student).Include(e => e.Faculty);
+            ViewBag.JobPostingID = new SelectList(db.JobPostings.OrderBy(jp => jp.JobPostingID), "JobPostingID", "Position");
+
+            var employees = db.Employees
+                .Include(e => e.JobPosting)
+                .Include(e => e.Student)
+                .Include(e => e.Faculty);
             return View(employees.ToList());
         }
+
+        //_IndexByPositionName ACTION RESULT
+        public ActionResult _IndexByPositionName(string search)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            var positions = db.Employees
+                .Include(e => e.Student)
+                .Include(e => e.Faculty)
+                .Include(e => e.JobPosting)
+                .Where(e => e.JobPosting.Position.Contains(search))
+                .ToArray();
+            return PartialView("_Results", positions);
+        }
+
     }//END PUBLIC CLASS
 }

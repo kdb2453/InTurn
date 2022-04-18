@@ -1,31 +1,49 @@
-﻿@{
+﻿@model InTurn_Model.Faculty
+
+@{
     ViewBag.Title = "Faculty Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "KB";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2 align="center">@ViewBag.Title</h2>
 
+@*PROFILE INFORMATION*@
 <div class="row">
-    <div class="col-md-4">@*START LINK TO PROFILE AREA*@
-        <h2>Profile</h2>
-        <p>
-            View and Edit your profile.
-        </p>
-        <br />
-        <p>
-            @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Profile", new {area = "Teachers"}, new { @class = "btn btn-default"})
-        </p>
-    </div>@*END LINK TO PROFILE AREA*@
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.FullName)</dt>
+            <dd>@Html.DisplayFor(model => model.FullName)</dd>
 
-    <div class="col-md-4">@*START LINK TO STUDENT LIST AREA*@
+            <dt>@Html.DisplayNameFor(model => model.PhoneNum)</dt>
+            <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+            <dd>@Html.DisplayFor(model => model.Email)</dd>
+        </dl>
+    </div>
+    <div class="col-md-4">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.Location)</dt>
+            <dd>@Html.DisplayFor(model => model.Location)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.FacultyID)</dt>
+            <dd>@Html.DisplayFor(model => model.FacultyID)</dd>
+        </dl>
+    </div>
+</div>@*END PROFILE INFORMATION*@
+
+<p>
+    @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.FacultyID }, null)@* |
+    @Html.ActionLink("Delete Profile", "Delete", "Profile", new { id = Model.FacultyID }, null)*@
+</p>
+
+@*LINK TO STUDENT INFORMATION TABLE*@
+<div class="row">
+    <div class="col-md-4">
         <h2>Students</h2>
-        <p>
-            View students' grades and details.
-        </p>
+        <p>View all students' grades and details.</p>
         <br />
-        <p>
-            @Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Students", new { area = "Teachers" }, new { @class = "btn btn-default" })
-        </p>
-    </div>@*END LINK TO STUDENT LIST AREA*@
+        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Students", new { area = "Teachers" }, new { @class = "btn btn-default" })</p>
+    </div>
 </div>
