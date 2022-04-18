@@ -1,4 +1,5 @@
-﻿@model IEnumerable<InTurn_Model.Faculty>
+﻿@*@model IEnumerable<InTurn_Model.Faculty>*@
+@model InTurn_Model.Faculty
 
 @{
     ViewBag.Title = "Your Profile";
@@ -8,52 +9,29 @@
 
 <h2>@ViewBag.Title</h2>
 
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.FirstName)</dt>
+    <dd>@Html.DisplayFor(model => model.FirstName)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.LastName)</dt>
+    <dd>@Html.DisplayFor(model => model.LastName)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.PhoneNum)</dt>
+    <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Location)</dt>
+    <dd>@Html.DisplayFor(model => model.Location)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+    <dd>@Html.DisplayFor(model => model.Email)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.FacultyID)</dt>
+    <dd>@Html.DisplayFor(model => model.FacultyID)</dd>
+
+</dl>
+
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.FacultyID }, null) |
+    @Html.ActionLink("Delete Profile", "Delete", new { id = Model.FacultyID }, null) |
+    @Html.ActionLink("Back to Home", "Index")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNum)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNum)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FacultyID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FacultyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FacultyID })
-        </td>
-    </tr>
-}
-
-</table>

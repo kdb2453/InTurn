@@ -12,13 +12,14 @@
             @Html.DisplayNameFor(model => model.Student.LastName)
         </th>
         <th>
-            Course @*WILL LINK TO COURSE TABLE*@
+            @Html.DisplayNameFor(model => model.JobPosting.Position)
         </th>
-        <th onclick="sortTable(0)">
+        <th>
             @Html.DisplayNameFor(model => model.MidtermExam)
+            @*@Html.Raw(HttpUtility.HtmlDecode("Midterm Grade &#129057;&#129059;"))*@
         </th>
         <th onclick="sortTable(1)">
-            @Html.DisplayNameFor(model => model.FinalExam)
+            @Html.Raw(HttpUtility.HtmlDecode("Final Grade &#129057;&#129059;"))
         </th>
         <th>
             Details
@@ -38,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.Student.LastName)
             </td>
             <td>
-                Course Name@*WILL LINK TO COURSE TABLE*@
+                @Html.DisplayFor(modelItem => item.JobPosting.Position)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MidtermExam)

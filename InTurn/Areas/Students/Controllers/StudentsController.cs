@@ -60,7 +60,6 @@ namespace InTurn.Areas.Students.Controllers
                 if (student.FileName != null)
                     student.ImageLocation = UploadImage(student.FileName);
                 db.SaveChanges();
-                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -92,7 +91,7 @@ namespace InTurn.Areas.Students.Controllers
         [Authorize(Roles = "Admin, Student")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,FirstName,LastName,PhoneNum,Address,City,State,ZipCode,Email,Current,Graduate,ImageLocation,FileName")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,FirstName,LastName,PhoneNum,Address,City,State,ZipCode,Email,Current,Graduate,FileName,ImageLocation")] Student student)
         {
             if (ModelState.IsValid)
             {

@@ -207,7 +207,7 @@
     <Content Include="Areas\Employers\Images\My project %282%29.png" />
     <Content Include="Areas\Employers\Images\My project %283%29.png" />
     <Content Include="Areas\Employers\Images\Shinra.jpg" />
-    <Content Include="Areas\Employers\Images\windows-administrator.png" />
+    <Content Include="Areas\Students\Images\drew-6-e1638857999637 %282%29.jpg" />
     <Content Include="Areas\Students\Images\shared366.jpg" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\EntityFramework.dll" />
@@ -327,7 +327,6 @@
     <Content Include="FileUploads\InTurn Brochure %281%29.docx" />
     <Content Include="Areas\Teachers\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Teachers\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Teachers\Views\Profile\Create.cshtml" />
     <Content Include="Areas\Teachers\Views\Profile\Delete.cshtml" />
     <Content Include="Areas\Teachers\Views\Profile\Details.cshtml" />
     <Content Include="Areas\Teachers\Views\Profile\Edit.cshtml" />

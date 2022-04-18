@@ -42,9 +42,9 @@ namespace InTurn_Model
             public int StudentID { get; set; }
             [Display(Name = "Faculty ID")]
             public Nullable<int> FacultyID { get; set; }
-            [Display(Name = "Midterm Exam Grade")]
+            [Display(Name = "Midterm Grade")]
             public string MidtermExam { get; set; }
-            [Display(Name = "Final Exam Grade")]
+            [Display(Name = "Final Grade")]
             public string FinalExam { get; set; }
         }
     }//END EMPLOYEE METADATA
@@ -159,23 +159,6 @@ namespace InTurn_Model
             
         }
     }//END JOBPOSTING METADATA
-
-    public partial class Faculty:IContact
-    {
-
-    }
-    //TESTING ViewModel FOR TeacherHomeController
-   /*
-    public class ViewModel
-    {
-        public Employee employee { get; set; }
-        public Student student { get; set; }
-        public Education education { get; set; }
-        public Degree degree { get; set; }
-        public Course course { get; set; }
-    }
-   */
-
 
     //Application partial class for Uploading
 
