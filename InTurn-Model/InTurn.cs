@@ -8,9 +8,15 @@ using System.Web;
 
 namespace InTurn_Model
 {
+    public interface IContact
+    {
+        string Email { get; }
+        string PhoneNum { get; }
+    }
+
     //START EMPLOYER METADATA
     [MetadataType(typeof(EmployerMetaData))]
-    public partial class Employer
+    public partial class Employer:IContact
     {
         public HttpPostedFileBase FileName { get; set; }
         private sealed class EmployerMetaData
@@ -45,9 +51,11 @@ namespace InTurn_Model
 
     //START STUDENT METADATA
     [MetadataType(typeof(StudentMetaData))]
-    public partial class Student
+    public partial class Student:IContact
     {
         public HttpPostedFileBase FileName { get; set; }
+
+        public string FullName => $"{FirstName} {LastName}";
         private sealed class StudentMetaData
         {
             [Display(Name = "Student ID")]
@@ -60,6 +68,8 @@ namespace InTurn_Model
             public string PhoneNum { get; set; }
             [Display(Name = "Zip Code")]
             public string ZipCode { get; set; }
+            [Display(Name ="Name")]
+            public string FullName { get; set;}
         }
     }//END STUDENT METADATA
 
@@ -67,6 +77,7 @@ namespace InTurn_Model
     [MetadataType(typeof(FacultyMetaData))]
     public partial class Faculty
     {
+        public string FullName => $"{FirstName} {LastName}";
         private sealed class FacultyMetaData
         {
             [Display(Name = "Faculty ID")]
@@ -77,6 +88,8 @@ namespace InTurn_Model
             public string LastName { get; set; }
             [Display(Name = "Phone Number")]
             public string PhoneNum { get; set; }
+            [Display(Name ="Name")]
+            public string FullName { get; set; }
         }
     }//END FACULTY METADATA
 
@@ -127,6 +140,7 @@ namespace InTurn_Model
     [MetadataType(typeof(JobPostingMetaData))]
     public partial class JobPosting
     {
+        public int AppCount { get; set; }
         private sealed class JobPostingMetaData
         {
             [Display(Name = "Job Posting ID")]
@@ -141,17 +155,24 @@ namespace InTurn_Model
             public TimeType TimeType { get; set; }
             [DataType(DataType.Currency)]
             public decimal Wage { get; set; }
+
+            
         }
     }//END JOBPOSTING METADATA
 
     //Application partial class for Uploading
-    public partial class Application
+
+
+
+    public partial class Application:IContact
     {
 
         //For uploading documents like Resume and Transcript
         public HttpPostedFileBase FileName { get; set; }
 
+        public string Email => ((IContact)Student).Email;
 
+        public string PhoneNum => ((IContact)Student).PhoneNum;
     }
 
 }

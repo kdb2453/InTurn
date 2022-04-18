@@ -97,3 +97,35 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<h2>My Applications</h2>
+<div id="applicationeContainer"></div>
+<table class="table table-striped">
+
+    <tr>
+        <th>Employer</th>
+        <th>Position</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Applications)
+    {
+        if (item.StudentID == Model.StudentID)
+        {
+            <tr>
+                 <td>
+                    @Html.DisplayFor(model => item.JobPosting.Employer.Name)
+                 </td>
+                 <td>
+                    @Html.DisplayFor(model => item.JobPosting.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.AppStatus)
+                </td>
+                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td>
+
+            </tr>
+        }
+    }
+</table>

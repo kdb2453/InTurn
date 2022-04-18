@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color:#EAE3EA;
+    background-color: #EAE3EA;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -23,20 +23,41 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Code For Rust Navbar */
 .navbar-nav {
+    color: #B56357;
+    background-color: #B56357;
+    border: black;
+    font-weight: bold;
+}
+
+/* Code For Sea Foam Navbar */
+.sub-navbar-nav {
     color: #A7B3A5;
     background-color: #A7B3A5;
     border-color: black;
+    font-weight: bold;
 }
 
+/* Code For Buttons */
 .btn-default {
     color: black;
     background-color: #B4DBC0;
     border-color: black;
 }
+
+/* Code For Visit Website Page */
 .btn-primary {
     color: black;
     background-color: #B4DBC0;
+    border-color: black;
+}
+
+/* Code For Rust Colored Buttons */
+.sub btn-default {
+    color: black;
+    background-color: #B56357;
     border-color: black;
 }
 

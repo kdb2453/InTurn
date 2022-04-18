@@ -9,10 +9,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InTurn_Model;
+using Microsoft.AspNet.Identity;
 
 namespace InTurn.Areas.Employers.Controllers
 {
-    [Authorize(Roles = "Admin,Employer")]
+   [Authorize(Roles = "Admin,Employer")]
     public class EmployersController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
@@ -39,9 +40,11 @@ namespace InTurn.Areas.Employers.Controllers
             return View(employer);
         }
 
+
         // GET: Employers/Employers/Create
         public ActionResult Create()
         {
+           
             return View();
         }
 
@@ -58,7 +61,7 @@ namespace InTurn.Areas.Employers.Controllers
                 if (employer.FileName != null)
                     employer.ImageLocation = UploadImage(employer.FileName);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","EmployerHome");
             }
 
             return View(employer);
@@ -132,6 +135,8 @@ namespace InTurn.Areas.Employers.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
 
         #region Images
         private string UploadImage(HttpPostedFileBase file)

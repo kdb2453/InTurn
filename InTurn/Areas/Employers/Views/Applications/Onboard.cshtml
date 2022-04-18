@@ -7,8 +7,8 @@
 
 <h2>Onboard</h2>
 
-@using (Html.BeginForm("Onboard","Applications",FormMethod.Post,null))
-{
+
+
     @Html.AntiForgeryToken()
     <input id="StudentID" type="hidden" value="@Model.StudentID" />
     <input id="JobPostingID" type="hidden" value="@Model.JobPostingID" />
@@ -21,7 +21,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <span>@Model.Student.FirstName @Model.Student.LastName</span>
+                <span>@Model.Student.FullName</span>
             </div>
         </div>
 
@@ -35,14 +35,16 @@
         </div>
 
 
+        @Html.ActionLink("Hire", "NewHire", new { id = Model.ApplicationID })
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Hire" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
+
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Home","Index","EmployerHome")
 </div>
