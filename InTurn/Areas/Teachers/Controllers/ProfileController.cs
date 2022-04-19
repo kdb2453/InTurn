@@ -16,7 +16,7 @@ using Microsoft.Owin.Security;
 
 namespace InTurn.Areas.Teachers.Controllers
 {
-    [Authorize(Roles = "Admin, Faculty")]
+    [Authorize(Roles = "Admin,Faculty")]
     public class ProfileController : Controller
     {
         private InTurnEntities db = new InTurnEntities();

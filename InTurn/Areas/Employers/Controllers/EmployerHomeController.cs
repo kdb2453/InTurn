@@ -31,17 +31,6 @@ namespace InTurn.Areas.Employers.Controllers
             return View(employer);
         }
 
-        public ActionResult AppCount(int count)
-        {
-            foreach (var app in db.JobPostings.ToList())
-            {
-                int id = app.JobPostingID;
-                count = db.Applications.Where(a => a.JobPostingID == id).Count();
-            }
-            ViewBag.AppCount = count;
-            return View(count);
-
-
-        }
+       
     }
 }

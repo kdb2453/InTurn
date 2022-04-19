@@ -140,7 +140,7 @@ namespace InTurn_Model
     [MetadataType(typeof(JobPostingMetaData))]
     public partial class JobPosting
     {
-        public int AppCount { get; set; }
+        public int AppCount => Applications.Count;
         private sealed class JobPostingMetaData
         {
             [Display(Name = "Job Posting ID")]
