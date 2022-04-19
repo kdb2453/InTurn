@@ -135,7 +135,7 @@
                 <td>
                     @Html.DisplayFor(model => item.AppStatus)
                 </td>
-                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td> @*not sure I like this here*@
+                <td>@Html.ActionLink("Details", "Details", "Applications", new { id = item.ApplicationID }, null) </td> @*not sure I like this here*@
             </tr>
         }
     }
