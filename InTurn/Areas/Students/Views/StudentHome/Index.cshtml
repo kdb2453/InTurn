@@ -110,6 +110,12 @@
 </p>
 
 
+<h2>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</h2>
+@*<p>
+    @foreach (var item in Model.Job)
+    <td>@Html.DisplayFor(model => item.AppCount)</td>
+    <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.JobPostingID }, null) </td>
+</p>*@
 <h2>My Applications</h2>
 <div id="studentContainer"></div>
 <table class="table table-striped">
@@ -135,11 +141,10 @@
                 <td>
                     @Html.DisplayFor(model => item.AppStatus)
                 </td>
-                <td>@Html.ActionLink("Details", "Details", "Applications", new { id = item.ApplicationID }, null) </td> @*not sure I like this here*@
+                <td>@Html.ActionLink("Details", "Details", "Applications", new { id = item.ApplicationID }, null) </td>
             </tr>
         }
     }
-    <th>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</th>
 </table>
 
 @*<h2>Open Jobs</h2>
