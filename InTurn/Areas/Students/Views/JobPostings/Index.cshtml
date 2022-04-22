@@ -2,7 +2,8 @@
 
 @{
     ViewBag.Title = "Open Jobs";
-    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    /*"~/Areas/Students/Views/Shared/_Students.cshtml";*/
     ViewBag.Developer = "LC";
 }
 
@@ -25,7 +26,7 @@
             @Html.Raw(HttpUtility.HtmlDecode("Job Type &#129057;&#129059;"))
             @*@Html.DisplayNameFor(model => model.JobType)*@
         </th>
-        
+
         <th></th>
     </tr>
 
@@ -44,7 +45,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.JobType)
             </td>
-            
+
             <td>
             </td>
             <td>
@@ -56,6 +57,8 @@
     }
 
 </table>
+
+<p>@Html.ActionLink("Back", "Index", "StudentHome", new { area = "Students" }, new { @class = "nav-link" })</p>
 
 @*START SCRIPTS*@
 @section Scripts
@@ -69,12 +72,10 @@
             switching = true;
             dir = "asc";
 
-            while (switching)
-            {
+            while (switching) {
                 switching = false;
                 rows = table.rows;
-                for (i = 1; i < (rows.length - 1); i++)
-                {
+                for (i = 1; i < (rows.length - 1); i++) {
                     shouldSwitch = false;
 
                     x = rows[i].getElementsByTagName("td")[n];
@@ -92,14 +93,12 @@
                         }
                     }
                 }//END for
-                if (shouldSwitch)
-                {
+                if (shouldSwitch) {
                     rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                     switching = true;
                     switchcount++;
                 }
-                else
-                {
+                else {
                     if (switchcount == 0 && dir == "asc") {
                         dir = "desc";
                         switching = true;
