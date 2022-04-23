@@ -7,53 +7,67 @@
     ViewBag.Developer = "KB";
 }
 
+@*PAGE STYLING*@
+<style>
+    #container {
+        width: auto;
+        height:225px;
+    }
+
+    #floated {
+        float: left;
+        width: 210px;
+        height: auto;
+    }
+</style>@*END PAGE STYLING*@
+
 <h2 align="center">@Model.FullName @ViewBag.Title</h2>
 
 @*PROFILE PHOTO*@
-<div class="row">
-    <div class="col-md-4">
+<div id="container">
+    <div id="floated">
+        @*<div class="col-md-4">*@
 
-        @if (!String.IsNullOrEmpty(Model.ImageLocation))
-        {
-            <img src="@Href(Model.ImageLocation)" class="profilephoto" />
-        }
-        else
-        {
-            <img src="~/Images/defaultphoto.png" class="profilephoto" />
-        }
+            @if (!String.IsNullOrEmpty(Model.ImageLocation))
+            {
+                <img src="@Href(Model.ImageLocation)" class="profilephoto" />
+            }
+            else
+            {
+                <img src="~/Images/defaultphoto.png" class="profilephoto" />
+            }
 
-    </div>
+        @*</div>*@
+    </div>@*END PROFILE PHOTO*@
+
+    @*PROFILE INFORMATION*@
+        <div class="col-md-4">
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(model => model.FullName)</dt>
+                <dd>@Html.DisplayFor(model => model.FullName)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.PhoneNum)</dt>
+                <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+                <dd>@Html.Email(Model)</dd>
+            </dl>
+        </div>
+        <div class="col-md-4">
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(model => model.Location)</dt>
+                <dd>@Html.DisplayFor(model => model.Location)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.FacultyID)</dt>
+                <dd>@Html.DisplayFor(model => model.FacultyID)</dd>
+            </dl>
+        </div>@*END PROFILE INFORMATION*@
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.FacultyID }, null)
+    </p>
 </div>
-<br />@*END PROFILE PHOTO*@
 
-@*PROFILE INFORMATION*@
-<div class="row">
-    <div class="col-md-4">
-        <dl class="dl-horizontal">
-            <dt>@Html.DisplayNameFor(model => model.FullName)</dt>
-            <dd>@Html.DisplayFor(model => model.FullName)</dd>
-
-            <dt>@Html.DisplayNameFor(model => model.PhoneNum)</dt>
-            <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
-
-            <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-            <dd>@Html.Email(Model)</dd>
-        </dl>
-    </div>
-    <div class="col-md-4">
-        <dl class="dl-horizontal">
-            <dt>@Html.DisplayNameFor(model => model.Location)</dt>
-            <dd>@Html.DisplayFor(model => model.Location)</dd>
-
-            <dt>@Html.DisplayNameFor(model => model.FacultyID)</dt>
-            <dd>@Html.DisplayFor(model => model.FacultyID)</dd>
-        </dl>
-    </div>
-</div>@*END PROFILE INFORMATION*@
-
-<p>
-    @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.FacultyID }, null)
-</p>
 
 @*LINK TO STUDENT INFORMATION TABLE*@
 <div class="row">

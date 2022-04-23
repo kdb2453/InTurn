@@ -102,6 +102,9 @@ hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
+  color: #b56357;
+  border-color: #b56357;
+  background-color: #b56357;
 }
 pre {
   overflow: auto;

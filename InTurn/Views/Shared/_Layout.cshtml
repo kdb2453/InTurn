@@ -35,30 +35,29 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - InTurn v @Assembly.GetAssembly(typeof(HomeController)).GetName().Version.ToString() </p>
-            <span class="developer"> @*FOR DEVELOPER NAMES*@
-                Software Engineer:
-                @switch (ViewBag.Developer)
-                {
-                    case "TS":
-                        @Html.Raw("Ty Simpson")
-                        break;
-                    case "LC":
-                        @Html.Raw("Lianne Copertino")
-                        break;
-                    case "KB":
-                        @Html.Raw("Kaila Brown")
-                        break;
-                    case "TSLCKB":
-                        @Html.Raw("All Devs")
-                        break;
-                    default:
-                        @Html.Raw("Unknown")
-                        break;
-                }
-            </span> @*END OF DEVELOPER NAMES*@
-
-
+                <span class="assembly">&copy; @DateTime.Now.Year - InTurn v @Assembly.GetAssembly(typeof(HomeController)).GetName().Version.ToString()</span>
+                <span class="developer">
+                    @*FOR DEVELOPER NAMES*@
+                    Software Engineer:
+                    @switch (ViewBag.Developer)
+                    {
+                        case "TS":
+                            @Html.Raw("Ty Simpson")
+                            break;
+                        case "LC":
+                            @Html.Raw("Lianne Copertino")
+                            break;
+                        case "KB":
+                            @Html.Raw("Kaila Brown")
+                            break;
+                        case "TSLCKB":
+                            @Html.Raw("All Developers")
+                            break;
+                        default:
+                            @Html.Raw("Unknown")
+                            break;
+                    }
+                </span> @*END OF DEVELOPER NAMES*@
         </footer>
     </div>
 

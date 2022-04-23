@@ -81,3 +81,8 @@ jumbotron {
     text-align:center;
     
 }
+
+span.assembly {
+    font-weight: bold;
+    font-family: Courier New, Courier, monospace;
+}
