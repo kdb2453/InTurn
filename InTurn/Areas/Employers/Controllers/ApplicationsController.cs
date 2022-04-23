@@ -54,8 +54,7 @@ namespace InTurn.Areas.Employers
             {
                 return HttpNotFound();
             }
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "FirstName", application.StudentID);
-            ViewBag.JobPostingID = new SelectList(db.JobPostings, "JobPostingID", "Position", application.JobPostingID);
+         
             return View(application);
         }
 
@@ -74,7 +73,8 @@ namespace InTurn.Areas.Employers
                     existedApplication.AppStatus = application.AppStatus;
                     db.Entry(existedApplication).Property(i => i.AppStatus).IsModified = true;
                     var result = db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", new {id=application.ApplicationID});
+
                 }
                
                 return View(application);
@@ -104,7 +104,7 @@ namespace InTurn.Areas.Employers
             Application application = db.Applications.Find(id);
             db.Applications.Remove(application);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","EmployerHome");
         }
 
         protected override void Dispose(bool disposing)

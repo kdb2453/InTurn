@@ -66,3 +66,18 @@ span.developer {
     font-weight: bold;
     font-family: Courier New, Courier, monospace;
 }
+
+jumbotron {
+  background-image: url('../Images/1702087261-huge.jpg');
+}
+
+.center-block{
+    opacity:.7
+}
+
+.lead {
+    background-color: #A7B3A5;
+    border-radius:25px;
+    text-align:center;
+    
+}

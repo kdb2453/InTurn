@@ -11,6 +11,7 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
+    <input type="hidden" name="EmployerID" value="@ViewBag.Employer.EmployerID" />
     
     @Html.Partial("_Edit",@Model)}
 

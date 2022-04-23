@@ -12,6 +12,7 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.JobPostingID)
+    @Html.HiddenFor(model=>model.EmployerID)
     @Html.Partial("_Edit",@Model)
 
   

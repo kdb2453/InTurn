@@ -1,7 +1,7 @@
 ﻿@model InTurn_Model.Student
 
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "LC";
 }
@@ -14,7 +14,7 @@
 
             @if (!String.IsNullOrEmpty(Model.ImageLocation))
             {
-                <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+                <img src="@Href(Model.ImageLocation)" style="width:200px; border:solid;" />
             }
         </div>
     </center>
@@ -110,6 +110,12 @@
 </p>
 
 
+<h2>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</h2>
+@*<p>
+    @foreach (var item in Model.Job)
+    <td>@Html.DisplayFor(model => item.AppCount)</td>
+    <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.JobPostingID }, null) </td>
+</p>*@
 <h2>My Applications</h2>
 <div id="studentContainer"></div>
 <table class="table table-striped">
@@ -118,7 +124,6 @@
         <th>Employer</th>
         <th>Position</th>
         <th>Status</th>
-        <th>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</th>
         <th></th>
     </tr>
 
@@ -136,9 +141,7 @@
                 <td>
                     @Html.DisplayFor(model => item.AppStatus)
                 </td>
-                <td> </td>
-                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td> @*not sure I like this here*@
-
+                <td>@Html.ActionLink("Details", "Details", "Applications", new { id = item.ApplicationID }, null) </td>
             </tr>
         }
     }

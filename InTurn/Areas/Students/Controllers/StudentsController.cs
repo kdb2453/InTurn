@@ -12,7 +12,7 @@ using InTurn_Model;
 
 namespace InTurn.Areas.Students.Controllers
 {
-    [Authorize(Roles = "Admin, Student, Faculty")]
+    [Authorize(Roles = "Admin,Student,Faculty")]
     public class StudentsController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
@@ -24,7 +24,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/Students/Details/5
-        [Authorize(Roles = "Admin, Student, Faculty")]
+        [Authorize(Roles = "Admin,Student,Faculty")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,7 +40,7 @@ namespace InTurn.Areas.Students.Controllers
         }
 
         // GET: Students/Students/Create
-        [Authorize(Roles = "Admin, Student")]
+        [Authorize(Roles = "Admin,Student")]
         public ActionResult Create()
         {
             return View();
