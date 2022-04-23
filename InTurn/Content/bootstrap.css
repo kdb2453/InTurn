@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -6831,4 +6832,13 @@ button.close {
     display: none !important;
   }
 }
+
+/*PROFILE PHOTO STYLING*/
+.profilephoto {
+    width: 200px;
+    height: 200px;
+    border: solid;
+    border-width: thin;
+}/*END PROFILE PHOTO STYLING*/
+
 /*# sourceMappingURL=bootstrap.css.map */

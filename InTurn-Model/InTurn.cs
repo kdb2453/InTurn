@@ -75,8 +75,10 @@ namespace InTurn_Model
 
     //START FACULTY METADATA
     [MetadataType(typeof(FacultyMetaData))]
-    public partial class Faculty
+    public partial class Faculty : IContact
     {
+        public HttpPostedFileBase FileName { get; set; }
+
         public string FullName => $"{FirstName} {LastName}";
         private sealed class FacultyMetaData
         {
@@ -161,8 +163,6 @@ namespace InTurn_Model
     }//END JOBPOSTING METADATA
 
     //Application partial class for Uploading
-
-
 
     public partial class Application:IContact
     {

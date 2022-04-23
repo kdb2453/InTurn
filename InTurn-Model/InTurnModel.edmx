@@ -154,6 +154,7 @@
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PhoneNum" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageLocation" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="FacultyCourse">
           <Key>
@@ -772,6 +773,7 @@
           <Property Name="PhoneNum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Employees" Relationship="Self.FK_231" FromRole="Faculty" ToRole="Employee" />
           <NavigationProperty Name="FacultyCourses" Relationship="Self.FK_125" FromRole="Faculty" ToRole="FacultyCourse" />
+          <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="FacultyCourse">
           <Key>
@@ -1380,6 +1382,7 @@
           <EntitySetMapping Name="Faculties">
             <EntityTypeMapping TypeName="InTurnModel.Faculty">
               <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
                 <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

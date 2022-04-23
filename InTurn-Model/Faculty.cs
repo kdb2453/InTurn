@@ -27,6 +27,7 @@ namespace InTurn_Model
         public string Email { get; set; }
         public string Location { get; set; }
         public string PhoneNum { get; set; }
+        public string ImageLocation { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employees { get; set; }

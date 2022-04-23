@@ -3,17 +3,28 @@
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Developer = "KB";
 }
 
 <h2>Edit</h2>
 
-
-@using (Html.BeginForm())
+@*@using (Html.BeginForm()) -- ORIGINAL @using CODE*@
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { enctype = "Multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Faculty</h4>
+        @*PROFILE PHOTO SECTION*@
+        @if (!String.IsNullOrEmpty(Model.ImageLocation))
+                {
+                    <img src="@Href(Model.ImageLocation)" class="profilephoto" />
+                }
+         else
+                {
+                    <img src="~/Images/defaultphoto.png" class="profilephoto" />
+                }
+        @*END PROFILE PHOTO SECTION*@
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.FacultyID)
@@ -35,10 +46,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PhoneNum, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -51,15 +62,26 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PhoneNum, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        @*PHOTO UPLOADER CODE*@
+        <div id="uploader" class="form-group">
+            <div class="col-lg-10">
+                <input id="FileName" 
+                       name="FileName"
+                       type="file"
+                       formenctype="multipart/form-data"
+                       onchange="show(this)" />
+            </div>
+        </div>@*END PHOTO UPLOADER CODE*@
+
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
@@ -67,8 +89,21 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Dashboard", "Index")
 </div>
+
+@*PHOTO UPLOADER SCRIPT*@
+<script type="text/javascript">
+    function show(input) {
+        if (input.files && input.files[0]) {
+            var filedr = new FileReader(e);
+                filedr.onload = function (e) {
+                    $('#faculty_image').attr('src', e.target.result);
+                }
+                filedr.readAsDataURL(input.files[0]);
+        }
+    }
+</script>@*END PHOTO UPLOADER SCRIPT*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

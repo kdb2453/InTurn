@@ -336,6 +336,7 @@
     <Content Include="Areas\Teachers\Views\Students\_Results.cshtml" />
     <Content Include="Areas\Employers\Views\Applications\Onboard.cshtml" />
     <Content Include="Images\contacts by icon8.png" />
+    <Content Include="Images\defaultphoto.png" />
     <Content Include="Images\team.jpg" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferences.cache" />
     <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -398,6 +399,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employers\Data\" />
     <Folder Include="Areas\Teachers\Data\" />
+    <Folder Include="Areas\Teachers\Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

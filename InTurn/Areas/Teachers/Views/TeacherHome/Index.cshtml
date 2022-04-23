@@ -1,4 +1,5 @@
-﻿@model InTurn_Model.Faculty
+﻿@using InTurn.HTMLHelpers
+@model InTurn_Model.Faculty
 
 @{
     ViewBag.Title = "Home";
@@ -7,6 +8,23 @@
 }
 
 <h2 align="center">@Model.FullName @ViewBag.Title</h2>
+
+@*PROFILE PHOTO*@
+<div class="row">
+    <div class="col-md-4">
+
+        @if (!String.IsNullOrEmpty(Model.ImageLocation))
+        {
+            <img src="@Href(Model.ImageLocation)" class="profilephoto" />
+        }
+        else
+        {
+            <img src="~/Images/defaultphoto.png" class="profilephoto" />
+        }
+
+    </div>
+</div>
+<br />@*END PROFILE PHOTO*@
 
 @*PROFILE INFORMATION*@
 <div class="row">
@@ -19,7 +37,7 @@
             <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-            <dd>@Html.DisplayFor(model => model.Email)</dd>
+            <dd>@Html.Email(Model)</dd>
         </dl>
     </div>
     <div class="col-md-4">
@@ -34,8 +52,7 @@
 </div>@*END PROFILE INFORMATION*@
 
 <p>
-    @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.FacultyID }, null)@* |
-    @Html.ActionLink("Delete Profile", "Delete", "Profile", new { id = Model.FacultyID }, null)*@
+    @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.FacultyID }, null)
 </p>
 
 @*LINK TO STUDENT INFORMATION TABLE*@
