@@ -2,79 +2,58 @@
 @model InTurn_Model.Faculty
 
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = Model.FullName + "'s Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "KB";
 }
 
-@*PAGE STYLING*@
-<style>
-    #container {
-        width: auto;
-        height:225px;
-    }
+<h2 style="margin: 10px;" align="center">@ViewBag.Title</h2>
 
-    #floated {
-        float: left;
-        width: 210px;
-        height: auto;
-    }
-</style>@*END PAGE STYLING*@
+<div id="contents">
+    @*PROFILE PHOTO*@
+    <div id="profilecontainer">
+        @if (!String.IsNullOrEmpty(Model.ImageLocation))
+        {
+            <img src="@Href(Model.ImageLocation)" class="profilephoto" />
+        }
+        else
+        {
+            <img src="~/Images/defaultphoto.png" class="profilephoto" />
+        }@*END PROFILE PHOTO*@
 
-<h2 align="center">@Model.FullName @ViewBag.Title</h2>
+        @*PROFILE INFORMATION*@
+        <div id="profileinfo">
+            <div class="col-lg-10">
+                <dl class="media-middle">
+                    <dt>@Html.DisplayNameFor(model => model.FacultyID):</dt>
+                    <dd>@Html.DisplayFor(model => model.FacultyID)</dd>
 
-@*PROFILE PHOTO*@
-<div id="container">
-    <div id="floated">
-        @*<div class="col-md-4">*@
+                    <dt>@Html.DisplayNameFor(model => model.FullName):</dt>
+                    <dd>@Html.DisplayFor(model => model.FullName)</dd>
 
-            @if (!String.IsNullOrEmpty(Model.ImageLocation))
-            {
-                <img src="@Href(Model.ImageLocation)" class="profilephoto" />
-            }
-            else
-            {
-                <img src="~/Images/defaultphoto.png" class="profilephoto" />
-            }
+                    <dt>@Html.DisplayNameFor(model => model.PhoneNum):</dt>
+                    <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
 
-        @*</div>*@
-    </div>@*END PROFILE PHOTO*@
+                    <dt>@Html.DisplayNameFor(model => model.Email):</dt>
+                    <dd>@Html.Email(Model)</dd>
 
-    @*PROFILE INFORMATION*@
-        <div class="col-md-4">
-            <dl class="dl-horizontal">
-                <dt>@Html.DisplayNameFor(model => model.FullName)</dt>
-                <dd>@Html.DisplayFor(model => model.FullName)</dd>
-
-                <dt>@Html.DisplayNameFor(model => model.PhoneNum)</dt>
-                <dd>@Html.DisplayFor(model => model.PhoneNum)</dd>
-
-                <dt>@Html.DisplayNameFor(model => model.Email)</dt>
-                <dd>@Html.Email(Model)</dd>
-            </dl>
+                    <dt>@Html.DisplayNameFor(model => model.Location):</dt>
+                    <dd>@Html.DisplayFor(model => model.Location)</dd>
+                </dl>@*END PROFILE INFORMATION*@
+                <center>
+                    @Html.ActionLink("Edit Profile", "Edit", "Profile", new { id = Model.FacultyID }, new {@class="btn btn-default"})
+                </center>
+            </div>
         </div>
-        <div class="col-md-4">
-            <dl class="dl-horizontal">
-                <dt>@Html.DisplayNameFor(model => model.Location)</dt>
-                <dd>@Html.DisplayFor(model => model.Location)</dd>
-
-                <dt>@Html.DisplayNameFor(model => model.FacultyID)</dt>
-                <dd>@Html.DisplayFor(model => model.FacultyID)</dd>
-            </dl>
-        </div>@*END PROFILE INFORMATION*@
-
-    <p>
-        @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.FacultyID }, null)
-    </p>
-</div>
+    </div>@*END PROFILE SIDE AREA*@
 
 
-@*LINK TO STUDENT INFORMATION TABLE*@
-<div class="row">
-    <div class="col-md-4">
-        <h2>Students</h2>
-        <p>View all students' grades and details.</p>
-        <br />
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "Students", new { area = "Teachers" }, new { @class = "btn btn-default" })</p>
+    @*LINK TO STUDENT INFORMATION TABLE*@
+    <div id="dashinfo">
+        <div id="dashsection">
+            <h3>Students</h3>
+            <p>View all students' grades and details.</p>
+            <p>@Html.ActionLink(HttpUtility.HtmlDecode("View"), "Index", "Students", new { area = "Teachers" }, new { @class = "btn btn-default" })</p>
+        </div>
     </div>
 </div>

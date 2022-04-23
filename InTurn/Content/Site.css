@@ -44,14 +44,18 @@ textarea {
 .btn-default {
     color: black;
     background-color: #B4DBC0;
-    border-color: black;
+    /*border-color: black;*/
+    /*border-color: #a7b3a5;*/
+    border-color: white;
+    border-style:groove;
+    font-size: 13px;
 }
 
 /* Code For Visit Website Page */
 .btn-primary {
     color: black;
     background-color: #B4DBC0;
-    border-color: black;
+    border-color: dimgrey;
 }
 
 /* Code For Rust Colored Buttons */
@@ -59,6 +63,13 @@ textarea {
     color: black;
     background-color: #B56357;
     border-color: black;
+}
+
+.btn-edit {
+    color: black;
+    background-color: #b4d8c0;
+    border-color: #a7b3a5;
+    border-style:groove;
 }
 
 span.developer {
