@@ -6898,8 +6898,6 @@ button.close {
 
     #dashinfo h3 {
         display: block;
-        /*margin-left: 5px;
-        margin-right: 9px;*/
         margin: auto;
         text-decoration-line:underline;
         padding-top: 7px;
@@ -6908,8 +6906,6 @@ button.close {
    
     #dashinfo p {
         display: block;
-        /*margin-left: 12px;
-        margin-right: 9px;*/
         margin:auto;
         padding-top: 4px;
         padding-bottom: 10px;
@@ -6918,9 +6914,44 @@ button.close {
 
     #dashsection {
         display: block;
-        /*background-color:darkseagreen;*/
         margin: auto;
         padding: 15px;
+    }
+
+#editprofile {
+    display: block;
+    width: 1140px;
+    height: 680px;
+    position: relative;
+}
+
+    .editphoto {
+        display: block;
+        margin: auto;
+        padding-left: 460px;
+        padding-bottom: 10px;
+        position: absolute;
+        top: 5px;
+    }
+
+    .editinfo {
+        display: block;
+        width: 1140px;
+        height: 200px;
+        margin: auto;
+        padding-left: 30%;
+        padding-bottom: 10px;
+        position: absolute;
+        bottom: 235px;
+    }
+
+    .editbuttons {
+        display: block;
+        margin: auto;
+        padding-left: 122px;
+        height: 55px;
+        position: absolute;
+        bottom: -45px;
     }
 /*END PAGE STYLING*/
 

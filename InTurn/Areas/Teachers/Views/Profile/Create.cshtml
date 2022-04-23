@@ -1,45 +1,33 @@
 ﻿@model InTurn_Model.Faculty
 
 @{
-    ViewBag.Title = "Edit Profile";
+    ViewBag.Title = "Create Faculty Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "KB";
 }
 
-<h2 align="center">@ViewBag.Title</h2>
+<h2>@ViewBag.Title</h2>
 
 @*@using (Html.BeginForm()) -- ORIGINAL @using CODE*@
-@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { enctype = "Multipart/form-data"}))
+@using (Html.BeginForm("Create", "Profile", FormMethod.Post, new { enctype = "Multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
-    <div id="editprofile">
-        <div class="editphoto">
-            @*PROFILE PHOTO SECTION*@
-            @if (!String.IsNullOrEmpty(Model.ImageLocation))
-            {
-                <img src="@Href(Model.ImageLocation)" class="profilephoto" />
-            }
-            else
-            {
-                <img src="~/Images/defaultphoto.png" class="profilephoto" />
-            }
-            @*END PROFILE PHOTO SECTION*@
+    
+    <div class="form-horizontal">
+        @*PROFILE PHOTO SECTION*@
+        @*@if (!String.IsNullOrEmpty(Model.ImageLocation))
+                {
+                    <img src="@Href(Model.ImageLocation)" class="profilephoto" />
+                }
+         else
+                {*@
+                    <img src="~/Images/defaultphoto.png" class="profilephoto" />
+                @*}*@
+        @*END PROFILE PHOTO SECTION*@
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.FacultyID)
-            @*PHOTO UPLOADER CODE*@
-            <div id="uploader" class="form-group" style="margin-left:0px;">
-                <div class="col-lg-10">
-                    <input id="FileName"
-                           name="FileName"
-                           type="file"
-                           formenctype="multipart/form-data"
-                           onchange="show(this)" />
-                </div>
-            </div>@*END PHOTO UPLOADER CODE*@
-        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*@Html.HiddenFor(model => model.FacultyID)*@
 
-    <div class="editinfo">
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -80,18 +68,28 @@
             </div>
         </div>
 
-        <div class="editbuttons">
+        @*PHOTO UPLOADER CODE*@
+        <div id="uploader" class="form-group">
+            <div class="col-lg-10">
+                <input id="FileName" 
+                       name="FileName"
+                       type="file"
+                       formenctype="multipart/form-data"
+                       onchange="show(this)" />
+            </div>
+        </div>@*END PHOTO UPLOADER CODE*@
+
         <div class="form-group">
-            @*<div class="col-md-10" style="padding-top:10px;">*@
-            
-                <input type="submit" value="Save" class="btn btn-default" />
-                @Html.ActionLink("Back to Dashboard", "Index", "TeacherHome", new { @class = "btn btn-default" })
+            <div class="col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
-</div>
+}
 
-    }
+<div>
+    @Html.ActionLink("Back to Dashboard", "Index", "TeacherHome")
+</div>
 
 @*PHOTO UPLOADER SCRIPT*@
 <script type="text/javascript">
@@ -106,6 +104,6 @@
     }
 </script>@*END PHOTO UPLOADER SCRIPT*@
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@
