@@ -16,7 +16,7 @@ namespace InTurn_Model
         Submitted = 1,
         Reviewing = 2,
         Interview = 3,
-        Hired = 4,
+        Onboard = 4,
         Declined = 5
     }
 }

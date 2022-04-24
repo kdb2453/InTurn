@@ -35,13 +35,9 @@
         </div>
 
 
-        @Html.ActionLink("Hire", "NewHire", new { id = Model.ApplicationID })
+        @Html.ActionLink("Hire", "NewHire", new { id = Model.ApplicationID }, new { @class = "btn btn-default" })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Hire" class="btn btn-default" />
-            </div>
-        </div>
+        
     </div>
 
 

@@ -9,9 +9,9 @@
 <h2>@Model.Position Applicants</h2>
 
 <div>
-   
 
-  
+
+
 
     <hr />
     <dl class="dl-horizontal">
@@ -95,7 +95,7 @@
                         @Html.DisplayFor(model => item.Student.LastName)
                     </td>
                     <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, null) </td>
+                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
                 </tr>
             }
@@ -131,7 +131,7 @@
                         @Html.DisplayFor(model => item.Student.LastName)
                     </td>
                     <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, null) </td>
+                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
                 </tr>
             }
@@ -167,7 +167,43 @@
                         @Html.DisplayFor(model => item.Student.LastName)
                     </td>
                     <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, null) </td>
+                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+
+                </tr>
+            }
+        }
+
+    }
+</table>
+<br />
+<h2>Ready to Hire</h2>
+<div id="employeeContainer"></div>
+<table class="table table-striped">
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Applications)
+    {
+        if (item.JobPostingID == Model.JobPostingID)
+        {
+            if (item.AppStatus == InTurn_Model.AppStatus.Onboard)
+
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(model => item.Student.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Student.LastName)
+                    </td>
+                    <td>@Html.DisplayFor(model => item.AppStatus)</td>
+                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
                 </tr>
             }
@@ -203,7 +239,7 @@
                         @Html.DisplayFor(model => item.Student.LastName)
                     </td>
                     <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, null) </td>
+                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
                 </tr>
             }
