@@ -24,8 +24,7 @@
         <div id="profileinfo">
             <div class="col-lg-10">
                 <dl class="media-middle">
-                    <dt>@Html.DisplayNameFor(model=>model.EmployerID):</dt>
-                    <dd>@Html.DisplayFor(model=>model.EmployerID)</dd>
+
 
                     <dt>
                         @Html.DisplayNameFor(model => model.Name):
@@ -118,7 +117,7 @@
                                 @Html.DisplayFor(model => item.JobType)
                             </td>
                             <td>@Html.DisplayFor(model => item.AppCount)</td>
-                            <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.JobPostingID }, new {@class="btn btn-info btn-xs"}) </td>
+                            <td>@Html.ActionLink("See Applicants", "Details", "JobPostings", new { id = item.JobPostingID }, new {@class="btn btn-info btn-xs"}) </td>
 
                         </tr>
                     }
@@ -159,12 +158,6 @@
 
                 }
             </table>
-        </div>
-
-        <div id="dashsection">
-                    <h3>Applicants</h3>
-                    <p>View applicants for your job postings.</p>
-                    <p>@Html.ActionLink(HttpUtility.HtmlDecode("View"), "Index", "Applications", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
         </div>
     </div>
 </div>

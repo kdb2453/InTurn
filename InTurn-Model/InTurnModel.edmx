@@ -1202,7 +1202,7 @@
           <Member Name="Submitted" Value="1" />
           <Member Name="Reviewing" Value="2" />
           <Member Name="Interview" Value="3" />
-          <Member Name="Hired" Value="4" />
+          <Member Name="Onboard" Value="4" />
           <Member Name="Declined" Value="5" />
         </EnumType>
         <EnumType Name="MidTerm">
