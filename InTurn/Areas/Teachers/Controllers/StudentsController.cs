@@ -24,6 +24,7 @@ namespace InTurn.Areas.Teachers.Controllers
                 .Include(e => e.JobPosting)
                 .Include(e => e.Student)
                 .Include(e => e.Faculty);
+
             return View(employees.ToList());
         }
 

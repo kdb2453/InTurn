@@ -2,18 +2,14 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
+    @*Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";*@
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "TS";
 }
 
 <h2>@Model.Position Applicants</h2>
 
 <div>
-
-
-
-
-    <hr />
     <dl class="dl-horizontal">
 
         <dt>
@@ -250,6 +246,6 @@
 
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.JobPostingID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit Position", "Edit", new { id = Model.JobPostingID }, new { @class = "btn btn-default" }) 
+    @Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new {@class = "btn btn-default"})
 </p>
