@@ -70,6 +70,8 @@ namespace InTurn_Model
             public string ZipCode { get; set; }
             [Display(Name ="Name")]
             public string FullName { get; set;}
+            [Display(Name = "Current Student")]
+            public bool Current { get; set; }
         }
     }//END STUDENT METADATA
 
