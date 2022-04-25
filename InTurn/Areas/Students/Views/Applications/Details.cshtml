@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -18,8 +18,8 @@
         <hr />
         <dl class="dl-horizontal">
 
-            <dt>@Html.DisplayNameFor(model=>model.AppStatus)</dt>
-            <dd>@Html.DisplayFor(model=>model.AppStatus)</dd>
+            <dt>@Html.DisplayNameFor(model => model.AppStatus)</dt>
+            <dd>@Html.DisplayFor(model => model.AppStatus)</dd>
             <dt>
                 @Html.DisplayNameFor(model => model.Student.FirstName)
             </dt>
@@ -51,13 +51,12 @@
             <dd>
                 @Html.DisplayFor(model => model.Resume)
             </dd>
-          
+
 
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationID }) |
-        @Html.ActionLink("Back to List", "Index")
+    <p>@Html.ActionLink("Back to Dashboard", "Index", "StudentHome", new { area = "Students" }, new { @class = "nav-link" })</p>
     </p>
 </body>
 </html>

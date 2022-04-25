@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "LC";
 
 }
@@ -17,11 +17,11 @@
     <h4>Student</h4>
     @if (!String.IsNullOrEmpty(Model.ImageLocation))
     {
-        <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+        <img src="@Href(Model.ImageLocation)" style="width:200px; border:solid;" />
     }
     else
     {
-        <img id="student_image" style="height:250px;width:200px;border:none;" />
+        <img id="student_image" style="width:200px;border:none;" />
     }
 
     <hr />
