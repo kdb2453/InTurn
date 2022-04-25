@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("InTurn")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The bridge between your education and your future.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("InTurn")]
 [assembly: AssemblyProduct("InTurn")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("2022.4.11.7")]
+[assembly: AssemblyVersion("2022.4.25.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
