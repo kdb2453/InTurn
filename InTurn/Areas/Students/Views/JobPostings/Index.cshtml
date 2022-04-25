@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Open Jobs";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    /*"~/Areas/Students/Views/Shared/_Students.cshtml";*/
     ViewBag.Developer = "LC";
 }
 
@@ -58,7 +57,7 @@
 
 </table>
 
-<p>@Html.ActionLink("Back", "Index", "StudentHome", new { area = "Students" }, new { @class = "nav-link" })</p>
+<p>@Html.ActionLink("Back to Dashboard", "Index", "StudentHome", new { area = "Students" }, new { @class = "nav-link" })</p>
 
 @*START SCRIPTS*@
 @section Scripts

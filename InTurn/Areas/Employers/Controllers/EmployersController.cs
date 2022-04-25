@@ -13,13 +13,13 @@ using Microsoft.AspNet.Identity;
 
 namespace InTurn.Areas.Employers.Controllers
 {
-   [Authorize(Roles = "Admin,Employer")]
+  
     public class EmployersController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
 
         // GET: Employers/Employers
-       
+        [Authorize(Roles = "Admin,Employer")]
         public ActionResult Index()
         {
             return View(db.Employers.ToList());
@@ -40,14 +40,14 @@ namespace InTurn.Areas.Employers.Controllers
             return View(employer);
         }
 
-
+        [AllowAnonymous]
         // GET: Employers/Employers/Create
         public ActionResult Create()
         {
            
             return View();
         }
-
+        [Authorize(Roles = "Admin,Employer")]
         // POST: Employers/Employers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -67,6 +67,7 @@ namespace InTurn.Areas.Employers.Controllers
             return View(employer);
         }
 
+        [Authorize(Roles = "Admin,Employer")]
         // GET: Employers/Employers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -102,6 +103,7 @@ namespace InTurn.Areas.Employers.Controllers
         }
 
         // GET: Employers/Employers/Delete/5
+        [Authorize(Roles = "Admin,Employer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,6 +117,7 @@ namespace InTurn.Areas.Employers.Controllers
             }
             return View(employer);
         }
+        [Authorize(Roles = "Admin,Employer")]
 
         // POST: Employers/Employers/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -126,7 +129,7 @@ namespace InTurn.Areas.Employers.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = "Admin,Employer")]
         protected override void Dispose(bool disposing)
         {
             if (disposing)
