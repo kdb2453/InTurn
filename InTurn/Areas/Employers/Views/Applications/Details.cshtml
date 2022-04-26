@@ -51,8 +51,8 @@
 </div>
 <div>
     <p>
-        @Html.ActionLink("Review", "Edit", new { id = Model.ApplicationID }, new {@class="btn btn-default"}) |
+        @Html.ActionLink("Review", "Edit", new { id = Model.ApplicationID }, new { @class = "btn btn-default" }) |
         @Html.ActionLink("Hire", "Onboard", new { id = Model.ApplicationID }, new { @class = "btn btn-default" })
 </div>
-@Html.ActionLink("Back to Dashboard", "Index","EmployerHome", new { @class = "btn btn-default" })
+@Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new { area = "Employers" }, new { @class = "btn btn-default" })
 </p>
