@@ -2,7 +2,8 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Developer = "LC";
 }
 
 <h2>Details</h2>
@@ -94,38 +95,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }, new { @class = "btn btn-default" }) |
+    @Html.ActionLink("Back to List", "Index", "Students", new { area = "Teachers" }, new { @class = "btn btn-default" })
 </p>
-
-<h2>My Applications</h2>
-<div id="applicationeContainer"></div>
-<table class="table table-striped">
-
-    <tr>
-        <th>Employer</th>
-        <th>Position</th>
-        <th>Status</th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.Applications)
-    {
-        if (item.StudentID == Model.StudentID)
-        {
-            <tr>
-                 <td>
-                    @Html.DisplayFor(model => item.JobPosting.Employer.Name)
-                 </td>
-                 <td>
-                    @Html.DisplayFor(model => item.JobPosting.Position)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => item.AppStatus)
-                </td>
-                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.StudentID }, null) </td>
-
-            </tr>
-        }
-    }
-</table>

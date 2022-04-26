@@ -2,18 +2,12 @@
 
 @{
     ViewBag.Title = "Welcome!";
-    Layout = "~/Areas/Students/Views/Shared/_Students.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "LC";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@*<p>
-    &nbsp;&nbsp;&nbsp;<label class="filter">Major</label>&nbsp;&nbsp;&nbsp;
-    @Html.DropDownList("MajorID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByTag()" })
-    &nbsp;&nbsp;&nbsp;<label class="filter">Seacrh by Name</label>&nbsp;&nbsp;&nbsp;
-    @Html.TextArea("Search", null, htmlAttributes: new { @class = "filter", @onchange = "FilterByName()" })
-</p>*@
 
 <table class="table">
     <tr>
@@ -90,20 +84,5 @@
         </tr>
     }
 </table>
-
-    @*@section Scripts{
-        <script type="text/javascript">
-            function FillByTag() {
-                var majorId = $('#MajorID').val(); //need to figure out how to connect to the MajorRequirements table
-                var container = $('#courseContainer');
-                container.load('@Url.Action("_IndexByTag")?id' = + majorId)
-            }
-            function FilterByName() {
-                var parm = $('#Search').val();
-                var container = $('#courseContainer');
-                container.load('@Url.Action("_IndexByName")?parm' + parm);
-            }
-
-        </script>*@
         
 

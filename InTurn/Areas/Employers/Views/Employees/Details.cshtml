@@ -2,16 +2,39 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Employers/Views/Shared/_Employers.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "TS";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Employee</h4>
+    <h2>Employee Details</h2>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Faculty.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Faculty.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobPosting.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobPosting.Position)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.MidtermExam)
         </dt>
@@ -27,34 +50,9 @@
         <dd>
             @Html.DisplayFor(model => model.FinalExam)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JobPosting.Position)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JobPosting.Position)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Student.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Faculty.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Faculty.FirstName)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeID }, new { @class = "btn btn-default" }) |
+    @Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new { area = "Employers" }, new { @class = "btn btn-default" })
 </p>
