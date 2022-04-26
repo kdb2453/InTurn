@@ -12,7 +12,6 @@
                 new { enctype = "Multipart/form-data" }))
 {
                 @Html.AntiForgeryToken()
-    <input type="hidden" name="Email" value=@Model.Email>
 
     <div class="form-horizontal">
         @if (!String.IsNullOrEmpty(Model.ImageLocation))

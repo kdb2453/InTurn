@@ -29,6 +29,10 @@
     @Html.Partial("_Results", Model)
 </div>
 
+<p>
+    @Html.ActionLink("Back to Dashboard", "Index", "TeacherHome", new { @class = "btn btn-default" })
+</p>
+
 @*START SCRIPTS*@
 @section Scripts
 {
@@ -43,7 +47,8 @@
             }//END FILTERBYPOSITIONNAME, SEARCH BOX FUNCTION
 
         //SORT TABLE UPON HEADER CLICK
-        function sortTable(n) {
+        function sortTable(n)
+        {
             var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
             table = document.getElementById("studentTable");
             switching = true;
@@ -52,7 +57,7 @@
             while (switching) //LOOP CONTINUES UNTIL NO SWITCHING IS DONE
             {
                 switching = false; //STARTS WITH NO SWITCHING
-                rows = table.rows;
+                rows = table.getElementsByTagName("tr"); //table.rows -- ORIGINAL CODE
                 for (i = 1; i < (rows.length - 1); i++) //LOOPS THRU TABLE ROWS (EXCEPT HEADER(row 1))
                 {
                     shouldSwitch = false; //STARTS WITH NO SWITCHING
@@ -61,7 +66,7 @@
                     x = rows[i].getElementsByTagName("td")[n]; //ELEMENT FROM CURRENT ROW
                     y = rows[i + 1].getElementsByTagName("td")[n]; //ELEMENT FROM ROW AFTER CURRENT ROW
 
-                    if (dir == "asc") { //SORT ROWS BY ASCENDING 1ST CLICK
+                   if (dir == "asc") { //SORT ROWS BY ASCENDING 1ST CLICK
                         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
                         {
                             shouldSwitch = true; //MARKS AS SWITCH & BREAKS LOOP
@@ -75,6 +80,7 @@
                         }
                     }
                 }//END for
+
                 if (shouldSwitch) //IF A SWITCH OCCURS, SWITCH & DECLARE THAT A SWITCH OCCURED
                 {
                     rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);

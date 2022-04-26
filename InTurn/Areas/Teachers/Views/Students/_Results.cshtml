@@ -2,36 +2,35 @@
 
 <table class="table table-striped" id="studentTable">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.StudentID)
-        </th>
-        <th>
+        </th>*@
+        <th onclick="sortTable(3)">
             @Html.DisplayNameFor(model => model.Student.FirstName)
         </th>
-        <th>
+        <th onclick="sortTable(4)">
             @Html.DisplayNameFor(model => model.Student.LastName)
         </th>
-        <th>
+        <th onclick="sortTable(5)">
             @Html.DisplayNameFor(model => model.JobPosting.Position)
         </th>
-        <th>
+        <th onclick="sortTable(1)">
             @Html.DisplayNameFor(model => model.MidtermExam)
             @*@Html.Raw(HttpUtility.HtmlDecode("Midterm Grade &#129057;&#129059;"))*@
         </th>
-        <th onclick="sortTable(1)">
+        <th onclick="sortTable(0)">
             @Html.Raw(HttpUtility.HtmlDecode("Final Grade &#129057;&#129059;"))
         </th>
         <th>
-            Details
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.StudentID)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Student.FirstName)
             </td>
@@ -48,7 +47,7 @@
                 @Html.DisplayFor(modelItem => item.FinalExam)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new { })
+                @Html.ActionLink("Details", "Details", "Students", new { area = "Students", id = item.StudentID }, new { @class = "btn btn-info btn-xs" })
             </td>
         </tr>
     }
