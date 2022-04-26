@@ -142,27 +142,6 @@
 
         <div id="dashsection">
             <h3>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</h3>
-            @*<p>
-                @foreach (var item in Model.Job)
-                <td>@Html.DisplayFor(model => item.AppCount)</td>
-                <td>@Html.ActionLink("Details", "Details", "JobPostings", new { id = item.JobPostingID }, null) </td>
-                </p>*@
         </div>
     </div>
 </div>
-
-@*<h2>Open Jobs</h2>
-    <div id="studentContainer"></div>
-    <table class="table table-striped">
-        <tr>
-            <th>Employer</th>
-            <th>Position</th>
-            <th>Status</th>
-        </tr>
-        @foreach (var item in Model.JobPostings)
-        {
-            if (item.StudentID == Model.StudentID)
-                    {
-                    }
-        }
-    </table>*@
