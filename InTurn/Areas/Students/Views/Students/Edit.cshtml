@@ -7,14 +7,13 @@
 
 }
 
-<h2>Edit</h2>
+<h2>Edit Profile</h2>
 @using (Html.BeginForm("Edit", "Students", FormMethod.Post,
                 new { enctype = "Multipart/form-data" }))
 {
          @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Student</h4>
     @if (!String.IsNullOrEmpty(Model.ImageLocation))
     {
         <img src="@Href(Model.ImageLocation)" style="width:200px; border:solid;" />
@@ -113,14 +112,11 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Save" class="btn btn-default" />
+            @Html.ActionLink("Back to List", "Index", "StudentHome", new { area = "Students" }, new { @class = "btn btn-default" })
         </div>
     </div>
 </div>
 }
-
-<div>
-    <p>@Html.ActionLink("Back", "Index", "StudentHome", new { area = "Students" }, new { @class = "nav-link" })</p>
-</div>
 
 <script type="text/javascript">
     function show(input) {
