@@ -41,6 +41,7 @@
         <div class="col-md-10">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
             <input type="button" class="btn-xs" id="showHidePassword" value="Show" />
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
