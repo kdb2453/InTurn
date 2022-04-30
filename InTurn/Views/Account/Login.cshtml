@@ -6,13 +6,15 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<h4>Use a local account to log in.</h4>
+<hr />
+
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -27,13 +29,12 @@
 
                     <div class="col-md-10">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        <br/>
-                        <input type="button" id="showHidePassword" value="Show" />
+                        <input type="button" class="btn-xs" id="showHidePassword" value="Show" />
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-10" style="margin-left:215px;">
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
@@ -43,7 +44,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Log in" class="btn btn-default" />
-                        @Html.ActionLink("Register as a new user", "Register", null, new {@class="btn btn-default"})
+                        @Html.ActionLink("Register as a new user", "Register", null, new { @class = "btn btn-default" })
                     </div>
                 </div>
                 @* Enable this once you have account confirmation enabled for password reset functionality
@@ -54,72 +55,73 @@
         </section>
     </div>
     @*<div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>*@
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
 </div>
 
 <div class="row">
-    <h3>Credentials:</h3>
+    <div class="col-md-12">
+        <h3>Credentials:</h3>
 
-    <p><h4>Password for All Accounts: <b>InTurn2022!</b></h4></p>
+        <p><h4>Password for All Accounts: <b>InTurn2022!</b></h4></p>
 
-    <div class="col-sm-3">
-        <h4>Admin Logins</h4>
-        Username: <br />
-        <ul>
-            <li>TestAdmin</li>
-        </ul>
-        <br />
+        <div class="col-sm-3">
+            <h4>Admin Logins</h4>
+            Username: <br />
+            <ul>
+                <li>TestAdmin</li>
+            </ul>
+            <br />
+        </div>
+
+        <div class="col-sm-3">
+            <h4>Student Logins</h4>
+            Username: <br />
+            <ul>
+                <li>TestStudent</li>
+                <li>DStarkey</li>
+            </ul>
+            <br />
+        </div>
+
+        <div class="col-sm-3">
+            <h4>Faculty Logins</h4>
+            Username: <br />
+            <ul>
+                <li>TestFaculty</li>
+                <li>AStewart</li>
+                <li>HWilliams</li>
+                <li>SFranklin</li>
+            </ul>
+            <br />
+        </div>
+
+        <div class="col-sm-3">
+            <h4>Employer Logins</h4>
+            Username: <br />
+            <ul>
+                <li>TestEmployer</li>
+                <li>ShenSolutions</li>
+                <li>RVACloud</li>
+                <li>ShinraCorp</li>
+            </ul>
+            <br />
+        </div>
     </div>
-
-    <div class="col-sm-3">
-        <h4>Student Logins</h4>
-        Username: <br />
-        <ul>
-            <li>TestStudent</li>
-            <li>DStarkey</li>
-        </ul>
-        <br />
-    </div>
-
-    <div class="col-sm-3">
-        <h4>Faculty Logins</h4>
-        Username: <br />
-        <ul>
-            <li>TestFaculty</li>
-            <li>AStewart</li>
-            <li>HWilliams</li>
-            <li>SFranklin</li>
-        </ul>
-        <br />
-    </div>
-
-    <div class="col-sm-3">
-        <h4>Employer Logins</h4>
-        Username: <br />
-        <ul>
-            <li>TestEmployer</li>
-            <li>ShenSolutions</li>
-            <li>RVACloud</li>
-            <li>ShinraCorp</li>
-        </ul>
-        <br />
-    </div>
-
 </div>
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-        <script>
-            $("#showHidePassword").click(function () {
-                if ($(this).val() == "Show") {
-                    $(this).val("Hide");
-                    $("#Password").attr("type", "text");
-                } else {
-                    $(this).val("Show");
-                    $("#Password").attr("type", "password");
-                }
-            });</script>
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $("#showHidePassword").click(function () {
+            if ($(this).val() == "Show") {
+                $(this).val("Hide");
+                $("#Password").attr("type", "text");
+            } else {
+                $(this).val("Show");
+                $("#Password").attr("type", "password");
+            }
+        });</script>
+}
