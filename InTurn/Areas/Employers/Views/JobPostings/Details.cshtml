@@ -63,7 +63,7 @@
     </dl>
 </div>
 
-<h2>Submitted</h2>
+<h3>Submitted</h3>
 <div id="employeeContainer"></div>
 <table class="table table-striped">
 
@@ -97,7 +97,7 @@
                             <a href="@Url.Content(String.Format("~/FileUploads" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
                         }
                                     </td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-info btn-xs" }) </td>
 
                 </tr>
             }
@@ -106,7 +106,7 @@
     }
 </table>
 <br />
-<h2>Under Review</h2>
+<h3>Under Review</h3>
 <div id="employeeContainer"></div>
 <table class="table table-striped">
 
@@ -140,7 +140,7 @@
             <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
         }
     </td>
-    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-info btn-xs" }) </td>
 
 </tr>
             }
@@ -149,7 +149,7 @@
     }
 </table>
 <br />
-<h2>Selected to Interview</h2>
+<h3>Selected to Interview</h3>
 <div id="employeeContainer"></div>
 <table class="table table-striped">
 
@@ -183,7 +183,7 @@
             <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
         }
     </td>
-    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-info btn-xs" }) </td>
 
 </tr>
             }
@@ -192,7 +192,7 @@
     }
 </table>
 <br />
-<h2>Ready to Hire</h2>
+<h3>Ready to Hire</h3>
 <div id="employeeContainer"></div>
 <table class="table table-striped">
 
@@ -226,7 +226,7 @@
             <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
         }
     </td>
-    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-info btn-xs" }) </td>
 
 </tr>
             }
@@ -235,7 +235,7 @@
     }
 </table>
 <br />
-<h2>Declined</h2>
+<h3>Declined</h3>
 <div id="employeeContainer"></div>
 <table class="table table-striped">
 
@@ -269,7 +269,7 @@
             <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
         }
     </td>
-    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-info btn-xs" }) </td>
 
 </tr>
             }
@@ -280,6 +280,6 @@
 
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.JobPostingID }, new { @class = "btn btn-default" }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobPostingID }, new { @class = "btn btn-default" }) 
     @Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new { area = "Employers" }, new { @class = "btn btn-default" })
 </p>
