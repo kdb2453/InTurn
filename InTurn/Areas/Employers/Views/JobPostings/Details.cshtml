@@ -71,6 +71,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Status</th>
+        <th>Resume</th>
         <th></th>
     </tr>
 
@@ -90,6 +91,12 @@
                         @Html.DisplayFor(model => item.Student.LastName)
                     </td>
                     <td>@Html.DisplayFor(model => item.AppStatus)</td>
+                    <td>
+                        @if (System.IO.File.Exists(HttpContext.Current.Server.MapPath("~/FileUploads" + item.ApplicationID + ".docx")))
+                        {
+                            <a href="@Url.Content(String.Format("~/FileUploads" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
+                        }
+                                    </td>
                     <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
                 </tr>
@@ -107,6 +114,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Status</th>
+        <th>Resume</th>
         <th></th>
     </tr>
 
@@ -117,18 +125,24 @@
             if (item.AppStatus == InTurn_Model.AppStatus.Reviewing)
 
             {
-                <tr>
+<tr>
 
-                    <td>
-                        @Html.DisplayFor(model => item.Student.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Student.LastName)
-                    </td>
-                    <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.LastName)
+    </td>
+    <td>@Html.DisplayFor(model => item.AppStatus)</td>
+    <td>
+        @if (System.IO.File.Exists(HttpContext.Current.Server.MapPath("~/FileUploads/" + item.ApplicationID + ".docx")))
+        {
+            <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
+        }
+    </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
-                </tr>
+</tr>
             }
         }
 
@@ -143,6 +157,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Status</th>
+        <th>Resume</th>
         <th></th>
     </tr>
 
@@ -153,18 +168,24 @@
             if (item.AppStatus == InTurn_Model.AppStatus.Interview)
 
             {
-                <tr>
+<tr>
 
-                    <td>
-                        @Html.DisplayFor(model => item.Student.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Student.LastName)
-                    </td>
-                    <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.LastName)
+    </td>
+    <td>@Html.DisplayFor(model => item.AppStatus)</td>
+    <td>
+        @if (System.IO.File.Exists(HttpContext.Current.Server.MapPath("~/FileUploads/" + item.ApplicationID + ".docx")))
+        {
+            <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
+        }
+    </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
-                </tr>
+</tr>
             }
         }
 
@@ -179,6 +200,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Status</th>
+        <th>Resume</th>
         <th></th>
     </tr>
 
@@ -189,18 +211,24 @@
             if (item.AppStatus == InTurn_Model.AppStatus.Onboard)
 
             {
-                <tr>
+<tr>
 
-                    <td>
-                        @Html.DisplayFor(model => item.Student.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Student.LastName)
-                    </td>
-                    <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.LastName)
+    </td>
+    <td>@Html.DisplayFor(model => item.AppStatus)</td>
+    <td>
+        @if (System.IO.File.Exists(HttpContext.Current.Server.MapPath("~/FileUploads/" + item.ApplicationID + ".docx")))
+        {
+            <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
+        }
+    </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
-                </tr>
+</tr>
             }
         }
 
@@ -215,6 +243,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Status</th>
+        <th>Resume</th>
         <th></th>
     </tr>
 
@@ -225,18 +254,24 @@
             if (item.AppStatus == InTurn_Model.AppStatus.Declined)
 
             {
-                <tr>
+<tr>
 
-                    <td>
-                        @Html.DisplayFor(model => item.Student.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(model => item.Student.LastName)
-                    </td>
-                    <td>@Html.DisplayFor(model => item.AppStatus)</td>
-                    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.LastName)
+    </td>
+    <td>@Html.DisplayFor(model => item.AppStatus)</td>
+    <td>
+        @if (System.IO.File.Exists(HttpContext.Current.Server.MapPath("~/FileUploads/" + item.ApplicationID + ".docx")))
+        {
+            <a href="@Url.Content(String.Format("~/FileUploads/" + item.ApplicationID + ".docx"))" download="@item.Student.FullName-Resume"><i class="fas fa-file-download fa-3x"></i></a>
+        }
+    </td>
+    <td>@Html.ActionLink("See Application", "Details", "Applications", new { id = item.ApplicationID }, new { @class = "btn btn-default" }) </td>
 
-                </tr>
+</tr>
             }
         }
 
