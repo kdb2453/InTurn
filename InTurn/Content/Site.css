@@ -80,6 +80,7 @@ span.developer {
 
 jumbotron {
   background-image: url('../Images/1702087261-huge.jpg');
+  opacity: .7;
 }
 
 .center-block{

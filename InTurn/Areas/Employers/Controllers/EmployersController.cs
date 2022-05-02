@@ -13,7 +13,7 @@ using Microsoft.AspNet.Identity;
 
 namespace InTurn.Areas.Employers.Controllers
 {
-  
+    
     public class EmployersController : Controller
     {
         private InTurnEntities db = new InTurnEntities();
@@ -86,14 +86,14 @@ namespace InTurn.Areas.Employers.Controllers
         // POST: Employers/Employers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin, Employer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EmployerID,Name,PhoneNum,Address,City,State,ZipCode,Email,FileName,ImageLocation")] Employer employer)
         {
             if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                  db.Entry(employer).State=EntityState.Modified;
+                  db.Entry(employer).State = EntityState.Modified;
                     if (employer.FileName != null)
                        employer.ImageLocation = UploadImage(employer.FileName);
                    db.SaveChanges();

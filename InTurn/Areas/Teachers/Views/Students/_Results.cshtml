@@ -5,21 +5,22 @@
         @*<th>
             @Html.DisplayNameFor(model => model.StudentID)
         </th>*@
-        <th onclick="sortTable(3)">
+        <th>
             @Html.DisplayNameFor(model => model.Student.FirstName)
         </th>
-        <th onclick="sortTable(4)">
+        <th>
             @Html.DisplayNameFor(model => model.Student.LastName)
         </th>
-        <th onclick="sortTable(5)">
+        <th>
             @Html.DisplayNameFor(model => model.JobPosting.Position)
         </th>
-        <th onclick="sortTable(1)">
+        <th>
             @Html.DisplayNameFor(model => model.MidtermExam)
             @*@Html.Raw(HttpUtility.HtmlDecode("Midterm Grade &#129057;&#129059;"))*@
         </th>
-        <th onclick="sortTable(0)">
-            @Html.Raw(HttpUtility.HtmlDecode("Final Grade &#129057;&#129059;"))
+        <th>
+            @*@Html.Raw(HttpUtility.HtmlDecode("Final Grade &#129057;&#129059;"))*@
+            @Html.DisplayNameFor(model => model.FinalExam)
         </th>
         <th>
         </th>

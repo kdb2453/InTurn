@@ -42,5 +42,17 @@ namespace InTurn.Areas.Teachers.Controllers
             return PartialView("_Results", positions);
         }
 
+        //_IndexByFinalGrade ACTION RESULT
+        public ActionResult _IndexByFinalGrade(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false; //NO EXPLANATION, JUST HELPS PREVENT ERRORS
+            var employees = db.Employees
+                //.Include(c => c.Department)//RETURNS Courses AND Department USING .Include()
+                //.Where(c => c.Department.DepartmentId.Equals(id))//RETURNS Courses WHERE THE DepartmentId IS THE SAME AS THE id THAT WAS PASSED TO THIS FUNCTION USING .Equals()
+                .Where(e => e.FinalExam.Equals(id))
+                .ToArray();
+            return PartialView("_Index", employees);//RETURN THE _Index PARTIAL VIEW AND courses
+        }
+
     }//END PUBLIC CLASS
 }

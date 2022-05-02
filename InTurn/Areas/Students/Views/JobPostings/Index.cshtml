@@ -9,7 +9,7 @@
 <h2>@ViewBag.Title</h2>
 
 
-<table class="table" id="jobPostingTable">
+<table class="table table-striped" id="jobPostingTable">
     <tr>
         <th onclick="sortTable(0)">
             @Html.Raw(HttpUtility.HtmlDecode("Employer &#129057;&#129059;"))
@@ -25,7 +25,6 @@
             @Html.Raw(HttpUtility.HtmlDecode("Job Type &#129057;&#129059;"))
             @*@Html.DisplayNameFor(model => model.JobType)*@
         </th>
-
         <th></th>
     </tr>
 
@@ -46,10 +45,8 @@
             </td>
 
             <td>
-            </td>
-            <td>
-                @Html.ActionLink("Apply", "Apply", new { id = item.JobPostingID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.JobPostingID })
+                @Html.ActionLink("Apply", "Apply", new { id = item.JobPostingID }, new { @class = "btn btn-warning btn-xs" }) 
+                @Html.ActionLink("Details", "Details", new { id = item.JobPostingID }, new { @class = "btn btn-info btn-xs" })
 
             </td>
         </tr>

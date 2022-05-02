@@ -5,27 +5,32 @@
 
 <div class="jumbotron">
 
-    <img class="center-block" src="~/Images/LOGO EX 7.png" />
+    @*<img class="center-block" src="~/Images/LOGO EX 7.png" />*@
+    <img src="~/Images/LOGO EX 7.png" />
     <p class="lead">InTurn links Employers, Students, and Teachers together to create new opportunities in the workforce.</p>
     <p><center><a href="http://dotnet.reynolds.edu/InTurn/CompanyWebsite/" target="_blank" class="btn btn-primary btn-lg">Visit Our Website &raquo;</a></center></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Students</h2>
-        <p>
-            Find internship and job postings and manage your profile.
-        </p>
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "StudentHome", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+        <center>
+            <h2>Students</h2>
+            <p>Find internship and job postings and manage your profile.</p>
+            <p>@Html.ActionLink(HttpUtility.HtmlDecode("Get Started!"), "Index", "StudentHome", new { area = "Students" }, new { @class = "btn btn-default" })</p>
+        </center>
     </div>
     <div class="col-md-4">
-        <h2>Employers</h2>
-        <p>Create internship or job postings and review applications submitted.</p>
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "EmployerHome", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
+        <center>
+            <h2>Employers</h2>
+            <p>Create internship or job postings and review applications submitted.</p>
+            <p>@Html.ActionLink(HttpUtility.HtmlDecode("Get Started!"), "Index", "EmployerHome", new { area = "Employers" }, new { @class = "btn btn-default" })</p>
+        </center>
     </div>
     <div class="col-md-4">
-        <h2>Faculty</h2>
-        <p>Track students' progress in their respective internships or jobs.</p>
-        <p>@Html.ActionLink(HttpUtility.HtmlDecode("&laquo; Go &raquo;"), "Index", "TeacherHome", new { area = "Teachers" }, new { @class = "btn btn-default" })</p>
+        <center>
+            <h2>Faculty</h2>
+            <p>Track students' progress in their respective internships or jobs.</p>
+            <p>@Html.ActionLink(HttpUtility.HtmlDecode("Get Started!"), "Index", "TeacherHome", new { area = "Teachers" }, new { @class = "btn btn-default" })</p>
+        </center>
     </div>
 </div>
