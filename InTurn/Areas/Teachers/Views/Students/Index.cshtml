@@ -20,6 +20,9 @@
 @*FILTER SEARCH BOX BY POSITION NAME*@
 <label class="filter">Search by Position Name: </label>
     @Html.TextArea("Search", "Press TAB to Search", htmlAttributes: new { @class = "filter", @onchange = "FilterByPositionName()", rows = "1", margin = "auto", style = "margin-right: 7px" })
+
+@*<label class="filter">Filter by Final Grade: </label>
+    @Html.DropDownList("EmployeeID", null, htmlAttributes: new { @class = "filter", @onchange = "FillByFinalGrade()" })*@
 </div>
 
 <p />
@@ -45,6 +48,14 @@
                 var container = $('#resultsContainer');
                 container.load('@Url.Action("_IndexByPositionName")?search=' + search);
             }//END FILTERBYPOSITIONNAME, SEARCH BOX FUNCTION
+
+        //FILTERBYFINALGRADE, DROP DOWN FUNCTION
+        function FillByFinalGrade()
+		{
+				var grade = $('#EmployeeID').val();//USES jQuery "$" TO FIND THE DepartmentId AND IT'S VALUE ".val()" SO THAT IT CAN BE RETURNED TO THE DROP DOWN LIST
+				var container = $('#courseContainer'); //CLEARS OUT WHAT IS IN courseContainer FROM THE CODE ABOVE
+				container.load('@Url.Action("_IndexByFinalGrade")?id=' + grade); //LOADS container WITH WHATEVER IS RETURNED BY THE _IndexByTag
+		}
 
         //SORT TABLE UPON HEADER CLICK
         function sortTable(n)
@@ -88,7 +99,7 @@
                     switchcount++; //INCREASES BY 1 EVERY TIME A SWITCH IS DONE
                 }
                 else //IF NO SWITCH OCCURED & THE ROWS ARE SORTED BY ASCENDED, SET SORT DIRECTION TO DESCENDED & RUN while LOOP AGAIN
-                { 
+                {
                     if (switchcount == 0 && dir == "asc") {
                         dir = "desc";
                         switching = true;
