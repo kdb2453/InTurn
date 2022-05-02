@@ -20,7 +20,7 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.Student.FullName, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Student.FullName, "Student Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <span>@ViewBag.Student.FullName</span>
 
@@ -29,10 +29,18 @@
 
             
 
-            <div class="form-group">
+            @*<div class="form-group">
                 @Html.LabelFor(model => model.JobPostingID, "JobPostingID", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @*<span>@ViewBag.Employer.Name @ViewBag.JobPosting.Position</span>*@
+                    <span>@ViewBag.Employer.Name @ViewBag.JobPosting.Position</span>
+
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.JobPosting.Position, "Position Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <span>@ViewBag.Employer.Name @ViewBag.JobPosting.Position</span>
 
                 </div>
             </div>
@@ -52,14 +60,16 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Apply" class="btn btn-default" />
+                    
+                        @Html.ActionLink("Back to List", "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })
                 </div>
+
+                
             </div>
         </div>
         
 
-        <div>
-            @Html.ActionLink("Back to List", "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })
-        </div>
+        
         }
         <script type="text/javascript">
             function show(input) {

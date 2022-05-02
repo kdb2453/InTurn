@@ -79,12 +79,11 @@ span.developer {
 }
 
 jumbotron {
-  background-image: url('../Images/1702087261-huge.jpg');
-  opacity: .7;
+    background-image: url('../Images/1702087261-huge.jpg');
 }
 
 .center-block{
-    opacity:.7
+    /*opacity:.7;*/
 }
 
 .lead {
