@@ -67,7 +67,7 @@ namespace InTurn.Models
     {
         //User Role
         [Required]
-        [Display(Name ="User Name")]
+        [Display(Name ="Username")]
         public string UserName { get; set; }
 
         [Required]

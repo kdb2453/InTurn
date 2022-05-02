@@ -141,7 +141,9 @@
         </div>
 
         <div id="dashsection">
-            <h3>@Html.ActionLink("Open Jobs", "Index", "JobPostings", new { area = "Students" }, new { @class = "nav-link" })</h3>
+                <h3>Open Jobs</h3>
+                <p>View all available job and intership postings.</p>
+                <p>@Html.ActionLink(HttpUtility.HtmlDecode("View"), "Index", "JobPostings", new { area = "Students" }, new { @class = "btn btn-default" })</p>
         </div>
     </div>
 </div>

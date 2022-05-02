@@ -2636,7 +2636,7 @@ fieldset[disabled] input[type="checkbox"] {
   cursor: not-allowed;
 }
 input[type="file"] {
-  display: block;
+  display: inline-block;
 }
 input[type="range"] {
   display: block;
@@ -6942,7 +6942,7 @@ button.close {
         margin: auto;
         padding-left: 30%;
         padding-bottom: 10px;
-        bottom: 235px;
+        bottom: 220px;
     }
 
     .editbuttons {
@@ -6978,7 +6978,7 @@ button.close {
         margin: auto;
         padding-left: 30%;
         padding-bottom: 10px;
-        bottom: 235px;
+        bottom: 220px;
     }
 
     .empeditbuttons {
@@ -6987,7 +6987,7 @@ button.close {
         height: 55px;
         margin: auto;
         padding-left: 122px;
-        bottom: -110px;
+        bottom: -80px;
     }
 
 #stueditprofile {
@@ -7014,7 +7014,7 @@ button.close {
         margin: auto;
         padding-left: 30%;
         padding-bottom: 10px;
-        bottom: 235px;
+        bottom: 220px;
     }
 
     .stueditbuttons {
@@ -7023,7 +7023,7 @@ button.close {
         height: 55px;
         margin: auto;
         padding-left: 122px;
-        bottom: -215px;
+        bottom: -230px;
     }
 /*END PAGE STYLING*/
 

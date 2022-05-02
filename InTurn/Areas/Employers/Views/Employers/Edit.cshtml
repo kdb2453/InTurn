@@ -1,31 +1,43 @@
 ﻿@model InTurn_Model.Employer
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Developer = "TS";
 }
 
-<h2>Edit Profile</h2>
+<h2 align="center">@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Edit", "Employers", FormMethod.Post,
                 new { enctype = "Multipart/form-data" }))
 {
                 @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
+    <div id="empeditprofile">
+    <div class="empeditphoto">
         @if (!String.IsNullOrEmpty(Model.ImageLocation))
         {
-            <img src="@Href(Model.ImageLocation)" style="width:200px; height:180px; border:solid;" />
+            <img src="@Href(Model.ImageLocation)" class="profilephoto" />
         }
         else
         {
-            <img id="employer_image" style="height:250px;width:200px;border:none;" />}
+            <img src="~/Images/defaultphoto.png" class="profilephoto" />
+        }
 
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.EmployerID)
 
+        <div id="uploader" class="form-group">
+            <div class="col-lg-10">
+                <b style="margin-left: 15px;">Change profile picture:</b>
+                <input id="FileName" name="FileName"
+                       type="file"
+                       formenctype="multipart/form-data"
+                       onchange="show(this)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="empeditinfo">
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -73,23 +85,14 @@
                 @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
             </div>
         </div>
-        <p style="font-weight:bold">Change Profile Picture</p>
-        <div id="uploader" class="form-group">
-            <div class="col-lg-10">
-                <input id="FileName" name="FileName"
-                       type="file"
-                       formenctype="multipart/form-data"
-                       onchange="show(this)" />
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-
+        <div class="empeditbuttons">
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
                 @Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new { area = "Employers" }, new { @class = "btn btn-default" })
             </div>
         </div>
+    </div>
     </div>
 }
 
