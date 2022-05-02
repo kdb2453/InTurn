@@ -1,9 +1,9 @@
-﻿
+﻿@model InTurn_Model.Application
 @{
-    ViewBag.Title = "NewHire";
+    ViewBag.Title = "New Hire";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Hired!</h1>
-
-@Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new { area = "Employers" }, new { @class = "nav-link" })
+<br />
+<h2>Your applicant has been hired!</h2>
+<br />
+@Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new { area = "Employers" }, new { @class = "btn btn-default" })

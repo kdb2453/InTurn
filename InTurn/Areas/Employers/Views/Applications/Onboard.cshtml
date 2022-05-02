@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Onboard</h2>
+<h2>Onboard Employee</h2>
 
 
 
@@ -15,20 +15,19 @@
     <input id="EmployerID" type="hidden" value="@Model.JobPosting.EmployerID" />
 
     <div class="form-horizontal">
-        <h4>Employee</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Student.FullName, "Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <span>@Model.Student.FullName</span>
             </div>
         </div>
 
-     
+
 
         <div class="form-group">
-            @Html.LabelFor(model => model.JobPostingID, "JobPostingID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.JobPosting.Position, "Position", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <span> @Model.JobPosting.Position</span>
             </div>
@@ -36,11 +35,7 @@
 
 
         @Html.ActionLink("Hire", "NewHire", new { id = Model.ApplicationID }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Back to Dashboard", "Index", "EmployerHome", new {area = "Employers"}, new {@class="btn btn-default"})
 
-        
+
     </div>
-
-
-<div>
-    @Html.ActionLink("Back to Dashboard","Index","EmployerHome")
-</div>
